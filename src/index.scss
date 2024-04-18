@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+:root {
+  /*spacing*/
+  /*spacing*/
+  --spacing-sm: 10px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-lg: 30px;
+  /*color*/
+  /*color*/
+  --primary-color: #f8242f;
+  --primary-color: #f8242f;
+  --contrast-color: #FEFEFE;
+  --contrast-color: #FEFEFE;
+  --main-color: #191817;
+  --main-color: #191817;
+  --sub-color: #868686;
+  --sub-color: #868686;
+  /*font size*/
+  /*font size*/
+  --font-s-sm: 1.4rem;
+  --font-s-sm: 1.4rem;
+  --font-s-md: 1.6rem;
+  --font-s-md: 1.6rem;
+  --font-s-lg: 2rem;
+  --font-s-lg: 2rem;
+  /* border radius */
+  /* border radius */
+  --border-r-lt: 4px;
+  --border-r-lt: 4px;
+  --border-r-md: 14px;
+  --border-r-md: 14px;
+  --border-r-md-1: 30px;
+  --border-r-md-1: 30px;
+  --border-radius-mch: 9999px;
+  --border-radius-mch: 9999px;
+  
+  
+  /* z-index */
+  /* z-index */
+  --z-highest: 99;
+  --z-highest: 99;
+  --z-higher: 9;
+  --z-higher: 9;
+  --z-high: 1;
+  --z-high: 1;
+}
+}
+* {
+* {
+  box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+}
+html {
+html {
+  font-size: 62.5%;
+  font-size: 62.5%;
+}
+}
+body {
+body {
+  margin: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+}
+}
+button {
+button {
+  border: none;
+  border: none;
+}
+}
+a,
+a,
+Link {
+Link {
+  color: var(--contrast-color);
+  color: var(--contrast-color);
+  text-decoration: none;
+  text-decoration: none;
+}
+}
+button,
+button,
+input,
+input,
+textarea {
+textarea {
+    outline: none;
+    outline: none;
+}
+}
+ul {
+ul {
+  list-style: none;
+  list-style: none;
+  padding: 0;
+  padding: 0;
+  margin: 0;
+  margin: 0;
+}
+}
