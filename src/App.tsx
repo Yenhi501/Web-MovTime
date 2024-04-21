@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Avatar, Tooltip } from 'antd';
+import { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import './app.scss';
+import { HelmetProvider } from 'react-helmet-async';
+import { HomePage } from './page/home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+    const { pathname } = useLocation();
 
-export default App;
+    useEffect(() => {}, [pathname]);
+
+    const helmetContext = {};
+
+    return (
+        <HelmetProvider context={helmetContext}>
+            <div className="wrapper">
+                <div className="wrapper-app-container">
+                    <Routes>
+                        <Route path="" element={<HomePage />} />
+                    </Routes>
+                </div>
+            </div>
+        </HelmetProvider>
+    );
+};
