@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: .  # Đường dẫn đến thư mục chứa Dockerfile cho frontend
+    ports:
+      - "3002:3000"  # Ánh xạ cổng 3000 của máy tính host vào cổng 3000 của container
+    volumes:
+      - .:/app  # Ánh xạ mã nguồn của frontend vào container
