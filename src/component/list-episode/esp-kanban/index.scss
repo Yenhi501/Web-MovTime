@@ -1,0 +1,25 @@
+.list-col-item{
+    padding: 0px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    border-radius: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+
+    .movie-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #212020;
+        border-radius: 2px;
+        font-size: 16px;
+        color: rgb(236, 236, 236);
+        font-weight: 400;
+        height: 100%;
+    }
+    .current-item{
+        color:var(--primary-color);
+    }
+}
