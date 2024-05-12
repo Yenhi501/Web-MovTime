@@ -1,0 +1,24 @@
+.items-esplist {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    position: relative;
+    padding: 8px 0px;
+    box-sizing: border-box;
+
+    .poster-item {
+        background-size: 100% 100%;
+        width: 129px;
+        height: 69px;
+        border-radius: 4px;
+    }
+    .item-esplist {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    .current-item {
+        color: var(--primary-color);
+    }
+}
