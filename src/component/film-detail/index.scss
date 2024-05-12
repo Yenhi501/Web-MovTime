@@ -1,0 +1,150 @@
+.film-detail {
+    &__poster {
+        width: 185px;
+        border-radius: 5px;
+    }
+
+    &__name {
+        position: absolute;
+        top: 47%;
+        left: 14%;
+    }
+
+    &__title {
+        width: 74%;
+        margin-bottom: 160px;
+        font-size: 2.7rem;
+        font-weight: 700;
+        margin-left: 2px;
+        line-height: 1.4;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        left: 22%;
+        top: 73%;
+    }
+
+    &__summary {
+        color: var(--contrast-color);
+    }
+
+    &__watch {
+        background-color: var(--primary-color);
+    }
+
+    &__icon {
+        font-size: 16px;
+        margin: 8px 0 0 8px;
+    }
+
+    &__tab {
+        position: absolute;
+        left: 27.5%;
+        height: auto;
+        top: 88%;
+    }
+    &__padding {
+        font-size: 0.9rem;
+        padding: 3px 7px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        margin-right: 0.7rem;
+        font-weight: 500;
+        color: rgb(236, 236, 236);
+    }
+
+    &__listbutton {
+        display: flex;
+        margin-top: 36px;
+    }
+}
+
+:where(.css-dev-only-do-not-override-1vr7spz).ant-progress
+    .ant-progress-inner:not(.ant-progress-circle-gradient)
+    .ant-progress-circle-path {
+    stroke: var(--primary-color);
+}
+
+:where(.css-dev-only-do-not-override-1vr7spz).ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1vr7spz).ant-tabs
+    .ant-tabs-tab-remove:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1vr7spz).ant-tabs .ant-tabs-tab-btn:active,
+:where(.css-dev-only-do-not-override-1vr7spz).ant-tabs .ant-tabs-tab-remove:active {
+    color: var(--primary-color);
+}
+
+.ant-progress.ant-progress-circle .ant-progress-text {
+    color: var(--contrast-color);
+    font-size: 0.9rem;
+}
+
+.detail-tabs {
+    position: absolute;
+    flex-direction: column;
+    left: 10%;
+    top: -12%;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .film-detail {
+        &__header {
+            left: 35%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1320px) {
+    .film-detail {
+        &__header {
+            left: 31%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1320px) and (max-width: 1390px) {
+    .film-detail {
+        &__header {
+            left: 31%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1390px) and (max-width: 1480px) {
+    .film-detail {
+        &__header {
+            left: 30%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1480px) and (max-width: 1500px) {
+    .film-detail {
+        &__header {
+            left: 29%;
+        }
+    }
+}
+@media only screen and (min-width: 1500px) and (max-width: 1580px) {
+    .film-detail {
+        &__header {
+            left: 29%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1580px) {
+    .film-detail {
+        &__header {
+            left: 28%;
+        }
+    }
+}
+
+.mute {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}

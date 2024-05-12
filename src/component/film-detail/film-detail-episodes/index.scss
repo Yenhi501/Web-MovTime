@@ -1,0 +1,50 @@
+:where(.css-dev-only-do-not-override-1vr7spz).ant-card .ant-card-body {
+    padding: 24px 0;
+}
+.episode-item > .ant-ribbon-wrapper {
+    height: 125px;
+    width: 220px;
+}
+
+.episodes-length {
+    margin-top: 18px;
+    font-size: 1.2rem;
+}
+.episodes-des {
+    margin-top: 10px;
+    color: #989898;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.episode-link {
+    position: relative;
+    transition: filter 0.3s;
+}
+.episode-link:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    border-radius: 3px;
+}
+
+.episode-link .episodes-btnplay {
+    display: none;
+}
+
+.episode-link:hover .episodes-btnplay {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    border-radius: 100px;
+    background-color: var(--primary-color);
+    padding: 4px 8px;
+}
