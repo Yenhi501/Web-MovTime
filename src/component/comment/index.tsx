@@ -5,10 +5,10 @@ import { ListComment } from './list-cmt';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from 'antd';
 import { request } from '../../utils/request';
-import { useToken } from '../../hooks/useToken';
-import { CurrentUser, UserProps, defaultCurrentUser } from '../../model/user';
+// import { useToken } from '../../hooks/useToken';
+// import { CurrentUser, UserProps, defaultCurrentUser } from '../../model/user';
 
-import { useAppSelector } from '../../redux/hook';
+// import { useAppSelector } from '../../redux/hook';
 
 export interface listCommentsProps {
     id: number;
@@ -18,7 +18,7 @@ export interface listCommentsProps {
     updatedAt?: string;
     content: string;
     numLike: number;
-    user?: UserProps;
+    // user?: UserProps;
 }
 
 export const listComment = [
@@ -42,8 +42,8 @@ export const Comment: React.FC<CommentProps> = ({ title, placeholder }) => {
     const [refreshData, setRefreshData] = useState(false);
     const [listComments, setListComments] = useState<Array<listCommentsProps>>(listComment);
     const { episodeId } = useParams();
-    const { accessToken } = useToken();
-    const isLogin = useAppSelector((state) => state.user.isLogin);
+    // const { accessToken } = useToken();
+    // const isLogin = useAppSelector((state) => state.user.isLogin);
 
     const fetchData = async () => {
         try {
@@ -55,54 +55,54 @@ export const Comment: React.FC<CommentProps> = ({ title, placeholder }) => {
         }
     };
 
-    const [currentUser, setCurrentUser] = useState<CurrentUser>(defaultCurrentUser);
-    const getCurrentUser = () => {
-        request
-            .get('user/get-self-information', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            })
-            .then((response) => {
-                setCurrentUser(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+    // const [currentUser, setCurrentUser] = useState<CurrentUser>(defaultCurrentUser);
+    // const getCurrentUser = () => {
+    //     request
+    //         .get('user/get-self-information', {
+    //             headers: {
+    //                 Authorization: `Bearer ${accessToken}`,
+    //             },
+    //         })
+    //         .then((response) => {
+    //             setCurrentUser(response.data);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
 
     useEffect(() => {
-        getCurrentUser();
+        // getCurrentUser();
     }, []);
 
-    useEffect(() => {
-        fetchData();
-        setRefreshData(false);
-    }, [episodeId, refreshData]);
-    const postData = async (content: string) => {
-        try {
-            await request.post(
-                'comments/create',
-                {
-                    episodeId: `${episodeId}`,
-                    content: content,
-                },
-                {
-                    headers: {
-                        Accept: 'application/json',
-                        Authorization: `Bearer ${accessToken}`,
-                        'Content-Type': 'application/json',
-                    },
-                },
-            );
-            setRefreshData(true);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+    // useEffect(() => {
+    //     fetchData();
+    //     setRefreshData(false);
+    // }, [episodeId, refreshData]);
+    // const postData = async (content: string) => {
+    //     try {
+    //         await request.post(
+    //             'comments/create',
+    //             {
+    //                 episodeId: `${episodeId}`,
+    //                 content: content,
+    //             },
+    //             {
+    //                 headers: {
+    //                     Accept: 'application/json',
+    //                     Authorization: `Bearer ${accessToken}`,
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //             },
+    //         );
+    //         setRefreshData(true);
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //     }
+    // };
 
     const handleCommentSubmit = async (content: string) => {
-        await postData(content);
+        // await postData(content);
     };
 
     return (
@@ -112,7 +112,7 @@ export const Comment: React.FC<CommentProps> = ({ title, placeholder }) => {
                 <h2 className="text-3xl lg:text-2xl font-bold dark:text-white">{title}</h2>
             </div>
 
-            {isLogin ? (
+            {/* {isLogin ? (
                 <WriteComment onSubmitComment={handleCommentSubmit} placeholder={placeholder} />
             ) : (
                 <div className="login-btn">
@@ -126,7 +126,7 @@ export const Comment: React.FC<CommentProps> = ({ title, placeholder }) => {
                 listComment={listComments}
                 setListComment={setListComments}
                 currentUser={currentUser}
-            />
+            /> */}
         </div>
     );
 };
