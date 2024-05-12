@@ -1,0 +1,41 @@
+.ant-tabs-nav .ant-tabs-tab {
+    color: #9aa1ad;
+    font-size: 1.1rem;
+}
+
+.ant-tabs-tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.ant-tabs-tab-btn:focus {
+    color: var(--primary-color);
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+.ant-tabs .ant-tabs-tab:hover {
+    color: var(--primary-color);
+}
+
+.ant-tabs-nav-list .ant-tabs-ink-bar .ant-tabs-ink-bar-animated {
+    background-color: var(--primary-color) !important;
+}
+
+.ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar {
+    background-color: var(--primary-color) !important;
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+    border-bottom: none;
+}
+
+.ant-tabs .ant-tabs-tab-btn:active {
+    color: var(--primary-color);
+}
+
+.ant-tabs-nav-wrap {
+    margin-left: 210px;
+}

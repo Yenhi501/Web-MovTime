@@ -1,0 +1,27 @@
+:where(.css-dev-only-do-not-override-1vr7spz).ant-collapse
+    > .ant-collapse-item
+    > .ant-collapse-header {
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.overall-info__title {
+    color: var(--contrast-color);
+}
+
+.overall-info__value {
+    color: #989898;
+}
+
+.overall-info {
+    color: #989898;
+}
+
+:where(.css-i46qwz).ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    color: white !important;
+}
+
+.ant-collapse-header-text {
+    font-size: 16px !important;
+}
