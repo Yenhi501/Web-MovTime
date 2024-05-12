@@ -1,0 +1,54 @@
+.comment-detail{
+    margin-left: 20px;
+    width:100%;
+    .inf-user{
+        display: flex;
+        align-items: flex-end;
+        color:rgb(130, 131, 135);
+        margin-bottom: 10px;
+        .username{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+    .love-icon,.delete-icon,.icon,.love-icon-like{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        color:rgb(130, 131, 135);
+        margin-right: 50px;
+        cursor: pointer;
+        
+        &:hover{
+            color:var(--primary-color);
+
+            svg path{
+                stroke:var(--primary-color);
+            }      
+        }
+        
+    }
+    .love-icon{
+        &:active{
+            svg path{
+                fill:var(--primary-color);
+            } 
+        }
+    }
+    .love-icon-like{
+        svg path{
+            fill:var(--primary-color);
+            stroke:var(--primary-color);
+        } 
+    }
+    .delete-icon{
+        &:hover{
+            g path:last-child {
+                fill: var(--primary-color);
+                stroke: none
+            }
+        }
+         
+    }   
+    
+}

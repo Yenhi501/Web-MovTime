@@ -1,0 +1,44 @@
+.writecmt-container{
+    display: flex;
+    flex-direction: row;
+    
+    .avatar{
+        height: 42px;
+        width: 42px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .writecmt-box{
+        width: 100%;
+        margin-left: 20px;
+        .textarea{
+            border-color: #6c6a6a;
+        }
+        .scroll {
+            scrollbar-width: thin; 
+            scrollbar-color: #6c6a6a ;
+            &::-webkit-scrollbar {
+                width: 5px; 
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #6c6a6a;
+            }
+        } 
+        .btn-action{
+            display: flex;
+            justify-content: flex-end;
+            button + button{
+                margin-left: 10px;
+            }
+            .btn-sub{
+                color:var(--contrast-color);
+                background-color: var(--primary-color);
+                border-color: var(--primary-color) ;
+                &:hover{
+                    color:var(--contrast-color) !important;
+                }
+            }
+        }
+             
+    }
+}
