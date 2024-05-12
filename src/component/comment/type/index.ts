@@ -1,4 +1,4 @@
-import { UserProps } from '../../../model/user';
+// import { UserProps } from '../../../model/user';
 
 export interface listComment {
     id: number;
@@ -8,7 +8,7 @@ export interface listComment {
     updatedAt?: string;
     content: string;
     numLike: number;
-    user?: UserProps;
+    // user?: UserProps;
     subcomments?: Array<listComment>;
 }
 
