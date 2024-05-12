@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './index.scss';
-import { WriteComment } from '../write-cmt';
-
-import { Avatar, Modal } from 'antd';
-
+import { Modal } from 'antd';
 import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react';
 import { listComment } from '../type';
 import './index.scss';
 
@@ -56,10 +52,10 @@ export const Cmt: React.FC<CmtProps> = ({
     };
     const token = Cookies.get('accessToken');
     let isCurrentUserComment = false;
-    if (token) {
-        isCurrentUserComment =
-            comment.user?.user_id === JSON.parse(atob(token.split('.')[1])).userId;
-    }
+    // if (token) {
+    //     isCurrentUserComment =
+    //         // comment.user?.user_id === JSON.parse(atob(token.split('.')[1])).userId;
+    // }
     const [isCurrentUserLike, setisCurrentUserLike] = useState<Boolean>(false);
     const handleLike = () => {
         increaseLike(comment.numLike);
@@ -71,14 +67,14 @@ export const Cmt: React.FC<CmtProps> = ({
     };
     return (
         <article key={comment.id} className="pt-4 pb-4 text-base rounded-lg flex  ">
-            <Avatar
+            {/* <Avatar
                 className="w-12 h-12 rounded-full object-cover"
-                src={comment.user?.avatar_url}
-                alt={comment.user?.email}
-            />
+                // src={comment.user?.avatar_url}
+                // alt={comment.user?.email}
+            /> */}
             <div className="comment-detail">
                 <div className="inf-user">
-                    <p className="inline-flex items-center mr-1 username ">{comment.user?.email}</p>
+                    {/* <p className="inline-flex items-center mr-1 username ">{comment.user?.email}</p> */}
                     {'·'}
                     <p className="text-sm ml-1">
                         {/* <time>{getTimeDifference(comment.createdAt)}</time> */}
@@ -131,20 +127,20 @@ export const Cmt: React.FC<CmtProps> = ({
                         </div>
                     )}
                 </div>
-                {isReplying && replyCommentId === comment.id && (
-                    <WriteComment
-                        onSubmitComment={(replyText) => {
-                            if (onReplySubmit) {
-                                onReplySubmit(comment.id, replyText);
-                                setIsReplying(false);
-                            }
-                        }}
+                {/* {isReplying && replyCommentId === comment.id && (
+                    // <WriteComment
+                    //     onSubmitComment={(replyText) => {
+                    //         if (onReplySubmit) {
+                    //             onReplySubmit(comment.id, replyText);
+                    //             setIsReplying(false);
+                    //         }
+                    //     }}
 
-                        placeholder={`Trả lời ${comment.user?.email}`}
+                    //     // placeholder={`Trả lời ${comment.user?.email}`}
 
-                        onCancel={handleCancelReply}
-                    />
-                )}
+                    //     onCancel={handleCancelReply}
+                    // />
+                )} */}
             </div>
             <Modal
                 title="Bạn chắc chắn muốn xóa bình luận?"
