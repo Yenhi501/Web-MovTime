@@ -1,0 +1,39 @@
+.wrapper-home {
+    margin-top: 66px;
+    // max-width: 1110px;
+}
+
+.container-home {
+    margin-top: -250px;
+}
+
+.anticon-vertical-align-top {
+    color: var(--primary-color);
+}
+.botchat {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 10px;
+    margin-bottom: 34px;
+    z-index: 999;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+.botchat:hover {
+    transform: scale(1.2);
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1.4);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
