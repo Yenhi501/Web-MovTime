@@ -1,193 +1,211 @@
-import items from './filItem.json';
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Button, Cascader } from 'antd';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Button, ConfigProvider, Select, Spin, notification } from 'antd';
 import { FilmItem } from '../../component/film-item';
-import { VideoCameraOutlined } from '@ant-design/icons';
 import './index.scss';
-import { Col, Row, Pagination } from 'antd';
-interface SearchResult {
-    name: string;
-    category: string;
-    yearOfManufacture: number;
-    poster: string;
-    nation: string;
-}
-interface Option {
-    value?: string | number | null;
-    label: React.ReactNode;
-    children?: Option[];
-}
+import { PaginationFilm } from '../../component/pagination-film';
+import axios from 'axios';
+import { FilterParams } from '../../model/filter-params';
+import { handleSearchParams } from '../../utils/handle-search-params';
+import { convertParams } from '../../utils/convert-prams';
+import { LoadingOutlined } from '@ant-design/icons';
+import { endpoint } from '../../utils/baseUrl';
+import { FilterItem } from '../../model/filter';
+import { Genre } from '../../component/header/handle-data-header';
+import { QueryFilter, defaultFilterItems } from './filter-type';
+import { t } from '../../utils/i18n';
 
 export const SearchPage: React.FC = () => {
-    const location = useLocation();
-    const { searchValue } = location.state;
-    const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const resultsPerPage = 4;
-    const startIndex = (currentPage - 1) * resultsPerPage;
-    const endIndex = startIndex + resultsPerPage;
-    const displayedResults = searchResults.slice(startIndex, endIndex);
-    const handlePageChange = (page: number) => {
-        setCurrentPage(page);
+    const { search } = useLocation();
+    const [searchResults, setSearchResults] = useState<FilmItem[]>([]);
+    const [amountMovies, setAmountMovies] = useState(0);
+    const [currPage, setCurrPage] = useState(1);
+    const [filterParamsState, setFilterParamsState] = useState<FilterParams>({});
+    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
+    const [filterItems, setFilterItems] = useState<FilterItem[]>(defaultFilterItems);
+    const getFilterRef = useRef(0);
+
+    const getDataBySearchParams = (searchParams: string) => {
+        axios
+            .get(`${endpoint}/api/movies?${searchParams}&page=${currPage}&pageSize=12`)
+            .then((res) => {
+                setSearchResults(res.data.movies);
+                setAmountMovies(res.data.totalCount);
+                setIsLoading(false);
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+                setIsLoading(false);
+                notification.error({
+                    message: 'Lọc phim thất bại',
+                    description: 'Vui lòng kiểm tra lại các trường và thử lại!',
+                    placement: 'bottomRight',
+                });
+            });
+    };
+
+    const getFilterItems = async () => {
+        try {
+            const genresPromise = axios.get(`${endpoint}/api/genres`);
+            const nationsPromise = axios.get(`${endpoint}/api/movies/get/nations`);
+            const yearsPromise = axios.get(`${endpoint}/api/movies/get/years`);
+
+            const [genresRes, nationsRes, yearsRes] = await Promise.all([
+                genresPromise,
+                nationsPromise,
+                yearsPromise,
+            ]);
+
+            const genresData = genresRes.data;
+            const nationsData = nationsRes.data;
+            const yearsData = yearsRes.data.sort((a: number, b: number) => b - a);
+
+            const genresHandledData: FilterItem = {
+                placeholder: 'Thể loại',
+                query: 'genre',
+                options: genresData.map((genre: Genre) => ({
+                    label: genre.name,
+                    value: genre.genre_id,
+                })),
+            };
+
+            const nationsHandledData: FilterItem = {
+                placeholder: 'Quốc gia',
+                query: 'nation',
+                options: nationsData.map((nation: string) => ({
+                    label: nation,
+                    value: nation,
+                })),
+            };
+
+            const yearsHandledData: FilterItem = {
+                placeholder: 'Năm sản xuất',
+                query: 'year',
+                options: yearsData.map((year: string) => ({
+                    label: year,
+                    value: year,
+                })),
+            };
+
+            setFilterItems([
+                ...filterItems,
+                genresHandledData,
+                nationsHandledData,
+                yearsHandledData,
+            ]);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     useEffect(() => {
-        if (searchValue) {
-            fetch(
-                `https://tiktok.fullstack.edu.vn/api/users/search?q=${searchValue}&type=less`,
-            )
-                .then((res) => res.json())
-                .then((res) => {
-                    setSearchResults(res.data);
-                })
-                .catch((error) => {
-                    console.error('Lỗi khi gọi API tìm kiếm:', error);
-                });
+        if (getFilterRef.current === 0) {
+            getFilterRef.current++;
+            getFilterItems();
         }
-    }, [searchValue]);
+    }, []);
 
-    //lọc
+    useEffect(() => {
+        setIsLoading(true);
 
-    // const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
-    const [hasResults, setHasResults] = useState(true);
-    const [selectedOptionsMap, setSelectedOptionsMap] = useState<{
-        [key: string]: Option[];
-    }>({});
+        getDataBySearchParams(window.location.search.split('?')[1]);
+        const paramsObj = handleSearchParams(window.location.search);
+        delete paramsObj['search'];
 
-    const onChange = (
-        value: (string | number)[],
-        selectedOptions: Option[],
-        cascaderName: string,
-    ) => {
-        const uniqueSelectedOptions = Array.from(new Set(selectedOptions));
-        setSelectedOptionsMap((prevMap) => ({
-            ...prevMap,
-            [cascaderName]: Array.isArray(prevMap[cascaderName])
-                ? [...prevMap[cascaderName], ...uniqueSelectedOptions]
-                : [...uniqueSelectedOptions],
-        }));
-    };
+        setFilterParamsState(convertParams(paramsObj));
+    }, [search, currPage]);
 
-    const handleFilterClick = () => {
-        const latestOptionsMap: { [key: string]: Option } = {};
+    const handleSetFilterParams = () => {
+        let str = '';
+        const arrValueFilterParams = Object.values(filterParamsState);
 
-        setSelectedOptionsMap({});
-
-        for (const cascaderName in selectedOptionsMap) {
-            if (selectedOptionsMap.hasOwnProperty(cascaderName)) {
-                const latestOptions = selectedOptionsMap[cascaderName];
-                const latestOption = latestOptions[latestOptions.length - 1];
-                latestOptionsMap[cascaderName] = latestOption;
+        let count = 0;
+        for (let key in filterParamsState) {
+            if (arrValueFilterParams[count] != null) {
+                if (count != 0) {
+                    str += '&';
+                }
+                str += key + '=' + encodeURIComponent(arrValueFilterParams[count]);
+                console.log(str);
             }
+            count++;
         }
+        setIsLoading(true);
+        getDataBySearchParams(str);
 
-        for (const cascaderName in latestOptionsMap) {
-            if (latestOptionsMap.hasOwnProperty(cascaderName)) {
-                // const latestOption = latestOptionsMap[cascaderName];
-                //thực hiện lọc
-                const keywords: string[] = Object.values(latestOptionsMap)
-                    .map((latestOption) => latestOption?.label?.toString())
-                    .filter(
-                        (keyword) => keyword !== undefined && keyword !== null,
-                    ) as string[];
+        navigate({
+            pathname: '/search',
+            search: ``,
+        });
 
-                const filteredResults = searchResults.filter((result) => {
-                    const resultContainsKeyword = keywords.some((keyword) => {
-                        return (
-                            result.nation?.includes(keyword) ||
-                            result.category?.includes(keyword)
-                        );
-                    });
-
-                    return resultContainsKeyword;
-                });
-
-                setHasResults(filteredResults.length > 0);
-                setSearchResults(filteredResults);
-            }
-        }
+        const url = window.location.href?.split('?')[0];
+        window.history.replaceState('', '', url + '?' + str);
     };
 
     return (
         <div className="wrapper-searchPage">
+            <div className="searchPage-header"></div>
             <div className="header-filter">
-                {items.map((item, index) => {
-                    const options = item.childrens.map((child) => ({
-                        value: child.label,
-                        label: child.label,
-                    }));
-                    const cascaderName = `cascader_${index}`;
-                    return (
-                        <div className="menu-label">
-                            <Cascader
-                                className="cascader-menu"
-                                key={index}
-                                options={options}
-                                placeholder={item.label}
-                                onChange={(value, selectedOptions) =>
-                                    onChange(
-                                        value,
-                                        selectedOptions,
-                                        cascaderName,
-                                    )
+                {filterItems.map((item, index) => (
+                    <div className="menu-label">
+                        <Select
+                            className="select-menu w-full"
+                            key={index}
+                            value={filterParamsState[item.query as QueryFilter]}
+                            options={item.options}
+                            placeholder={item.placeholder}
+                            onChange={(value) => {
+                                const tempObj: any = { ...filterParamsState };
+                                if (item.query != null) {
+                                    tempObj[item.query] = value;
+                                    setFilterParamsState(tempObj);
                                 }
-                            />
-                        </div>
-                    );
-                })}
-                <Button
-                    className="btn-filter"
-                    type="primary"
-                    onClick={handleFilterClick}
-                >
-                    Lọc phim
+                            }}
+                            allowClear
+                        />
+                    </div>
+                ))}
+                <Button className="btn-filter" type="primary" onClick={handleSetFilterParams}>
+                    {t('FilmFilter')}
                 </Button>
             </div>
             <hr className="my-6 border-neutral-800" />
-            <div className="listfilm">
-                <div className="header-listfilm">
-                    <VideoCameraOutlined className="header-listfilm-icon" />
-                    <p className="header-listfilm-title">Kết quả tìm kiếm</p>
-                </div>
-                <div className="content-listfilm">
-                    {hasResults ? (
-                        <Row gutter={[8, 24]}>
-                            {displayedResults.map((result, index) => (
-                                <Col
-                                    xs={24}
-                                    sm={12}
-                                    md={8}
-                                    lg={6}
-                                    className="gutter-row"
-                                    span={6}
-                                    key={index}
-                                >
-                                    <div className="film-item">
-                                        <FilmItem
-                                            name={result.name || ''}
-                                            category={result.category || ''}
-                                            yearOfManufacture={
-                                                result.yearOfManufacture || 0
-                                            }
-                                            poster={result.poster || ''}
-                                        />
-                                    </div>
-                                </Col>
-                            ))}
-                        </Row>
-                    ) : (
-                        <p>Không tìm thấy kết quả phù hợp.</p>
-                    )}
-                </div>
-                <div className="footer-listfilm">
-                    <Pagination
-                        current={currentPage}
-                        defaultPageSize={resultsPerPage}
-                        total={searchResults.length}
-                        onChange={handlePageChange}
-                    />
-                </div>
+            <div className="relative min-h-[30vh]">
+                <ConfigProvider
+                    theme={{
+                        token: {
+                            colorBgContainer: '#111111',
+                            colorLinkHover: 'rgb(209, 19, 19)',
+                        },
+                    }}
+                >
+                    <Spin
+                        indicator={
+                            <LoadingOutlined
+                                style={{ fontSize: 36 }}
+                                spin
+                                className="text-red-600"
+                            />
+                        }
+                        spinning={isLoading}
+                    >
+                        <PaginationFilm
+                            title={t('SearchResults')}
+                            number={4}
+                            listFilm={searchResults}
+                            amountMovies={amountMovies}
+                            currPage={currPage}
+                            setCurrPage={setCurrPage}
+                            hidden={searchResults.length === 0}
+                        />
+                    </Spin>
+                </ConfigProvider>
+
+                <p className="absolute top-0" hidden={searchResults.length !== 0}>
+                    Không tìm thấy kết quả phù hợp.
+                </p>
             </div>
         </div>
     );
