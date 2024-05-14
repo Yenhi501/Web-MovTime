@@ -13,6 +13,8 @@ import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { Link, useNavigate } from 'react-router-dom';
 import { FilmItem } from '../../component/film-item';
+import { UserProfile } from '../../component/user-profile';
+import { CurrentUser, defaultCurrentUser } from '../../model/user';
 import { useAppSelector } from '../../redux/hook';
 import { request } from '../../utils/request';
 import './index.scss';
@@ -76,14 +78,75 @@ export const LayoutUser = () => {
     const [modalVisible, setModalVisible] = useState(true);
     const [collapsed, setCollapsed] = useState(false);
     const accessToken = Cookies.get('accessToken')?.replace(/^"(.*)"$/, '$1') || '';
+    const [currentUser, setCurrentUser] = useState<CurrentUser>(defaultCurrentUser);
     const navigate = useNavigate();
-    
-    
+    const fetchDataCurrentUser = async () => {
+        try {
+            const response = await request.get('user/get-self-information', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data;
 
+            setCurrentUser(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    const [dataLovemovies, setDataLovemovies] = useState<FilmItem[]>([]);
+    const fetchDataLove = async () => {
+        try {
+            const response = await request.get('user/get-favorite-movie-list?page=1&pageSize=10', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataLovemovies(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    //api watch late
+    const [dataCollect, setDataCollect] = useState<FilmItem[]>([]);
+    const fetchDataCollect = async () => {
+        try {
+            const response = await request.get('user/get-watch-movie-list?page=1&pageSize=100', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataCollect(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    //api history
+    const [dataHistorymovies, setDataHistorymovies] = useState<FilmItem[]>([]);
+    const fetchDataHistorymovies = async () => {
+        try {
+            const response = await request.get('user/get-movie-history-list?page=1&pageSize=1', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataHistorymovies(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const { pathname } = useLocation();
     useEffect(() => {
-        
+        fetchDataCurrentUser();
+        fetchDataCollect();
+        fetchDataHistorymovies();
+        fetchDataLove();
         setModalVisible(true);
     }, [pathname]);
     const isLogin = useAppSelector((state) => state.user.isLogin);
@@ -127,19 +190,23 @@ export const LayoutUser = () => {
                                     <Breadcrumb className="content-title"></Breadcrumb>
                                     <div className="content-main">
                                         <Routes>
-                                            <Route path="/profile"  />
+                                            <Route path="/profile" element={<UserProfile />} />
                                             <Route
-                                                path="/vip-package" 
+                                                path="/vip-package"
+                                                
                                             />
 
                                             <Route
                                                 path="/watch-later"
+                                               
                                             />
                                             <Route
                                                 path="/watched-movies"
+                                                
                                             />
                                             <Route
                                                 path="/love-movies"
+                                                
                                             />
                                         </Routes>
                                     </div>
