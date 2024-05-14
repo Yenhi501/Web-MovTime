@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
 import { Link, useNavigate } from 'react-router-dom';
+import { VIPPackageUser } from '../../component/VIP-package-user';
 import { FilmItem } from '../../component/film-item';
 import { UserProfile } from '../../component/user-profile';
 import { CurrentUser, defaultCurrentUser } from '../../model/user';
@@ -109,43 +110,12 @@ export const LayoutUser = () => {
         }
     };
 
-    //api watch late
-    const [dataCollect, setDataCollect] = useState<FilmItem[]>([]);
-    const fetchDataCollect = async () => {
-        try {
-            const response = await request.get('user/get-watch-movie-list?page=1&pageSize=100', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-            const data = response.data.data.ListMovie;
-            setDataCollect(data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    //api history
-    const [dataHistorymovies, setDataHistorymovies] = useState<FilmItem[]>([]);
-    const fetchDataHistorymovies = async () => {
-        try {
-            const response = await request.get('user/get-movie-history-list?page=1&pageSize=1', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-            const data = response.data.data.ListMovie;
-            setDataHistorymovies(data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    
 
     const { pathname } = useLocation();
     useEffect(() => {
         fetchDataCurrentUser();
-        fetchDataCollect();
-        fetchDataHistorymovies();
+        
         fetchDataLove();
         setModalVisible(true);
     }, [pathname]);
@@ -193,12 +163,55 @@ export const LayoutUser = () => {
                                             <Route path="/profile" element={<UserProfile />} />
                                             <Route
                                                 path="/vip-package"
-                                                
+                                                element={
+                                                    currentUser.subscription.subscriptionType !==
+                                                        'Cơ bản' && currentUser ? (
+                                                        <VIPPackageUser data={currentUser} />
+                                                    ) : (
+                                                        <Modal
+                                                            visible={modalVisible}
+                                                            onCancel={() => setModalVisible(false)}
+                                                            footer={
+                                                                <Button
+                                                                    className="poster__image-close"
+                                                                    type="primary"
+                                                                    onClick={() =>
+                                                                        setModalVisible(false)
+                                                                    }
+                                                                >
+                                                                    Đóng
+                                                                </Button>
+                                                            }
+                                                            style={{
+                                                                textAlign: 'center',
+                                                                marginTop: '100px',
+                                                            }}
+                                                        >
+                                                            <div className="poster__image-notifi">
+                                                                Thông báo
+                                                            </div>
+                                                            <p className="poster__image-notifititle">
+                                                                Hãy trở thành{' '}
+                                                                <Link
+                                                                    style={{
+                                                                        color: 'var(--primary-color)',
+                                                                        fontWeight: 700,
+                                                                    }}
+                                                                    to="/VIPpackage"
+                                                                >
+                                                                    thành viên VIP
+                                                                </Link>{' '}
+                                                                để có được những trải nghiệm tốt
+                                                                nhất của MovTime.
+                                                            </p>
+                                                        </Modal>
+                                                    )
+                                                }
                                             />
 
                                             <Route
                                                 path="/watch-later"
-                                               
+                                                
                                             />
                                             <Route
                                                 path="/watched-movies"
