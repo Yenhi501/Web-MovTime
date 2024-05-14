@@ -99,19 +99,58 @@ export const LayoutUser = () => {
         }
     };
     const [dataLovemovies, setDataLovemovies] = useState<FilmItem[]>([]);
-    
+    const fetchDataLove = async () => {
+        try {
+            const response = await request.get('user/get-favorite-movie-list?page=1&pageSize=10', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataLovemovies(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     //api watch late
     const [dataCollect, setDataCollect] = useState<FilmItem[]>([]);
-    
+    const fetchDataCollect = async () => {
+        try {
+            const response = await request.get('user/get-watch-movie-list?page=1&pageSize=100', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataCollect(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     //api history
     const [dataHistorymovies, setDataHistorymovies] = useState<FilmItem[]>([]);
-    
+    const fetchDataHistorymovies = async () => {
+        try {
+            const response = await request.get('user/get-movie-history-list?page=1&pageSize=1', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const data = response.data.data.ListMovie;
+            setDataHistorymovies(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const { pathname } = useLocation();
     useEffect(() => {
         fetchDataCurrentUser();
+        fetchDataCollect();
+        fetchDataHistorymovies();
+        fetchDataLove();
         setModalVisible(true);
     }, [pathname]);
     const isLogin = useAppSelector((state) => state.user.isLogin);
