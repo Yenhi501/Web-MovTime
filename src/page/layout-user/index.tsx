@@ -14,7 +14,10 @@ import { Route, Routes, useLocation } from 'react-router';
 import { Link, useNavigate } from 'react-router-dom';
 import { VIPPackageUser } from '../../component/VIP-package-user';
 import { FilmItem } from '../../component/film-item';
+import { HistoryMovies } from '../../component/history';
+import { LoveMovies } from '../../component/love-movie';
 import { UserProfile } from '../../component/user-profile';
+import { WatchLater } from '../../component/watch-later';
 import { CurrentUser, defaultCurrentUser } from '../../model/user';
 import { useAppSelector } from '../../redux/hook';
 import { request } from '../../utils/request';
@@ -96,27 +99,19 @@ export const LayoutUser = () => {
         }
     };
     const [dataLovemovies, setDataLovemovies] = useState<FilmItem[]>([]);
-    const fetchDataLove = async () => {
-        try {
-            const response = await request.get('user/get-favorite-movie-list?page=1&pageSize=10', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-            const data = response.data.data.ListMovie;
-            setDataLovemovies(data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    
 
+    //api watch late
+    const [dataCollect, setDataCollect] = useState<FilmItem[]>([]);
+    
+
+    //api history
+    const [dataHistorymovies, setDataHistorymovies] = useState<FilmItem[]>([]);
     
 
     const { pathname } = useLocation();
     useEffect(() => {
         fetchDataCurrentUser();
-        
-        fetchDataLove();
         setModalVisible(true);
     }, [pathname]);
     const isLogin = useAppSelector((state) => state.user.isLogin);
@@ -211,15 +206,21 @@ export const LayoutUser = () => {
 
                                             <Route
                                                 path="/watch-later"
-                                                
+                                                element={<WatchLater dataCollect={dataCollect} />}
                                             />
                                             <Route
                                                 path="/watched-movies"
-                                                
+                                                element={
+                                                    <HistoryMovies
+                                                        dataHistorymovies={dataHistorymovies}
+                                                    />
+                                                }
                                             />
                                             <Route
                                                 path="/love-movies"
-                                                
+                                                element={
+                                                    <LoveMovies dataLovemovies={dataLovemovies} />
+                                                }
                                             />
                                         </Routes>
                                     </div>
