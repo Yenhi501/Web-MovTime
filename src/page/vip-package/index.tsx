@@ -51,7 +51,7 @@ export const VIPPackage = () => {
     };
 
     useEffect(() => {
-       
+        window.scrollTo(0, 0);
         getVipPackage();
     }, []);
 
