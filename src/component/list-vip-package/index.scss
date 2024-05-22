@@ -1,0 +1,88 @@
+.list-vip-package-table {
+    overflow: visible;
+    color: var(--main-color);
+
+    td {
+        width: 200px;
+        text-align: center;
+        padding: 0 var(--spacing-md);
+    }
+
+    .list-vip-package-row {
+        border-bottom: 1px solid var(--sub-color);
+
+        &:last-child {
+            border-bottom: unset;
+        }
+
+        .list-vip-package-cell {
+            padding: var(--spacing-md);
+            transition: all 0.1s ease-out;
+            
+            &.highlight {
+                color: var(--sub-primary-color);
+                font-weight: 500;
+            }
+        }
+
+        .list-vip-package-title {
+            width: 350px;
+            text-align: left;
+        }
+    }
+
+    .list-vip-package-radio {
+        position: sticky;
+        top: 0;
+        background-color: var(--contrast-color);
+
+        .list-vip-package-radio-cell {
+            margin-right: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+
+            .list-vip-package-label {
+                color: var(--contrast-color);
+                display: flex;
+                max-height: 105px;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+                padding: var(--spacing-lg);
+                font-size: var(--font-s-md-1);
+                background-color: var(--light-primary-color);
+                border-radius: var(--border-r-sm);
+                cursor: pointer;
+                transition: all 0.1s ease-out;
+
+                &:focus, &:active{
+                    box-shadow:  var(--light-primary-color) 0px 0px 10px 0px;
+                }
+
+                &:before {
+                    content: '';
+                    border-top: 15px solid transparent;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    position: absolute;
+                    bottom: calc(-1 * var(--spacing-sm-2));
+                    transition: all 0.1s ease-out;
+                }
+
+            }
+
+            .list-vip-package-label.selected {
+                background-color: var(--primary-color);
+                box-shadow: var(--primary-color) 0px 0px 10px 0px;
+
+                &:before {
+                    content: '';
+                    border-top: 15px solid var(--primary-color);
+                }
+            }
+        }
+
+    }
+
+
+}

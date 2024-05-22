@@ -1,0 +1,169 @@
+// .wrapper-header-pay {
+//     display: flex;
+//     flex: 0 0 auto;
+//     flex-direction: row;
+//     align-items: center;
+//     width: 100%;
+//     height: 66px;
+//     z-index: var(--z-highest);
+//     padding-top: var(--spacing-sm-1);
+//     padding-bottom: var(--spacing-sm-1);
+
+//     .logo {
+//         margin-right: calc(var(--spacing-lg) + var(--spacing-md));
+//         padding-left: var(--spacing-lg);
+//     }
+//     .ant-steps-item:first-child {
+//         .ant-steps-item-container {
+//             margin-left: calc(var(--spacing-lg) * 3);
+//         }
+
+//         .ant-steps-icon {
+//             color: var(--primary-color);
+//         }
+//         .ant-steps-item-title {
+//             color: var(--contrast-color) !important;
+//             font-size: 14px;
+//             &::after {
+//                 background-color: var(--primary-color) !important;
+//             }
+//         }
+//     }
+//     .ant-steps-item:nth-child(2) {
+//         .ant-steps-icon {
+//             color: var(--primary-color);
+//         }
+//         .ant-steps-item-title {
+//             color: var(--contrast-color) !important;
+//             font-size: 14px;
+//             &::after {
+//                 color: var(--primary-color) !important ;
+//             }
+//         }
+//     }
+//     .ant-steps-item-active {
+//         .ant-steps-item-icon {
+//             background: var(--primary-color) !important;
+//             border-color: var(--primary-color);
+//         }
+//         .ant-steps-icon {
+//             color: var(--contrast-color) !important;
+//         }
+//         .ant-steps-item-title {
+//             color: var(--contrast-color) !important;
+//             font-size: 14px;
+//             &::after {
+//                 background-color: var(--contrast-color) !important ;
+//             }
+//         }
+//     }
+//     .ant-steps-item-wait {
+//         .ant-steps-item-icon {
+//             background: var(--contrast-color) !important;
+//             border-color: var(--contrast-color);
+//         }
+//         .ant-steps-icon {
+//             color: var(--main-color) !important;
+//         }
+//         .ant-steps-item-title {
+//             color: var(--contrast-color) !important;
+//             font-size: 14px;
+//         }
+//     }
+// }
+.wrapper-header-pay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-higher);
+    color: var(--main-color);
+    background-color: var(--contrast-color);
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 66px;
+    z-index: var(--z-highest);
+    padding-top: var(--spacing-sm-1);
+    padding-bottom: var(--spacing-sm-1);
+
+    .logo {
+        margin-right: calc(var(--spacing-lg) + var(--spacing-md));
+        padding-left: var(--spacing-lg);
+    }
+    .ant-steps-item:first-child {
+        .ant-steps-item-container {
+            margin-left: calc(var(--spacing-lg) * 5.3);
+        }
+        .ant-steps-item-icon {
+            background: #fff;
+            border-color: #000000;
+        }
+        .ant-steps-icon {
+            color: var(--main-color);
+        }
+        .ant-steps-item-title {
+            color: var(--main-color) !important;
+            font-size: 14px;
+            &::after {
+                background-color: var(--main-color) !important;
+            }
+        }
+    }
+    .ant-steps-item:nth-child(2) {
+        .ant-steps-item-icon {
+            background: #fff;
+            border-color: #000;
+        }
+        .ant-steps-icon {
+            color: var(--main-color);
+        }
+        .ant-steps-item-title {
+            color: var(--main-color) !important;
+            font-size: 14px;
+            &::after {
+                background-color: var(--main-color) !important;
+            }
+        }
+    }
+
+    .ant-steps-item:nth-child(3) {
+        .ant-steps-item-title {
+            color: var(--main-color) !important;
+            font-size: 14px;
+        }
+    }
+
+    .ant-steps-item-active {
+        .ant-steps-item-icon {
+            background: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        .ant-steps-icon {
+            color: var(--contrast-color) !important;
+        }
+        .ant-steps-item-title {
+            color: var(--contrast-color) !important;
+            font-size: 14px;
+
+            &::after {
+                background: var(--main-color) !important;
+            }
+        }
+    }
+
+    .ant-steps-item-wait {
+        .ant-steps-item-icon {
+            background: var(--contrast-color) !important;
+            border-color: var(--main-color) !important;
+        }
+        .ant-steps-icon {
+            color: var(--main-color) !important;
+        }
+        .ant-steps-item-title {
+            color: var(--main-color) !important;
+            font-size: 14px;
+        }
+    }
+}
