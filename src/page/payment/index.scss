@@ -2,16 +2,16 @@
     margin-top: 66px;
     color: var(--main-color);
     background-color: var(--contrast-color);
-    padding-bottom: calc(var(--spacing-lg) * 2);
+    padding-bottom: calc(var(--spacing-lg) * 1.8);
     max-width: 100%;
     min-height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 30px;
+    padding-left: 25px;
 
     .choose {
-        margin-right: calc(var(--spacing-lg) * 2);
+        margin-right: calc(var(--spacing-lg) * 1.8);
     }
     .summary{
         margin-top: var(--spacing-lg) ;
