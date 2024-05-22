@@ -8,10 +8,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 28px;
+    padding-left: 30px;
 
     .choose {
-        margin-right: calc(var(--spacing-lg) * 1.8);
+        margin-right: calc(var(--spacing-lg) * 2);
     }
     .summary{
         margin-top: var(--spacing-lg) ;
