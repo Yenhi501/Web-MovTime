@@ -1,0 +1,19 @@
+.container-payment {
+    margin-top: 66px;
+    color: var(--main-color);
+    background-color: var(--contrast-color);
+    padding-bottom: calc(var(--spacing-lg) * 2);
+    max-width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 30px;
+
+    .choose {
+        margin-right: calc(var(--spacing-lg) * 2);
+    }
+    .summary{
+        margin-top: var(--spacing-lg) ;
+    }
+}

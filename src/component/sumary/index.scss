@@ -1,0 +1,70 @@
+.wrapper-summary {
+    --summary-background-color: #f5f5f5;
+
+    margin-top: var(--spacing-md-1);
+    background-color: var(--summary-background-color);
+    border-radius: var(--border-r-sm);
+    padding: var(--spacing-md);
+    height: auto;
+    width: 450px;
+    font-size: var(--font-s-md);
+    line-height: 40px;
+    position: relative;
+
+    .title-summary {
+        font-size: var(--font-s-lg-2);
+        font-weight: 600;
+        margin-top: -6px;
+    }
+    .information {
+        margin-top: var(--spacing-sm-2);
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+        .user,
+        .name-package,
+        .term,
+        .time-start,
+        .time-end,
+        .method-payment,
+        .price,
+        .total-price {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+        }
+        .total-price {
+            margin-top: var(--spacing-md);
+        }
+        .value {
+            position: absolute;
+            right: var(--spacing-sm-2);
+            font-weight: 600;
+        }
+        .value-1 {
+            position: absolute;
+            right: var(--spacing-sm-2);
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+        .note {
+            margin-top: var(--spacing-md-1);
+            font-size: 13px;
+            line-height: 1.6rem;
+        }
+    }
+    .btn-confirm {
+        margin-top: var(--spacing-md);
+        padding: 25px 0;
+        width: 100%;
+        box-shadow: 0 2px 0 rgba(218, 77, 77, 0.5);
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-s-md-1);
+
+        a {
+            font-size: 1.3rem;
+        }
+    }
+}
