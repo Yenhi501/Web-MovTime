@@ -8,19 +8,19 @@
     height: auto;
     width: 450px;
     font-size: var(--font-s-md);
-    line-height: 40px;
+    line-height: 30px;
     position: relative;
 
     .title-summary {
         font-size: var(--font-s-lg-2);
-        font-weight: 600;
+        font-weight: 500;
         margin-top: -6px;
     }
     .information {
         margin-top: var(--spacing-sm-2);
         font-size: 1.1rem;
         font-weight: 400;
-        line-height: 2.4rem;
+        line-height: 2.0rem;
         .user,
         .name-package,
         .term,
@@ -64,7 +64,7 @@
         font-size: var(--font-s-md-1);
 
         a {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
     }
 }
