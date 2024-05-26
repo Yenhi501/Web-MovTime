@@ -1,0 +1,54 @@
+.control-player {
+    position: absolute;
+    bottom: 0;
+    padding: 0 var(--spacing-sm-1);
+    padding-bottom: var(--spacing-sm-2);
+    width: 99%;
+
+    .ant-slider:hover .ant-slider-handle::after {
+        box-shadow: 0 0 0 2px #cf1a1a;
+    }
+
+    .control-player-progress {
+        margin: 0 calc(2px + var(--spacing-sm));
+    }
+
+    .featured-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 var(--spacing-sm-1);
+        margin-top: var(--spacing-sm-2);
+
+        .feature {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+
+            .feature-item {
+                cursor: pointer;
+            }
+        }
+
+        .feature-volume {
+
+            .progress-slider {
+                width: 45px;
+            }
+
+        }
+    }
+}
+.hide-show-element {
+    transition: all 0.15s ease-in-out;
+
+    &.hide-element {
+        opacity: 0;
+        scale: 0,
+    }
+    
+    &.show-element {
+        opacity: 1;
+        scale: 1,
+    }
+}
+

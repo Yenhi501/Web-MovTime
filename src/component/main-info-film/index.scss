@@ -1,0 +1,56 @@
+.main-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    .name-esp {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .name,
+        .episode {
+            font-size: var(--font-s-lg-2);
+            font-weight: 700;
+        }
+        .name {
+            margin-right: 10px;
+        }
+        .episode {
+            margin-left: 10px;
+        }
+    }
+
+    .view-info {
+        display: flex;
+        gap: var(--spacing-md-1);
+
+        .view {
+            width: 100px;
+        }
+        .rating {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+    }
+
+    .hashtag {
+        .hashtag-item {
+            padding: 0 var(--spacing-md);
+            border-right: 1px solid var(--sub-color);
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    .desc {
+        color: var(--contrast-color);
+        font-size: var(--font-s-md);
+    }
+}

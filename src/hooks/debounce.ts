@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 import { setDebouncedValue } from "../redux/debouncedSlide";
+import { RootState } from "../redux/store";
 
 export const useDebounced = (value:string, delay: number) =>{
     const dispatch = useDispatch();

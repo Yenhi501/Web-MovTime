@@ -1,0 +1,14 @@
+.bill-item {
+    background-color: #fcfcfc;
+    padding: var(--spacing-sm-1) 0;
+    font-size: 1.1rem;
+
+    .bill-title {
+        color: #111111;
+        font-weight: 400;
+    }
+    
+    .bill-value {
+        font-weight: 500;
+    }
+}

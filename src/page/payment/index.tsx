@@ -23,7 +23,12 @@ export const Payment = () => {
     const [discount, setDiscount] = useState(1);
 
     const getDataSubscriptionInfo = () => {
-       
+        axios
+            .get(`${endpoint}/api/subscription/get-all-subscription-info`)
+            .then((response) => {
+                setDataSubscriptionInfo(response.data.data);
+            })
+            .catch((err) => console.log(err));
     };
 
     useEffect(() => {

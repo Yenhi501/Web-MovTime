@@ -1,6 +1,7 @@
 .search {
-    --width-search:229px;
+    --width-search:179px;
     
+
     position: relative;
     height: 42px;
     display: flex;
@@ -42,24 +43,4 @@
     right:1px;
     font-weight: 700;
 }
-.results{
-    position:absolute;
-    top:42px;
-    left:0px;
-    width:100%;
-    background-color: #1e1e1e;
-    border-radius: 7px;
-    color: var(--sub-color);
-}
-.name-title {
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    width: 200px;
 
-
-    &:hover {
-        color: var(--primary-color);
-    }
-  }
-  

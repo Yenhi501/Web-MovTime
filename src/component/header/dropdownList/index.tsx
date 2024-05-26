@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import './index.scss';
+import { request } from '../../../utils/request';
 import { FilmItem } from '../../film-item';
 import { useNavigate } from 'react-router-dom';
 import { ChildrenCategoriesHeader } from '../handle-data-header';
@@ -36,7 +37,7 @@ export const DropdownList: React.FC<DropdownMenuProps> = ({ title, data, queryPa
     };
 
     const menu = (
-        <Menu mode="horizontal" style={{ display: 'flex' }} >
+        <Menu mode="horizontal" style={{ display: 'flex' }}>
             {Array.from({ length: columns }).map((_, columnIndex) => (
                 <Menu.ItemGroup
                     key={`column-${columnIndex}`}
@@ -52,7 +53,7 @@ export const DropdownList: React.FC<DropdownMenuProps> = ({ title, data, queryPa
     );
 
     return (
-        <Dropdown overlay={menu} overlayStyle={{ zIndex: 9999 }} className="flex max-lg:hidden " >
+        <Dropdown overlay={menu} overlayStyle={{ zIndex: 9999 }}>
             <div className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                 <div className="dropdownlist">{title}</div>
             </div>

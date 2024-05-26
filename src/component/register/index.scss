@@ -1,0 +1,93 @@
+.register-form {
+    position: absolute;
+    top: 3%;
+    left: 32.5%;
+    height: 100%;
+    padding: 5rem 6rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 36%;
+
+    &__header {
+        margin-top: -40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+
+        &__large {
+            font-size: 2.2rem;
+        }
+        &__small {
+            font-size: var(--font-s-md-1);
+        }
+    }
+
+    &__confirm {
+        display: flex;
+    }
+
+    &__item {
+        margin-top: -6px;
+
+        &-input {
+            height: 40px;
+        }
+
+        &-input {
+            border-bottom: 2px solid transparent !important;
+        }
+
+        &-input {
+            border: none;
+        }
+
+        &-input:hover {
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+
+        &-input:focus {
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+
+        &-checkbox {
+            color: var(--contrast-color);
+        }
+    }
+
+    &__button {
+        color: var(--contrast-color);
+        margin-left: -180px;
+        margin-top: 40px;
+
+        Button {
+            width: 100%;
+            height: 44px;
+        }
+
+        p {
+            color: var(--contrast-color);
+            text-align: center;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@keyframes moveUpDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.animated-text {
+    color: var(--primary-color);
+    margin-top: 20px;
+    animation: moveUpDown 0.5s infinite alternate;
+}
+
+.ant-form-item-explain-error {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 4px;
+}

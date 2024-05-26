@@ -1,0 +1,39 @@
+.actor-famous {
+    position: relative;
+    &__name {
+        font-weight: 500;
+        color: rgb(211, 211, 211);
+        letter-spacing: 0px;
+    }
+
+    .icon-list-container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .left-move-container.hide,
+    .right-move-container.hide {
+        display: none;
+    }
+
+    .left-move-container {
+        left: 1%;
+        justify-content: flex-start;
+    }
+
+    .right-move-container {
+        right: 1.5%;
+        margin-top: 6px;
+        justify-content: flex-end;
+    }
+
+    .icon-list {
+        font-size: 26px;
+    }
+
+    .hide {
+        display: none;
+    }
+}

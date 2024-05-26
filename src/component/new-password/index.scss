@@ -1,0 +1,150 @@
+.newpassword-form {
+    position: absolute;
+    top: 12%;
+    left: 33%;
+    padding: 5rem 6rem;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    &__header {
+        margin-top: -30px;
+        margin-bottom: 40px;
+        font-weight: 600;
+
+        &__large {
+            font-size: 2.2rem;
+        }
+        &__small {
+            font-size: var(--font-s-md-1);
+        }
+    }
+
+    &__confirm {
+        display: flex;
+    }
+
+    &__item {
+        margin-top: -6px;
+
+        &-input {
+            height: 40px;
+        }
+
+        &-input {
+            border-bottom: 2px solid transparent !important;
+        }
+
+        &-input {
+            border: none;
+        }
+
+        &-input:hover {
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+
+        &-input:focus {
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+
+        &-checkbox {
+            color: var(--contrast-color);
+        }
+    }
+
+    &__button {
+        color: var(--contrast-color);
+        margin-left: -190px;
+        margin-top: 40px;
+
+        Button {
+            width: 100%;
+            height: 44px;
+        }
+
+        p {
+            color: var(--contrast-color);
+            text-align: center;
+            margin-bottom: 5px;
+        }
+    }
+}
+.form-img {
+    margin-bottom: 0;
+}
+
+@keyframes moveUpDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.animated-text {
+    color: var(--primary-color);
+    margin-top: 20px;
+    animation: moveUpDown 0.5s infinite alternate;
+}
+@media screen and (max-width: 760px) {
+    .newpassword-form {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 600px;
+        height: auto;
+        padding: 4rem;
+        padding-bottom: 2rem;
+        background-color: rgba(0, 0, 0, 0.75);
+
+        .form-header__large {
+            font-size: 1.6rem;
+        }
+        .form-header__small {
+            font-size: 0.9rem;
+        }
+
+        &__button {
+            margin-left: 0px;
+        }
+    }
+    .form-img {
+        margin-bottom: 300px;
+    }
+    .text-center {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+}
+@media screen and (max-width: 1025px) and (min-width: 760px) {
+    .newpassword-form {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 600px;
+        height: auto;
+        padding: 4rem 5rem;
+        background-color: rgba(0, 0, 0, 0.75);
+
+        &__header {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+
+            &__large {
+                font-size: 1.2rem;
+            }
+            &__small {
+                font-size: 0.8rem;
+            }
+        }
+        &__button {
+            margin-left: -230px;
+        }
+    }
+}

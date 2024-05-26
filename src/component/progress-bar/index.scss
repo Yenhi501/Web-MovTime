@@ -1,0 +1,25 @@
+.progress-bar-container {
+    height: 4px;
+    width: 100%;
+    background-color: #e0e0de75;
+    overflow: hidden;
+    transition: all ease 0.1s;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        height: 8px;
+    }
+
+    .progress-bar-line {
+        height: 100%;
+        background-color: var(--primary-color);
+        text-align: 'right';
+        position: absolute;
+    }
+
+    .progress-bar-line-loaded {
+        background-color: rgba(224, 224, 222, 0.74);
+        position: absolute;
+    }
+}

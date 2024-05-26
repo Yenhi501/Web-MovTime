@@ -47,7 +47,17 @@ export const VIPPackage = () => {
     const idPackage = useAppSelector((state) => state.VIPPayment.subscriptionTypeId);
 
     const getVipPackage = () => {
-        
+        axios
+            .get(`${endpoint}/api/subscription/get-all-subscription-type`, {
+                headers: { 'Content-Type': 'application/json' },
+            })
+            .then((response) => {
+                response.data.data.shift();
+                setDataVIPPackage(response.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     useEffect(() => {

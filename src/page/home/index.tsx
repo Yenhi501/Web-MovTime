@@ -14,6 +14,7 @@ import { RootState } from '../../redux/store';
 import { request } from '../../utils/request';
 import './index.scss';
 import { t } from '../../utils/i18n';
+import { PopularMovie } from '../../component/popular-moive';
 
 export type DataMovieByGenre = {
     genreId: number;
@@ -42,6 +43,8 @@ export const HomePage = () => {
             setLoading(false);
         }
     };
+
+    const top10TrendingFilms = trendingData.slice(0, 9);
 
     const getMovieByGenre = async () => {
         try {
@@ -160,10 +163,10 @@ export const HomePage = () => {
             <Slide />
             <div className="container-home"></div>
             <Spin spinning={loading} size="large" className="mt-96">
-                <ListFilm isShow={false} title={t('PopularMovies')} listFilm={trendingData} />
+                <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
+                <PopularMovie isShow={false} title={t('PopularMovies')} listFilm={top10TrendingFilms} />
                 <HistoryMoviesHome dataHistorymovies={dataHistorymovies} />
                 <div className="!mt-10"></div>
-                <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
                 <ListFilm isShow={false} title={t('WhatToWatchToday')} listFilm={dataRecommend} />
                 <Link
                     to={'/VIPpackage'}
@@ -183,6 +186,7 @@ export const HomePage = () => {
                         title={t('PopularCelebrities')}
                         DAlist={dataActorFamous}
                         size={146}
+                        
                     />
                 )}
                 {renderListFilmsByGenre()}

@@ -1,0 +1,155 @@
+.login {
+    position: relative;
+}
+.header-logo {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: var(--z-highest);
+}
+
+.form-list {
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: calc(14 * var(--spacing-sm-1));
+    font-weight: 600;
+
+    &__large {
+        font-size: 2.2rem;
+    }
+    &__small {
+        font-size: 1.2rem;
+    }
+}
+
+.form-group {
+    margin-left: 8px;
+    margin-right: -18px;
+}
+.form-img {
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    margin-bottom: calc(10 * var(--spacing-sm-1));
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(15, 12, 12, 0.6);
+    }
+}
+
+.form-item {
+    margin-bottom: -18px;
+}
+
+.form-info {
+    position: absolute;
+    top: 8%;
+    left: 34%;
+    height: 83%;
+    padding: 5rem 5.1rem 4rem 5.1rem;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.form-button {
+    font-size: 1rem;
+    color: var(--contrast-color);
+    width: 340px;
+    padding: 1rem 0;
+}
+.form-button span:hover {
+    color: var(--contrast-color);
+}
+
+.form-change {
+    color: var(--contrast-color);
+    text-align: center;
+    margin-top: -20px;
+}
+.form-signup {
+    font-size: var(--font-s-md);
+    color: var(--primary-color);
+}
+
+.form-input {
+    border-bottom: 2px solid transparent !important;
+}
+.form-input:hover {
+    border-bottom: 2px solid var(--primary-color) !important;
+}
+
+.form-input:focus {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.form-input {
+    border: none;
+}
+
+.form-btn-login {
+    height: 42px;
+    width: 330px;
+}
+
+.login-facebook {
+    background-color: rgb(255, 255, 255);
+    display: inline-flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.54) !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+    padding: 0px;
+    height: 43px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+}
+
+.login-facebook:hover {
+    border: none !important;
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+@media screen and (max-width: 760px) {
+    .form-list{
+        height: 650px;
+    }
+    .form-info {
+        position: absolute;
+        top: 0%;
+        left: 3%;
+        height: auto;
+        padding: 18px;
+        background-color: transparent;
+        margin-top:70px;
+    }
+
+    .form-header {
+        margin-bottom: calc(10 * var(--spacing-sm-1));
+        font-weight: 600;
+    
+        &__large {
+            font-size: 1.6rem;
+        }
+        &__small {
+            font-size: 1.1rem;
+        }
+    }
+
+    .form-img{
+        display: none;
+    }
+    .form-item {
+        margin-bottom: 0;
+       
+    }
+
+}

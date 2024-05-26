@@ -1,0 +1,9 @@
+.bill {
+    margin-top: 90px;
+    color: var(--main-color);
+    background-color: var(--contrast-color);
+    padding-bottom: calc(var(--spacing-lg) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

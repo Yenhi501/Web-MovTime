@@ -32,7 +32,7 @@ export const ListEpisodes = ({
     return (
         <div className="list-container-watching">
             <div className="list-heading">
-                <Title level={2} className="list-title">
+                <Title level={3} className="list-title">
                     {title}
                 </Title>
                 <div className="list-sub-info">

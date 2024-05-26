@@ -4,7 +4,8 @@
     .list-heading {
         .list-title {
             color: var(--contrast-color);
-            font-size: 22px;
+            font-size: 23px;
+            font-weight: 600;
         }
 
         .hidden {
@@ -94,6 +95,9 @@
         .list-col {
             display: flex;
             justify-content: center;
+            
         }
     }
 }
+
+

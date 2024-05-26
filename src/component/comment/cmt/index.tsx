@@ -1,7 +1,13 @@
-import { Modal } from 'antd';
+import React, { useState, useEffect } from 'react';
+import './index.scss';
+import { DeleteIcon, LoveIcon, ReplyIcon } from '../../../asset/icon/comment-icon';
+import { WriteComment } from '../write-cmt';
+
+import { Avatar, Modal } from 'antd';
+
 import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
 import { listComment } from '../type';
+import { getTimeDifference } from '../../../utils/get-time-difference';
 import './index.scss';
 
 interface CmtProps {
@@ -52,10 +58,10 @@ export const Cmt: React.FC<CmtProps> = ({
     };
     const token = Cookies.get('accessToken');
     let isCurrentUserComment = false;
-    // if (token) {
-    //     isCurrentUserComment =
-    //         // comment.user?.user_id === JSON.parse(atob(token.split('.')[1])).userId;
-    // }
+    if (token) {
+        isCurrentUserComment =
+            comment.user?.user_id === JSON.parse(atob(token.split('.')[1])).userId;
+    }
     const [isCurrentUserLike, setisCurrentUserLike] = useState<Boolean>(false);
     const handleLike = () => {
         increaseLike(comment.numLike);
@@ -67,17 +73,17 @@ export const Cmt: React.FC<CmtProps> = ({
     };
     return (
         <article key={comment.id} className="pt-4 pb-4 text-base rounded-lg flex  ">
-            {/* <Avatar
+            <Avatar
                 className="w-12 h-12 rounded-full object-cover"
-                // src={comment.user?.avatar_url}
-                // alt={comment.user?.email}
-            /> */}
+                src={comment.user?.avatar_url}
+                alt={comment.user?.email}
+            />
             <div className="comment-detail">
                 <div className="inf-user">
-                    {/* <p className="inline-flex items-center mr-1 username ">{comment.user?.email}</p> */}
+                    <p className="inline-flex items-center mr-1 username ">{comment.user?.email}</p>
                     {'·'}
                     <p className="text-sm ml-1">
-                        {/* <time>{getTimeDifference(comment.createdAt)}</time> */}
+                        <time>{getTimeDifference(comment.createdAt)}</time>
                     </p>
                 </div>
                 {comment.content}
@@ -86,11 +92,11 @@ export const Cmt: React.FC<CmtProps> = ({
                         <div className="love-icon-like" onClick={handleUndoLike}>
                             {comment.numLike == 0 ? (
                                 <>
-                                    {/* <LoveIcon /> <p className="ml-1">Like</p> */}
+                                    <LoveIcon /> <p className="ml-1">Like</p>
                                 </>
                             ) : (
                                 <>
-                                    {/* <LoveIcon /> */}
+                                    <LoveIcon />
                                     <p className="ml-1">{comment.numLike} </p>
                                 </>
                             )}
@@ -99,11 +105,11 @@ export const Cmt: React.FC<CmtProps> = ({
                         <div className="love-icon" onClick={handleLike}>
                             {comment.numLike == 0 ? (
                                 <>
-                                    {/* <LoveIcon /> <p className="ml-1">Thích</p> */}
+                                    <LoveIcon /> <p className="ml-1">Thích</p>
                                 </>
                             ) : (
                                 <>
-                                    {/* <LoveIcon /> */}
+                                    <LoveIcon />
                                     <p className="ml-1">{comment.numLike} </p>
                                 </>
                             )}
@@ -113,7 +119,7 @@ export const Cmt: React.FC<CmtProps> = ({
                     {comment.subcomments && (
                         <div className="reply-icon" onClick={handleReply}>
                             <div className="icon">
-                                {/* <ReplyIcon /> */}
+                                <ReplyIcon />
 
                                 <p className="ml-1">Trả lời</p>
 
@@ -122,25 +128,25 @@ export const Cmt: React.FC<CmtProps> = ({
                     )}
                     {isCurrentUserComment && (
                         <div className="delete-icon" onClick={showModal}>
-                            {/* <DeleteIcon /> */}
+                            <DeleteIcon />
                             <p className="ml-1"> Xóa</p>
                         </div>
                     )}
                 </div>
-                {/* {isReplying && replyCommentId === comment.id && (
-                    // <WriteComment
-                    //     onSubmitComment={(replyText) => {
-                    //         if (onReplySubmit) {
-                    //             onReplySubmit(comment.id, replyText);
-                    //             setIsReplying(false);
-                    //         }
-                    //     }}
+                {isReplying && replyCommentId === comment.id && (
+                    <WriteComment
+                        onSubmitComment={(replyText) => {
+                            if (onReplySubmit) {
+                                onReplySubmit(comment.id, replyText);
+                                setIsReplying(false);
+                            }
+                        }}
 
-                    //     // placeholder={`Trả lời ${comment.user?.email}`}
+                        placeholder={`Trả lời ${comment.user?.email}`}
 
-                    //     onCancel={handleCancelReply}
-                    // />
-                )} */}
+                        onCancel={handleCancelReply}
+                    />
+                )}
             </div>
             <Modal
                 title="Bạn chắc chắn muốn xóa bình luận?"

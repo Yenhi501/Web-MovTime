@@ -1,0 +1,42 @@
+.container-actor__header {
+    height: 66px;
+}
+.active {
+    border-bottom: 4px solid var(--primary-color);
+}
+.btn-share {
+    display: flex;
+    height: 45px;
+    background: rgb(35, 37, 43);
+    border-radius: 4px;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+    color: var(--contrast-color);
+    margin-top: var(--spacing-md);
+
+    p {
+        margin-left: var(--spacing-sm-2);
+    }
+}
+
+.modal-item {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-md);
+
+    img {
+        margin-right: var(--spacing-md);
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.modal-item:hover {
+    color: var(--contrast-color) !important;
+}
+.modal-img:hover {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}

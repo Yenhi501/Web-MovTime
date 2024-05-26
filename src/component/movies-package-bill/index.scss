@@ -1,0 +1,51 @@
+.bill-list {
+    box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.1),
+        0 4px 6px -4px rgb(0, 0, 0, 0.1);
+    padding: 30px 60px;
+    background-color: #fcfcfc;
+
+    &__info {
+        font-weight: 700;
+        font-size: 1.2rem;
+
+        &-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            &-value {
+                margin-left: 300px;
+                text-transform: uppercase;
+            }
+
+            &-title {
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    &__btn {
+        margin-top: 20px;
+        padding: 25px 0;
+        border-radius: 0%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-s-md-1);
+        box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.1),
+            0 4px 6px -4px rgb(0, 0, 0, 0.1);
+        ;
+    }
+}
+
+.bill-list__bold {
+    font-weight: bold;
+}
+
+.bill-list__red {
+    color: red;
+    font-weight: 800;
+}

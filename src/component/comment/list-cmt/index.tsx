@@ -5,17 +5,17 @@ import { request } from '../../../utils/request';
 import { Cmt } from '../cmt';
 import { listComment } from '../type';
 import './index.scss';
-// import { CurrentUser } from '../../../model/user';
+import { CurrentUser } from '../../../model/user';
 
 interface ListCommentProps {
     listComment: Array<listComment>;
     setListComment: (listComment: Array<listComment>) => void;
-    // currentUser: CurrentUser;
+    currentUser: CurrentUser;
 }
 
 export const ListComment: React.FC<ListCommentProps> = ({
     listComment,
-    // currentUser,
+    currentUser,
     setListComment,
 }) => {
     const [replyCommentId, setReplyCommentId] = useState<number | null>(null);
