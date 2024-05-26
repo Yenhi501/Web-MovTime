@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import './index.scss';
+import React, { useEffect, useState } from 'react';
 import { DeleteIcon, LoveIcon, ReplyIcon } from '../../../asset/icon/comment-icon';
 import { WriteComment } from '../write-cmt';
+import './index.scss';
 
 import { Avatar, Modal } from 'antd';
 
 import Cookies from 'js-cookie';
-import { listComment } from '../type';
 import { getTimeDifference } from '../../../utils/get-time-difference';
+import { listComment } from '../type';
 import './index.scss';
 
 interface CmtProps {

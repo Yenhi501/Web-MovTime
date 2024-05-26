@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CurrentUser } from '../../../model/user';
 import { request } from '../../../utils/request';
 import { Cmt } from '../cmt';
 import { listComment } from '../type';
 import './index.scss';
-import { CurrentUser } from '../../../model/user';
 
 interface ListCommentProps {
     listComment: Array<listComment>;

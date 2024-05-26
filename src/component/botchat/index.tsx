@@ -1,13 +1,13 @@
-import { CloseOutlined, SendOutlined, UserOutlined } from '@ant-design/icons';
+import { CloseOutlined, SendOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
-import { useEffect, useRef, useState } from 'react';
-import { Logo } from '../../asset/icon/logo';
-import { request } from '../../utils/request';
-import './index.scss';
 import Cookies from 'js-cookie';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Logo } from '../../asset/icon/logo';
 import { RootState } from '../../redux/store';
+import { request } from '../../utils/request';
 import { CurrentUser } from '../comment/type';
+import './index.scss';
 
 interface botchatProp {
     onClose: () => void;
