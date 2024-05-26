@@ -1,14 +1,14 @@
 import { ShareAltOutlined } from '@ant-design/icons';
 import { Avatar, Divider, Modal, Spin, message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router';
+import { endpoint } from '../../utils/baseUrl';
 import { FilmItem } from '../film-item';
 import { TabContent } from './actor-tag-content';
-import { endpoint } from '../../utils/baseUrl';
 import { TabItem } from './actor-tag-item';
 import './index.scss';
 import { ActorInfo, TabsProps } from './type';
-import { Helmet } from 'react-helmet-async';
 
 const Actor: React.FC<TabsProps> = ({ color }) => {
     const [openTab, setOpenTab] = useState(1);
