@@ -20,9 +20,9 @@ const Language = () => {
 
     const selectedLabel = (
         <>
-            {/* {selectedLanguage && selectedLanguage.flag && (
+            {selectedLanguage && selectedLanguage.flag && (
                 <img src={selectedLanguage.flag} alt={selectedLanguage.label} className="w-6" />
-            )} */}
+            )}
             {selectedLanguage ? selectedLanguage.label : languages[0]?.label}
         </>
     );
@@ -52,6 +52,7 @@ const Language = () => {
             )}
             placement="bottomCenter"
             onOpenChange={setVisible}
+            className="flex max-lg:hidden "
         >
             <a className="relative hover:text-link dropdown-item flex gap-1 items-center justify-center hover:cursor-pointer">
                 {/* <GlobalOutlined /> */}
@@ -96,6 +97,6 @@ const StyledIcon = styled(CaretDownOutlined)`
     width: max-content;
     transition: transform 0.3s ease-in-out;
     position: absolute;
-    left: 112%;
-    bottom: 27%;
+    left: 105%;
+    bottom: 25%;
 `;

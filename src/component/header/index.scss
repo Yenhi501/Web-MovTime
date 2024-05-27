@@ -7,8 +7,8 @@
     width: 100%;
     height: 66px;
     z-index: 99;
-    padding-top: var(--spacing-sm-2);
-    padding: 2px 20px;
+    padding-top: var(--spacing-sm-1);
+    padding: 0 20px;
 }
 
 .scroll-header {
@@ -16,9 +16,8 @@
     backdrop-filter: blur(10px);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-.logo {
-    margin-right: calc(var(--spacing-lg) + var(--spacing-md));
-}
+
+
 
 .menu-items {
     display: flex;
@@ -32,15 +31,16 @@
 }
 
 .btn-vip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-weight: 500;
-    margin-left:15px;
-    margin-right: 10px;
-    font-size: 14px;
+    border-color: #f2bf83 !important;
+    background-color: #f2bf83 !important;
+    color: rgb(50, 44, 0) !important;
+    box-shadow: 0 2px 0 rgba(106, 96, 15, 0.1);
+
+    &:hover {
+        background-color: #e4b47d !important;
+        border-color: #e4b47d !important;
+        color: rgb(50, 44, 0) !important;
+    }
 }
 
 .notification {
