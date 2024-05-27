@@ -37,7 +37,7 @@ export const DropdownList: React.FC<DropdownMenuProps> = ({ title, data, queryPa
     };
 
     const menu = (
-        <Menu mode="horizontal" style={{ display: 'flex' }}>
+        <Menu mode="horizontal" style={{ display: 'flex' }} >
             {Array.from({ length: columns }).map((_, columnIndex) => (
                 <Menu.ItemGroup
                     key={`column-${columnIndex}`}
@@ -53,7 +53,7 @@ export const DropdownList: React.FC<DropdownMenuProps> = ({ title, data, queryPa
     );
 
     return (
-        <Dropdown overlay={menu} overlayStyle={{ zIndex: 9999 }}>
+        <Dropdown overlay={menu} overlayStyle={{ zIndex: 9999 }} className="flex max-lg:hidden " >
             <div className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                 <div className="dropdownlist">{title}</div>
             </div>

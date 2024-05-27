@@ -84,6 +84,10 @@ textarea {
     outline: none;
 }
 
+input:focus-visible {
+    outline: none;
+}
+
 input {
     color: var(--contrast-color);
 }

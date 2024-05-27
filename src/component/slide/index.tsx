@@ -297,7 +297,7 @@ const Slide: React.FC = () => {
                                         isTitleVisible ? 'visible' : ''
                                     }`}
                                 >
-                                    <h2 className="md:text-5xl font-black tracking-normal md:tw-multiline-ellipsis-2 tw-multiline-ellipsis-3">
+                                    <h2 className="2xl:text-5xl font-black  xl:text-3xl ">
                                         {movie ? movie.title : ''}
                                     </h2>
                                 </div>
