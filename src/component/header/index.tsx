@@ -1,6 +1,6 @@
 import {
     BellOutlined,
-    CrownOutlined,
+    WalletOutlined,
     HistoryOutlined,
     LoginOutlined,
     LogoutOutlined,
@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { Logo, LogoIcon } from '../../asset/icon/logo';
+import { Logo } from '../../asset/icon/logo';
 import { useToken } from '../../hooks/useToken';
 import { defaultCurrentUser } from '../../model/user';
 import { useAppSelector } from '../../redux/hook';
@@ -29,7 +29,6 @@ import { ContentModalVip } from './modalVip';
 import { ContentModalVipTitle } from './modalVipTitle';
 import Language from '../language';
 import { t } from '../../utils/i18n';
-import useDevice from '../../hooks/useDevice';
 export type Header = { className?: string };
 
 export const Header = ({ className }: Header) => {
@@ -47,7 +46,7 @@ export const Header = ({ className }: Header) => {
         location.pathname === '/payment' ||
         location.pathname === '/reset-password';
 
-    const scrollThreshold = 66;
+    const scrollThreshold = 50;
 
     const headerRef = useRef<HTMLElement>(null);
 
@@ -115,7 +114,6 @@ export const Header = ({ className }: Header) => {
     useEffect(() => {
         fetchItems();
     }, []);
-    const device = useDevice();
 
     return (
         <header
@@ -123,21 +121,23 @@ export const Header = ({ className }: Header) => {
             className={`wrapper-header ${isLoginPage ? 'hidden' : ''} ${className}`}
         >
             <div
-                className="flex justify-between items-center ml-[var(--spacing-lg)] mr-[calc(var(--spacing-lg) + var(--spacing-md))] mx-auto max-sm:ml-[0px] max-sm:mr-[0px]"
+                style={{
+                    marginLeft: 'var(--spacing-lg)',
+                }}
+                className="flex justify-between items-center mx-auto"
             >
                 <div className="flex justify-between items-center">
-                {device.isMobile ?<div className="logo ">
+                    <div className="logo">
                         <Link to="/">
-                        <LogoIcon/> 
+                            <Logo />
                         </Link>
-                    </div> : <div className="logo pl-4">
-                        <Link to="/">
-                        <Logo/> 
-                        </Link>
-                    </div>}
+                    </div>
 
                     <div
-                        className="flex items-center mr-[var(--spacing-lg)] w-full lg:flex lg:w-auto lg:order-1 "
+                        style={{
+                            marginRight: 'var(--spacing-lg)',
+                        }}
+                        className="items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
                         <Search />
@@ -154,12 +154,10 @@ export const Header = ({ className }: Header) => {
                 </div>
                 <div
                     style={{
-                        width: isLogin === true ? '28rem' : '23rem',
+                        width: isLogin === true ? '30rem' : '26rem',
                         marginRight: 'var(--spacing-lg)',
-
                     }}
-                    
-                    className="flex justify-between items-center lg:order-2 mt-2 "
+                    className="flex justify-between items-center lg:order-2 mt-2"
                 >
                     {isLogin === true ? (
                         <>
@@ -168,7 +166,6 @@ export const Header = ({ className }: Header) => {
                                 overlayStyle={{ maxWidth: '30%' }}
                                 content={<ContentModalHistory />}
                                 zIndex={9999}
-                                className="flex max-lg:hidden "
                             >
                                 <Link to="/foryou">
                                     <HistoryOutlined className="icon-login" />
@@ -185,11 +182,10 @@ export const Header = ({ className }: Header) => {
                         content={<ContentModalVip />}
                         arrow={false}
                         zIndex={9999}
-                        className="flex max-lg:hidden "
                     >
                         <Link to={'/VIPpackage'}>
-                            <Button className="btn-vip" type="primary" icon={<CrownOutlined />}>
-                                VIP
+                            <Button className="btn-vip" type="primary" icon={<WalletOutlined />}>
+                            {t('BuyPackages')}
                             </Button>
                         </Link>
                     </Popover>
