@@ -1,8 +1,7 @@
-import React from 'react';
-import './index.scss';
-import { PaginationFilm } from '../pagination-film';
-import { FilmItem } from '../film-item';
 import { Empty } from 'antd';
+import { FilmItem } from '../film-item';
+import { PaginationFilm } from '../pagination-film';
+import './index.scss';
 
 export interface HistoryMoviesProps {
     dataHistorymovies: FilmItem[];

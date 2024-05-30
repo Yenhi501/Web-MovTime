@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
-
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { CloseOutlined, SearchOutlined } from '@ant-design/icons';
-import './index.scss';
-import { t } from '../../../utils/i18n';
-import {  notification } from 'antd';
-import { FilmItem } from '../../film-item';
+import { notification } from 'antd';
 import axios from 'axios';
-import { endpoint } from '../../../utils/baseUrl';
 import { useDebounced } from '../../../hooks/debounce';
 import useDevice from '../../../hooks/useDevice';
+import { endpoint } from '../../../utils/baseUrl';
+import { t } from '../../../utils/i18n';
+import { FilmItem } from '../../film-item';
+import './index.scss';
 
 export const Search = () => {
     const [open, setOpen] = useState(false);

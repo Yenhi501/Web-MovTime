@@ -1,8 +1,8 @@
 import { CaretRightOutlined } from '@ant-design/icons';
 import { Badge, Skeleton } from 'antd';
 import { useState } from 'react';
-import './index.scss';
 import { FilmItem } from '../film-item';
+import './index.scss';
 
 export const FilmItemHistory = ({ episodeNum, title, posterMovieURL }: FilmItem) => {
     const [isLoadingImg, setIsLoadingImg] = useState(true);

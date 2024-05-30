@@ -7,11 +7,14 @@ import {
     faVolumeXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ConfigProvider, Modal, Popover, Slider, Tooltip } from 'antd';
+import { ConfigProvider, Popover, Slider, Tooltip } from 'antd';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IconForward10s } from '../../asset/icon/forward-10s';
 import { IconRewind10s } from '../../asset/icon/rewind-10s';
+import { useToken } from '../../hooks/useToken';
 import { useAppSelector } from '../../redux/hook';
+import { endpoint } from '../../utils/baseUrl';
 import { formatTime } from '../../utils/formatTime';
 import { HandleClickProgressProps, ProgressBar } from '../progress-bar';
 import { ControlPlayerType } from './control-player-type';
@@ -25,10 +28,6 @@ import {
 import './index.scss';
 import { SettingContent } from './setting-content';
 import { SettingItem } from './setting-item';
-import axios from 'axios';
-import { endpoint } from '../../utils/baseUrl';
-import { useToken } from '../../hooks/useToken';
-import { useNavigate } from 'react-router-dom';
 
 const mapIconVolume: Record<string, IconDefinition> = {
     true: faVolumeXmark,

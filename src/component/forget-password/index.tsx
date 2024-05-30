@@ -1,10 +1,10 @@
 import { Button, Form, Input, notification } from 'antd';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../../asset/icon/logo';
-import './index.scss';
-import axios from 'axios';
 import { endpoint } from '../../utils/baseUrl';
+import './index.scss';
 
 type FieldType = {
     email?: string;

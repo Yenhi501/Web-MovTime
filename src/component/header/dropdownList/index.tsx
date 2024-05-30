@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import { Dropdown, Menu } from 'antd';
-import './index.scss';
-import { request } from '../../../utils/request';
-import { FilmItem } from '../../film-item';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChildrenCategoriesHeader } from '../handle-data-header';
+import './index.scss';
 
 interface DropdownMenuProps {
     title: string;
