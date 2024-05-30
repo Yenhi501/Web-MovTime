@@ -17,6 +17,7 @@ import { Logo } from '../../asset/icon/logo';
 import { endpoint } from '../../utils/baseUrl';
 import './index.scss';
 import { LoadingOutlined } from '@ant-design/icons';
+import { t } from '../../utils/i18n';
 
 const { Option } = Select;
 
@@ -293,7 +294,7 @@ export const Register: React.FC = () => {
                                         >
                                             <Option value="Male">Nam</Option>
                                             <Option value="Female">Nữ</Option>
-                                            <Option value="Other">Khác</Option>
+                                            <Option value="Other">{t('Other')}</Option>
                                         </Select>
                                     </Form.Item>
                                 </div>

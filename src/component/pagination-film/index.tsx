@@ -9,11 +9,12 @@ import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
 import { FilmItemHistory } from '../film-item-history';
 import './index.scss';
+import React from 'react';
 
 const moment = require('moment');
 
 export type PaginationFilmProps = {
-    title?: string;
+    title?: string | React.ReactNode;
     listFilm: Array<FilmItem>;
     number: number;
     onCancelClick?: ((filmName: string) => void) | boolean;

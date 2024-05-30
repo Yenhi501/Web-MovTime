@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { request } from '../../../utils/request';
 import { FilmItem } from '../../film-item';
+import { t } from '../../../utils/i18n';
 
 const accessToken = Cookies.get('accessToken')?.replace(/^"(.*)"$/, '$1') || '';
 
@@ -69,7 +70,7 @@ export const ContentModalHistory = () => {
                 to="/foryou/profile"
                 className="text-[#989898] text-[13px] flex justify-center mt-5 hover:text-[red]"
             >
-                <div className="mr-2">Khác</div>
+                <div className="mr-2">{t('Other')}</div>
                 <RightOutlined style={{ fontSize: '10px' }} />
             </Link>
         </div>

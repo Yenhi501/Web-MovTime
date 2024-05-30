@@ -22,6 +22,7 @@ import { CurrentUser, defaultCurrentUser } from '../../model/user';
 import { useAppSelector } from '../../redux/hook';
 import { request } from '../../utils/request';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 const { Header, Content, Sider } = Layout;
 
@@ -42,35 +43,35 @@ function getItem(
 }
 const items: MenuItem[] = [
     getItem(
-        'Thông tin cá nhân',
+        t('PersonalInformation'),
         '/foryou/profile',
         <Link to={'/foryou/profile'}>
-            <UserOutlined />
+            <UserOutlined />    
         </Link>,
     ),
     getItem(
-        'Gói VIP',
+        t('VIPPackage'),
         '/vip-package',
         <Link to={'/foryou/vip-package'}>
             <CrownOutlined />
         </Link>,
     ),
     getItem(
-        'Phim xem sau',
+        t('WatchLater'),
         '/watch-later',
         <Link to={'/foryou/watch-later'}>
             <UnorderedListOutlined />
         </Link>,
     ),
     getItem(
-        'Lịch sử xem',
+        t('ViewHistory'),
         '/watched-movies',
         <Link to={'/foryou/watched-movies'}>
             <CalendarOutlined />
         </Link>,
     ),
     getItem(
-        'Phim yêu thích',
+        t('FavoriteMovie'),
         '/love-movies',
         <Link to={'/foryou/love-movies'}>
             <HeartOutlined />
@@ -172,7 +173,7 @@ export const LayoutUser = () => {
                                         <SettingOutlined />
                                     </div>
                                 ) : (
-                                    <div className="title-header">Dành cho bạn</div>
+                                    <div className="title-header">{t('ForYou')}</div>
                                 )}
                             </Header>
                             <hr className="mt-2 border-neutral-600" />

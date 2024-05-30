@@ -3,6 +3,7 @@ import './index.scss';
 import { PaginationFilm } from '../pagination-film';
 import { FilmItem } from '../film-item';
 import { Empty } from 'antd';
+import { t } from '../../utils/i18n';
 
 interface WatchLaterProps {
     dataCollect: FilmItem[];
@@ -13,7 +14,7 @@ export const WatchLater = ({ dataCollect }: WatchLaterProps) => {
         <div className="content-page-watch-later">
             {dataCollect.length !== 0 ? (
                 <PaginationFilm
-                    title="Bộ sưu tập phim"
+                    title={t('MovieCollection')}
                     listFilm={dataCollect}
                     number={4.8}
                     onCancelClick={true}

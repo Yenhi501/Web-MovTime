@@ -1,5 +1,6 @@
 import { Alert, Col, Row } from 'antd';
 import Marquee from 'react-fast-marquee';
+import { t } from '../../../utils/i18n';
 
 export const ContentModalVip = () => {
     return (
@@ -12,7 +13,7 @@ export const ContentModalVip = () => {
                             alt=""
                             className="w-8 h-8"
                         />
-                        <p className="ml-2 text-[13px]"> Nội dung độc quyền</p>
+                        <p className="ml-2 text-[13px]">{t('ExclusiveContent')}</p>
                     </Col>
                     <Col span={12} className="flex">
                         <img
@@ -20,7 +21,7 @@ export const ContentModalVip = () => {
                             alt=""
                             className="w-8 h-8"
                         />
-                        <p className="ml-2 text-[13px]"> Không quảng cáo</p>
+                        <p className="ml-2 text-[13px]">{t('NoAdvertising')}</p>
                     </Col>
                 </Row>
                 <Row gutter={34} className="mt-8">
@@ -30,7 +31,7 @@ export const ContentModalVip = () => {
                             alt=""
                             className="w-8 h-8"
                         />
-                        <p className="ml-2 text-[13px]"> Nội dung độc quyền</p>
+                        <p className="ml-2 text-[13px]">{t('ExclusiveContent')}</p>
                     </Col>
                     <Col span={12} className="flex">
                         <img
@@ -38,7 +39,7 @@ export const ContentModalVip = () => {
                             alt=""
                             className="w-8 h-8"
                         />
-                        <p className="ml-2 text-[13px]"> Không quảng cáo</p>
+                        <p className="ml-2 text-[13px]">{t('NoAdvertising')}</p>
                     </Col>
                 </Row>
             </div>
@@ -46,7 +47,7 @@ export const ContentModalVip = () => {
                 style={{ backgroundColor: '#f2bf83', borderColor: '#f2bf83' }}
                 className="text-[13px]"
                 message={
-                    <Marquee gradient={false}> Đăng ký VIP. Tận hưởng nội dung độc quyền </Marquee>
+                    <Marquee gradient={false}>{t('SignUpForVIPEnjoyExclusiveContent')}</Marquee>
                 }
             />
         </div>

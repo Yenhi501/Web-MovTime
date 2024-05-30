@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ItemHistoryHome } from '../item-history-home';
 import { PaginationFilmProps } from '../pagination-film';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 const moment = require('moment');
 
@@ -13,7 +14,7 @@ export const ListHistoryHome = ({ listFilm: searchResults }: PaginationFilmProps
     return (
         <div className="list-film-history mb-14">
             <div className="header-list-film">
-                <p className="text-white text-[22px] font-medium ml-9">Tiếp tục xem</p>
+                <p className="text-white text-[22px] font-medium ml-9">{t('ContinueWatching')}</p>
             </div>
             <div className="content-list-film">
                 <Row gutter={[14, 24]}>

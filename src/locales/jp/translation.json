@@ -3,6 +3,7 @@
     "Country": "国",
     "YearOfManufacture": "製造年",
     "Login": "ログイン",
+    "Logout":"ログアウト",
     "Overall": "全体的な",
     "PlayNow": "今すぐ再生",
     "Search": "検索",
@@ -27,5 +28,19 @@
     "DetailedDescription":"詳細な説明",
     "Favorites":"お気に入り",
     "TotalNumberOfEpisodes":"総話数",
-    "BuyPackages" :"ムアゴイ"
+    "BuyPackages" :"ムアゴイ",
+    "ContinueWatching":"視聴を続ける",
+    "MemberBenefits":"会員特典",
+    "ExclusiveContent":"限定コンテンツ",
+    "SignUpForVIPEnjoyExclusiveContent":"VIPに登録してください。限定コンテンツをお楽しみください",
+    "ViewHistory":"履歴を見る",
+    "Other":"他の",
+    "FullSet":"モジュラー",
+    "PersonalInformation": "個人情報",
+    "MyCollection":"私のコレクション",
+    "FavoritesList":"お気に入りリスト",
+    "ForYou":"あなたのために",
+    "FavoriteMovie":"お気に入りの映画",
+    "VIPPackage":"VVIPパッケージ",
+    "MovieCollection":"ムービーコレクション"
 }

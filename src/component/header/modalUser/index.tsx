@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { t } from '../../../utils/i18n';
 
 interface ContentItemProps {
     icon: JSX.Element;
@@ -24,11 +25,11 @@ const ContentItem: React.FC<ContentItemProps> = ({ icon, title, to }) => (
 
 export const ContentModalUser: React.FC = () => {
     const contentItems: ContentItemProps[] = [
-        { icon: <UserOutlined />, title: 'Thông tin cá nhân', to: '/foryou/profile' },
-        { icon: <UnorderedListOutlined />, title: 'Sưu tập của tôi', to: '/foryou/watch-later' },
-        { icon: <HistoryOutlined />, title: 'Lịch sử xem', to: '/foryou/watched-movies' },
-        { icon: <HeartOutlined />, title: 'Danh sách yêu thích', to: '/foryou/love-movies' },
-        { icon: <LogoutOutlined />, title: 'Đăng xuất' },
+        { icon: <UserOutlined />, title: t('PersonalInformation'), to: '/foryou/profile' },
+        { icon: <UnorderedListOutlined />, title: t('MyCollection'), to: '/foryou/watch-later' },
+        { icon: <HistoryOutlined />, title: t('ViewHistory'), to: '/foryou/watched-movies' },
+        { icon: <HeartOutlined />, title: t('FavoritesList'), to: '/foryou/love-movies' },
+        { icon: <LogoutOutlined />, title: t('LogOut') },
     ];
 
     return (
