@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './index.scss';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { HeaderPay } from '../../component/header-pay';
 import { MethodPayment } from '../../component/method-payment';
-import { TermPackage } from '../../component/term-package';
 import { Summary } from '../../component/sumary';
-import axios from 'axios';
+import { TermPackage } from '../../component/term-package';
 import { SubscriptionInfo } from '../../model/subscription-info';
-import { useParams } from 'react-router-dom';
 import { endpoint } from '../../utils/baseUrl';
+import './index.scss';
 
 export const Payment = () => {
     const [selectedTerm, setSelectedTerm] = useState<TermPackage | null>({

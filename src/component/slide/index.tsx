@@ -5,23 +5,22 @@ import {
     ShareAltOutlined,
 } from '@ant-design/icons';
 import { Button, Divider, Modal, Spin, message } from 'antd';
-
 import Cookies from 'js-cookie';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
+import { FacebookShareButton } from 'react-share';
 import { ColectIcon, ColectedIcon } from '../../asset/icon/collectionIcon';
 import { Start } from '../../asset/icon/start';
 import { RootState } from '../../redux/store';
-import { request } from '../../utils/request';
 import { endpoint } from '../../utils/baseUrl';
+import { t } from '../../utils/i18n';
+import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
 import './index.scss';
 import { Movie } from './type';
-import { FacebookShareButton } from 'react-share';
-import { t } from '../../utils/i18n';
 
 const Slide: React.FC = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);

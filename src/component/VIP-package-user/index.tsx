@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Empty, Table, Tag } from 'antd';
-import { Link } from 'react-router-dom';
-import type { ColumnsType } from 'antd/es/table';
-import './index.scss';
-import { CurrentUser } from '../../model/user';
+import { Empty, Table, Tag } from 'antd';
 import moment from 'moment';
+import { CurrentUser } from '../../model/user';
+import './index.scss';
 
 interface VIPPackageUser {
     data: CurrentUser;

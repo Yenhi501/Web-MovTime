@@ -8,13 +8,13 @@ import { HistoryMoviesHome } from '../../component/history-home';
 import { CastFamousHome } from '../../component/home-cast-famous';
 import { ListFilm } from '../../component/list-film';
 import { ListReserveMovies } from '../../component/list-reserve-movie';
+import { PopularMovie } from '../../component/popular-moive';
 import Slide from '../../component/slide';
 import { DAFilm, Film } from '../../model/film';
 import { RootState } from '../../redux/store';
+import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import './index.scss';
-import { t } from '../../utils/i18n';
-import { PopularMovie } from '../../component/popular-moive';
 
 export type DataMovieByGenre = {
     genreId: number;

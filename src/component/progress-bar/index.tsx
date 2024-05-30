@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import './index.scss';
-import { useAppSelector } from '../../redux/hook';
 
 export interface HandleClickProgressProps {
     event?: React.MouseEvent<HTMLDivElement, MouseEvent>;

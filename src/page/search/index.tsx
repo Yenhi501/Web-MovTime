@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Button, ConfigProvider, Select, Spin, notification } from 'antd';
-import { FilmItem } from '../../component/film-item';
-import './index.scss';
-import { PaginationFilm } from '../../component/pagination-film';
-import axios from 'axios';
-import { FilterParams } from '../../model/filter-params';
-import { handleSearchParams } from '../../utils/handle-search-params';
-import { convertParams } from '../../utils/convert-prams';
 import { LoadingOutlined } from '@ant-design/icons';
-import { endpoint } from '../../utils/baseUrl';
-import { FilterItem } from '../../model/filter';
+import { Button, ConfigProvider, Select, Spin, notification } from 'antd';
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { FilmItem } from '../../component/film-item';
 import { Genre } from '../../component/header/handle-data-header';
-import { QueryFilter, defaultFilterItems } from './filter-type';
+import { PaginationFilm } from '../../component/pagination-film';
+import { FilterItem } from '../../model/filter';
+import { FilterParams } from '../../model/filter-params';
+import { endpoint } from '../../utils/baseUrl';
+import { convertParams } from '../../utils/convert-prams';
+import { handleSearchParams } from '../../utils/handle-search-params';
 import { t } from '../../utils/i18n';
+import { QueryFilter, defaultFilterItems } from './filter-type';
+import './index.scss';
 
 export const SearchPage: React.FC = () => {
     const { search } = useLocation();
