@@ -45,7 +45,7 @@ export const CastFamousHome = ({ DAlist, title, size }: ActorFamousProps) => {
 
     return (
         <div className="mt-14 mb-14 actor-famous list">
-            <Text className="text-white text-[22px] font-medium ml-20 mt-4">{title}</Text>
+            <Text className="text-white text-[22px] font-bold ml-20 mt-4 ">{title}</Text>
             <Carousel className="ml-[68px] mb-10 mr-10 mt-4" ref={actorRef} dots={false}>
                 {multipleActorRows.map((actorRows, index) => {
                     return (
