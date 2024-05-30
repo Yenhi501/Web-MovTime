@@ -1,10 +1,10 @@
 import { RightOutlined } from '@ant-design/icons';
+import { Col, Row } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { request } from '../../../utils/request';
 import { FilmItem } from '../../film-item';
-import { Col, Row } from 'antd';
 
 const accessToken = Cookies.get('accessToken')?.replace(/^"(.*)"$/, '$1') || '';
 

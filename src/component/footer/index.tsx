@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import './index.scss';
 import { Logo } from '../../asset/icon/logo';
+import './index.scss';
 
 interface RegulationItem {
     text: string;

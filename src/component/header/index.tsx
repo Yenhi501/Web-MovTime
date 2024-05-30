@@ -1,10 +1,10 @@
 import {
     BellOutlined,
-    WalletOutlined,
     HistoryOutlined,
     LoginOutlined,
     LogoutOutlined,
     UserOutlined,
+    WalletOutlined,
 } from '@ant-design/icons';
 import { Avatar, Button, Popover, Tooltip, notification } from 'antd';
 import Cookies from 'js-cookie';
@@ -16,9 +16,11 @@ import { useToken } from '../../hooks/useToken';
 import { defaultCurrentUser } from '../../model/user';
 import { useAppSelector } from '../../redux/hook';
 import { setIsLogin } from '../../redux/isLoginSlice';
+import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import { CurrentUser } from '../comment/type';
 import { Search } from '../header/search/index';
+import Language from '../language';
 import { DropdownList } from './dropdownList/index';
 import { DataHeader, handleDataHomeHeader } from './handle-data-header';
 import './index.scss';
@@ -27,8 +29,6 @@ import { ContentModalHistoryTitle } from './modalHistoryTitle';
 import { ContentModalUser } from './modalUser';
 import { ContentModalVip } from './modalVip';
 import { ContentModalVipTitle } from './modalVipTitle';
-import Language from '../language';
-import { t } from '../../utils/i18n';
 export type Header = { className?: string };
 
 export const Header = ({ className }: Header) => {

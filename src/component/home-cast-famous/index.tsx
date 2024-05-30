@@ -3,8 +3,8 @@ import { Avatar, Carousel, Row, Typography } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './index.scss';
 import { DAFilm } from '../../model/film';
+import './index.scss';
 
 const { Text } = Typography;
 interface ActorFamousProps {

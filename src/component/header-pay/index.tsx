@@ -1,12 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Steps } from 'antd';
-import './index.scss';
+import { Link } from 'react-router-dom';
 import { LogoDark } from '../../asset/icon/logoDark';
-interface HeaderPayProps {
-    number: number;
-}
+import './index.scss';
+
 export type HeaderPay = { currentStep?: number };
+
 export const HeaderPay = ({ currentStep = 0 }: HeaderPay) => {
     return (
         <header className="wrapper-header-pay">
