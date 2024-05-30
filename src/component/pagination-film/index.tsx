@@ -2,13 +2,13 @@ import { CloseOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Col, Modal, Pagination, Row } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setDataCollect } from '../../redux/dataCollectSlide';
 import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
 import { FilmItemHistory } from '../film-item-history';
 import './index.scss';
-import { useDispatch } from 'react-redux';
-import { setDataCollect } from '../../redux/dataCollectSlide';
 
 const moment = require('moment');
 

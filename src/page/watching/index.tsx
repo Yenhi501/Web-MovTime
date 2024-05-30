@@ -1,26 +1,25 @@
 import { CommentOutlined, ShareAltOutlined } from '@ant-design/icons';
+import { Modal } from 'antd';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { FacebookShareButton } from 'react-share';
 import { Comment } from '../../component/comment';
 import { IconWithText } from '../../component/icon-with-text';
+import { ActorFamous } from '../../component/list-actor-famous';
 import { ListEpisodes } from '../../component/list-episode';
+import { ListFilm } from '../../component/list-film';
 import { MainInfoFilm } from '../../component/main-info-film';
 import { SubInfo } from '../../component/sub-info';
-import { DAFilm, Episode, Film, Genres } from '../../model/film';
-import { request } from '../../utils/request';
-import { Modal } from 'antd';
-import { FacebookShareButton } from 'react-share';
-import { ActorFamous } from '../../component/list-actor-famous';
-import { ListFilm } from '../../component/list-film';
 import { VideoPlayerCustom } from '../../component/video-player-custom';
 import { useToken } from '../../hooks/useToken';
+import { DAFilm, Episode, Film, Genres } from '../../model/film';
 import { NotifyModalContent, defaultNotifyModalContent } from '../../model/notify-modal';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { selectionItems } from './items-selection';
-import { setDataVideoWatching, setDurationDefault, setEpisodeId } from '../../redux/videoSlice';
+import { setDurationDefault, setEpisodeId } from '../../redux/videoSlice';
+import { request } from '../../utils/request';
 import { defaultEpisode, defaultFilm, modalContentMap } from './default-value';
 import './index.scss';
+import { selectionItems } from './items-selection';
 
 const moment = require('moment');
 

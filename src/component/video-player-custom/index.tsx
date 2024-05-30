@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { CaretRightOutlined, LoadingOutlined } from '@ant-design/icons';
+import { Modal } from 'antd';
+import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { ControlPlayer } from '../control-player';
-import './index.scss';
+import { useLocation, useNavigate } from 'react-router-dom';
+import screenfull from 'screenfull';
 import { useAppDispatch } from '../../redux/hook';
 import { VideoWatching, setDataVideoWatching, setEpisodeId } from '../../redux/videoSlice';
-import screenfull from 'screenfull';
-import { CaretRightOutlined, LoadingOutlined } from '@ant-design/icons';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Modal, Spin } from 'antd';
+import { ControlPlayer } from '../control-player';
+import './index.scss';
 
 export interface VideoState {
     playing: boolean;

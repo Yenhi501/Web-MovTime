@@ -1,5 +1,6 @@
 import { Avatar, Tooltip } from 'antd';
 import { useEffect, useState } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './app.scss';
 import ActiveUser from './component/active-user';
@@ -26,7 +27,6 @@ import { useAppDispatch } from './redux/hook';
 import { setIsLogin } from './redux/isLoginSlice';
 import { refreshToken } from './utils/refreshToken';
 import { request } from './utils/request';
-import { HelmetProvider } from 'react-helmet-async';
 
 const locationMap: Record<string, string> = {
     '/VIPpackage': 'hidden',

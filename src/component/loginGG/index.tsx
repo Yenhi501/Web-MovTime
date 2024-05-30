@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { request } from '../../utils/request';
 import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { request } from '../../utils/request';
 
 interface GoogleAuthData {
     code: string;

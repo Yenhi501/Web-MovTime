@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Button, Form, Input, DatePicker, Modal, Select, Checkbox, notification } from 'antd';
-import { Logo } from '../../asset/icon/logo';
-import './index.scss';
+import { Button, Form, Input, notification } from 'antd';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Logo } from '../../asset/icon/logo';
 import { endpoint } from '../../utils/baseUrl';
+import './index.scss';
 
 const formItemLayout = {
     labelCol: {

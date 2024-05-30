@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import './index.scss';
 import { Radio, Space } from 'antd';
-import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { DurationVIP } from '../../model/duration-VIP';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { DurationVIP } from '../../model/duration-VIP';
 import { dataVIPPackageRaw } from '../../page/vip-package';
 import {
-    setDurationValue,
     setIdSelectedInfoDuration,
-    setTotalPrice,
+    setTotalPrice
 } from '../../redux/VIPPaymentSlice';
-import { useParams } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/hook';
 import { endpoint } from '../../utils/baseUrl';
+import './index.scss';
 
 export interface TermPackage {
     id: number;

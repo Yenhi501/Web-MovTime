@@ -8,9 +8,7 @@ import { VNPayReturnDataRaw, VNPayReturnDataRawDefault } from '../../model/VNPay
 import { getNextDateByMonth } from '../../utils/getNextDateByMonth';
 import { BillItem } from '../movies-package-bill-item';
 import './index.scss';
-
 import { endpoint } from '../../utils/baseUrl';
-
 import { LoadingOutlined } from '@ant-design/icons';
 import { useToken } from '../../hooks/useToken';
 import { PaypalReturn, defaultPaypalReturn } from '../../model/paypal';
