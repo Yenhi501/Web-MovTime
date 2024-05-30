@@ -3,6 +3,7 @@
     "Country": "País",
     "YearOfManufacture": "Año de fabricación",
     "Login": "Iniciar sesión",
+    "Logout": "Cerrar sesión",
     "Overall": "General",
     "PlayNow": "Reproducir ahora",
     "Search": "Buscar",
@@ -27,5 +28,21 @@
     "DetailedDescription":"Descripción detallada",
     "Favorites":"Favoritos",
     "TotalNumberOfEpisodes":"Número total de episodios",
-    "BuyPackages" :"Comprar paquetes"
+    "BuyPackages" :"Comprar paquetes",
+    "ContinueWatching":"Continuar viendo",
+    "MemberBenefits":"Beneficios para miembros",
+    "ExclusiveContent":"Contenido exclusivo",
+    "NoAdvertising":"Sin publicidad",
+    "SignUpForVIPEnjoyExclusiveContent":"Regístrese para VIP. Disfruta de contenido exclusivo.",
+    "ViewHistory":"Ver historial",
+    "Other":"Otra",
+    "FullSet":"Modular",
+    "PersonalInformation": "Información Personal",
+    "MyCollection":"Mi colección",
+    "FavoritesList":"Lista de favoritos",
+    "ForYou":"Para ti",
+    "FavoriteMovie":"Película favorita",
+    "VIPPackage":"Paquete vip",
+    "MovieCollection":"Colección de películas"
+
 }

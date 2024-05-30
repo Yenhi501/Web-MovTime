@@ -1,16 +1,16 @@
-import { Button, DatePicker, Form, FormInstance, Input, Select, Space, Spin } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { UploadAvtCircle } from '../../upload-avt-circle';
-import { RcFile, UploadFile } from 'antd/es/upload';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Button, DatePicker, Form, Input, Select, Space, Spin } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import { request } from '../../../utils/request';
-import Cookies from 'js-cookie';
+import { RcFile, UploadFile } from 'antd/es/upload';
+import axios from 'axios';
 import dayjs from 'dayjs';
+import Cookies from 'js-cookie';
+import React, { useState } from 'react';
 import { CurrentUser } from '../../../model/user';
 import { endpoint } from '../../../utils/baseUrl';
-import axios from 'axios';
-import { resolve } from 'path';
-import { LoadingOutlined } from '@ant-design/icons';
+import { t } from '../../../utils/i18n';
+import { request } from '../../../utils/request';
+import { UploadAvtCircle } from '../../upload-avt-circle';
 
 type FieldType = {
     dateOfBirth: string;
@@ -162,7 +162,7 @@ export const FormEditUser = ({
                 >
                     <Option value="Male">Nam</Option>
                     <Option value="Female">Nữ</Option>
-                    <Option value="Other">Khác</Option>
+                    <Option value="Other">{t('Other')}</Option>
                 </Select>
             </Form.Item>
             <Form.Item className="btn-form-container">

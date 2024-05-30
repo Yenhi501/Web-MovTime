@@ -321,7 +321,7 @@ const Slide: React.FC = () => {
                                         <p>{movie ? formatYear(movie.releaseDate) : ''}</p>
                                     </span>
                                     <span>
-                                        <p>Trọn bộ {movie.episodeNum} tập</p>
+                                        <p>{t('FullSet')} {movie.episodeNum} {t('Episode')}</p>
                                     </span>
                                 </h2>
                                 <div
