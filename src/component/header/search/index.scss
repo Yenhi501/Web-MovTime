@@ -1,6 +1,5 @@
 .search {
     --width-search:229px;
-    
     position: relative;
     height: 42px;
     display: flex;
@@ -29,10 +28,10 @@
 .loading-search,
 .clear-search {
     position: absolute;
-    right:21px;
-    font-size: var(--font-s-md);
+    right: 22px;
+    font-size: 13px;
     color: rgb(178, 178, 186);
-    top: 50%;
+    top: 48%;
     transform: translateY(-50%);
 }
 .search-btn{
@@ -44,9 +43,8 @@
 }
 .results{
     position:absolute;
-    top:42px;
-    left:0px;
-    width:100%;
+    top:48px;
+    left:26px;
     background-color: #1e1e1e;
     border-radius: 7px;
     color: var(--sub-color);

@@ -99,14 +99,14 @@ export const Search = () => {
             
             {open && (
                 <div className="results" >
-                    <div className="font-medium text-[1rem] text-[#9ca3af] p-3">
-                        Kết quả tìm kiếm
+                    <div className="font-medium text-[1rem] text-[#9ca3af] p-3 ml-2">
+                        {t('SearchResults')}
                     </div>
                     <div className="p-5 pt-0 text-[13px]">
                         {searchResults.length > 0 ? (
                             searchResults.map((item) => (
                                 <Link to={`/movie/${item.movieId}`} target="_parent">
-                                        <p className="name-title py-[6px]">{item.title}</p>
+                                        <p className="name-title py-3">{item.title}</p>
                                     </Link>
                               
                             ))
