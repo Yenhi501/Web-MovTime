@@ -175,7 +175,6 @@ export const Header = ({ className }: Header) => {
                     ) : null}
 
                     <Language />
-
                     <Popover
                         title={<ContentModalVipTitle />}
                         overlayStyle={{ maxWidth: '20%' }}
@@ -235,7 +234,7 @@ export const Header = ({ className }: Header) => {
                                     )}
                                 </Link>
                             </Popover>
-                            <Tooltip title="Đăng xuất">
+                            <Tooltip title={t('LogOut')}>
                                 <div className="icon-login">
                                     <LogoutOutlined onClick={handleLogout} />
                                 </div>
