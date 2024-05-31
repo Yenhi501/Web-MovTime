@@ -43,5 +43,10 @@
     "ForYou":"당신을 위한",
     "FavoriteMovie":"좋아하는 영화",
     "VIPPackage":"VIP 패키지",
-    "MovieCollection":"영화 컬렉션"
+    "MovieCollection":"영화 컬렉션",
+    "DateOfBirth":"생일",
+    "Sex":"섹스",
+    "ChangePassword":"비밀번호 변경",
+    "Edit":"편집하다",
+    "DeleteAvatar" :"아바타 삭제"
 }

@@ -43,5 +43,10 @@
     "ForYou":"For you",
     "FavoriteMovie":"Favorite Movie",
     "VIPPackage":"VIP package",
-    "MovieCollection":"Movie collection"
+    "MovieCollection":"Movie collection",
+    "DateOfBirth":"Date of birth",
+    "Sex":"Sex",
+    "ChangePassword":"Change password",
+    "Edit":"Edit",
+    "DeleteAvatar" :"Delete avatar"
 }

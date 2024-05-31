@@ -42,5 +42,10 @@
     "ForYou":"あなたのために",
     "FavoriteMovie":"お気に入りの映画",
     "VIPPackage":"VVIPパッケージ",
-    "MovieCollection":"ムービーコレクション"
+    "MovieCollection":"ムービーコレクション",
+    "DateOfBirth":"生年月日",
+    "Sex":"セックス",
+    "ChangePassword":"パスワードを変更する",
+    "Edit":"編集",
+    "DeleteAvatar" :"アバターの削除"
 }

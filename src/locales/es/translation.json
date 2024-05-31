@@ -43,6 +43,11 @@
     "ForYou":"Para ti",
     "FavoriteMovie":"Película favorita",
     "VIPPackage":"Paquete vip",
-    "MovieCollection":"Colección de películas"
+    "MovieCollection":"Colección de películas",
+    "DateOfBirth":"Fecha de nacimiento",
+    "Sex":"Sexo",
+    "ChangePassword":"Cambiar la contraseña",
+    "Edit":"Editar",
+    "DeleteAvatar" :"Eliminar avatar"
 
 }
