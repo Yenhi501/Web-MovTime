@@ -9,6 +9,7 @@ import { FormChangePassword } from '../modal-user/form-change-password';
 import { FormEditUser } from '../modal-user/form-edit-user';
 import './index.scss';
 import { useToken } from '../../hooks/useToken';
+import { t } from '../../utils/i18n';
 
 export const UserProfile = () => {
     const moment = require('moment');
@@ -59,12 +60,12 @@ export const UserProfile = () => {
         },
         {
             key: '2',
-            label: 'Ngày sinh',
+            label: t('DateOfBirth'),
             children: moment(currentUser.dateOfBirth).format('YYYY-MM-DD'),
         },
         {
             key: '3',
-            label: 'Giới tính',
+            label: t('Sex'),
             children: currentUser.gender,
         },
     ];
@@ -151,21 +152,21 @@ export const UserProfile = () => {
                             className="user-profile-btn"
                             onClick={() => setIsOpenChangePassword(true)}
                         >
-                            Đổi mật khẩu
+                            {t('ChangePassword')}
                         </Button>
                         <Button
                             type="primary"
                             className="user-profile-btn"
                             onClick={() => setIsOpenEdit(true)}
                         >
-                            Chỉnh sửa
+                            {t('Edit')}
                         </Button>
                         <Button
                             type="primary"
                             className="user-profile-btn"
                             onClick={handleRemoveAvatar}
                         >
-                            Xóa Avatar
+                            {t('DeleteAvatar')}
                         </Button>
                     </div>
                 </div>

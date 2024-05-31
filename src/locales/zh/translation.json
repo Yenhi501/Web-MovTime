@@ -43,5 +43,10 @@
     "ForYou":"为你",
     "FavoriteMovie":"喜欢的电影",
     "VIPPackage":"贵宾套餐",
-    "MovieCollection":"电影收藏"    
+    "MovieCollection":"电影收藏",
+    "DateOfBirth":"出生日期",
+    "Sex":"性别",
+    "ChangePassword":"更改密码",
+    "Edit":"编辑",
+    "DeleteAvatar" :"删除头像"
 }

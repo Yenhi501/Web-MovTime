@@ -43,5 +43,10 @@
     "ForYou":"Dành cho bạn",
     "FavoriteMovie":"Phim yêu thích",
     "VIPPackage":"Gói VIP",
-    "MovieCollection":"Bộ sưu tập phim"
+    "MovieCollection":"Bộ sưu tập phim",
+    "DateOfBirth":"Ngày sinh",
+    "Sex":"Giới tính",
+    "ChangePassword":"Đổi mật khẩu",
+    "Edit":"Chỉnh sửa",
+    "DeleteAvatar" :"Xóa avatar"
 }

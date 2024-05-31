@@ -266,7 +266,7 @@ export const Register: React.FC = () => {
                                         style={{ marginRight: '20px' }}
                                         className="register-form__item"
                                         name="date-picker"
-                                        label={<span style={{ color: 'white' }}>Ngày sinh</span>}
+                                        label={<span style={{ color: 'white' }}>{t('DateOfBirth')}</span>}
                                         {...config}
                                     >
                                         <DatePicker className="register-form__item-input" />
@@ -275,7 +275,7 @@ export const Register: React.FC = () => {
                                     <Form.Item
                                         className="register-form__item"
                                         name="gender"
-                                        label={<span style={{ color: 'white' }}>Giới tính</span>}
+                                        label={<span style={{ color: 'white' }}>{t('Sex')}</span>}
                                         rules={[
                                             {
                                                 required: true,

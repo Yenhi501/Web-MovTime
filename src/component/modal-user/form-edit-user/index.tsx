@@ -148,10 +148,10 @@ export const FormEditUser = ({
             <Form.Item name="email" label="Email">
                 <Input value={data.email} readOnly />
             </Form.Item>
-            <Form.Item name="dateOfBirth" label="Ngày sinh">
+            <Form.Item name="dateOfBirth" label={t('DateOfBirth')}>
                 <DatePicker className="form-date-picker" />
             </Form.Item>
-            <Form.Item name="gender" label={<span style={{ color: 'white' }}>Giới tính</span>}>
+            <Form.Item name="gender" label={<span style={{ color: 'white' }}>{t('Sex')}</span>}>
                 <Select
                     value={data.gender}
                     style={{
