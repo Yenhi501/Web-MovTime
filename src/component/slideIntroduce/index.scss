@@ -1,0 +1,28 @@
+.slide-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .ant-carousel .slick-prev,
+  .ant-carousel .slick-next {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .ant-carousel .slick-prev {
+    left: -60px; 
+  }
+  
+  .ant-carousel .slick-next {
+    right: -60px; 
+  }
+  
+  .ant-carousel .slick-prev:before,
+  .ant-carousel .slick-next:before {
+    font-size: 30px; 
+    color: black;
+  }
+  
