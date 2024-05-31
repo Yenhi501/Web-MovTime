@@ -1,5 +1,5 @@
 # Movtime Website
-### HomePage : ![alt text](image.png)
+### HomePage : ![image](https://github.com/Yenhi501/Web-MovTime/assets/91811893/90b2fb55-7ab4-477b-92da-39fab5cbfd48)
 ### Database : https://dbdiagram.io/d/664064229e85a46d559b26f9
 
 # Đề tài: Website xem phim trực tuyến tích hợp hệ thống gợi ý và chatbot
