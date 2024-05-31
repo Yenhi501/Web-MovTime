@@ -15,6 +15,7 @@ import { RootState } from '../../redux/store';
 import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import './index.scss';
+import SlideShow from '../../component/slideIntroduce';
 
 export type DataMovieByGenre = {
     genreId: number;
@@ -164,6 +165,7 @@ export const HomePage = () => {
             <div className="container-home"></div>
             <Spin spinning={loading} size="large" className="mt-96">
                 <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
+                <SlideShow/>
                 <PopularMovie isShow={false} title={t('PopularMovies')} listFilm={top10TrendingFilms} />
                 <HistoryMoviesHome dataHistorymovies={dataHistorymovies} />
                 <div className="!mt-10"></div>
