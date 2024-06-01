@@ -271,7 +271,7 @@ const Slide: React.FC = () => {
                     className="slide"
                     showThumbs={false}
                     autoPlay={true}
-                    transitionTime={4}
+                    transitionTime={10}
                     infiniteLoop={true}
                     showStatus={false}
                     ref={carouselRef}

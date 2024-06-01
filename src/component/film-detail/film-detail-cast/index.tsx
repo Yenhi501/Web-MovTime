@@ -21,9 +21,9 @@ export const FilmDetailCast: React.FC<FilmDetailCastProps> = ({ filmDetail }) =>
                 {actors.map((actor) => (
                     <Link to={`/actor/${actor.actor_id}`} key={actor.actor_id}>
                         <li className="flex gap-3 items-center">
-                            <div className="shrink-0 max-w-[60px]  h-[65px]">
+                            <div className="shrink-0 max-w-[60px] h-[65px]">
                                 <img
-                                    className="object-cover w-[60px] h-[60px] rounded-full"
+                                    className="object-cover w-[65px] h-[65px] rounded-full"
                                     src={actor.avatar}
                                     alt={actor.name}
                                 />

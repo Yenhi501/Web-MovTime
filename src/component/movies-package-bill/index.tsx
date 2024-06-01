@@ -69,8 +69,14 @@ export const MoviesPackageBill = () => {
                     },
                 },
             );
+            console.log("response", response);
+            console.log("location.search", location.search);
+            
+            
             setIsLoading(false);
             setDataBillReturn(response.data.results);
+            console.log("setDataBillReturn",dataBillReturn);
+            
         } catch (error) {
             setIsLoading(false);
             console.error('Error verifying VNPay bill:', error);
@@ -107,13 +113,6 @@ export const MoviesPackageBill = () => {
         }
     }, []);
 
-    useEffect(() => {
-        if (dataBilPaypalReturn.price !== 0) {
-            setIsLoading(false);
-        }
-        handleDataReturn();
-        fetchDataCurrentUser();
-    }, [dataBilPaypalReturn, dataBillReturn]);
 
     const handleDataReturn = () => {
         const arrCutInfo = dataBillReturn.vnp_OrderInfo.split(' ');
@@ -173,6 +172,14 @@ export const MoviesPackageBill = () => {
         ];
         setBillItems(handledData);
     };
+
+    useEffect(() => {
+        if (dataBilPaypalReturn.price !== 0) {
+            setIsLoading(false);
+        }
+        handleDataReturn();
+        fetchDataCurrentUser();
+    }, [dataBilPaypalReturn, dataBillReturn]);
 
     return (
         <ConfigProvider>
