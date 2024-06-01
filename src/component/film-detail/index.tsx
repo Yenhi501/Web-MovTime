@@ -11,18 +11,19 @@ import {
 import { Spin, message, notification } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { RootState } from '../../redux/store';
 import { endpoint } from '../../utils/baseUrl';
+import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
 import FilmDetailsSection from './film-detail-section';
 import { FilmDetailTab } from './film-detail-tab';
 import './index.scss';
 import ShareModal from './share';
-import { t } from '../../utils/i18n';
+import { getCurrentLanguage } from '../../utils/localization';
+import { genreTranslationMap } from '../header/constant';
 
 interface Genre {
     id: number;
@@ -351,7 +352,7 @@ export const FilmDetail = () => {
                                             key={genre.id}
                                             className="px-4 py-2 film-detail__padding"
                                         >
-                                            {genre.name}
+                                            {genreTranslationMap[getCurrentLanguage()]?.[genre.name] || genre.name}
                                         </span>
                                     ))}
                                     <span className="flex gap-1 items-center justify-center px-8 py-2 film-detail__padding ">

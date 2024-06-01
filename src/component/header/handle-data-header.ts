@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { t } from "../../utils/i18n";
+import { getCurrentLanguage } from "../../utils/localization";
+import { genreTranslationMap, nationTranslationMap } from "./constant";
 
 export type Genre = {
     genre_id: number;
@@ -23,6 +25,8 @@ const queryParamMap: Record<string, string> = {
     genres: 'genre',
 };
 
+
+
 export type DataHeader = {
     genres: Genre[];
     nations: string[];
@@ -32,13 +36,23 @@ export type DataHeader = {
 export const handleDataHomeHeader = (data: DataHeader) => {
     const listKey = Object.keys(data);
     const nations: ChildrenCategoriesHeader[] = data.nations.map((nation: string) => {
-        return { id: nation, value: nation };
+        const currentLanguage = getCurrentLanguage();
+        let translatedNation = nation;
+        if (nationTranslationMap[currentLanguage] && nationTranslationMap[currentLanguage][nation]) {
+            translatedNation = nationTranslationMap[currentLanguage][nation];
+        }
+        return { id: nation, value: translatedNation };
     });
     const releasedYears: ChildrenCategoriesHeader[] = data.releasedYears.map((year: string) => {
         return { id: year, value: year };
     });
     const genres: ChildrenCategoriesHeader[] = data.genres.map((genre: Genre) => {
-        return { id: genre.genre_id, value: genre.name };
+        let genreName = genre.name;
+        const currentLanguage = getCurrentLanguage();
+        if (genreTranslationMap[currentLanguage] && genreTranslationMap[currentLanguage][genre.name]) {
+            genreName = genreTranslationMap[currentLanguage][genre.name];
+        }
+        return { id: genre.genre_id, value: genreName };
     });
     const itemsHeader: CategoriesHeader[] = [
         {

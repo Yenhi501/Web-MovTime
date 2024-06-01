@@ -3,6 +3,8 @@ import { Popover } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import { ModalRating } from '../../page/watching/modalRating';
 import './index.scss';
+import { genreTranslationMap } from '../header/constant';
+import { getCurrentLanguage } from '../../utils/localization';
 
 export type MainInfoFilm = {
     name: string;
@@ -54,7 +56,7 @@ export const MainInfoFilm = ({
             <div className="hashtag mb-2 flex items-center">
                 {hashtag?.map((value) => (
                     <a href="#" className="!px-4 !py-2 poster__image-padding">
-                        {value}
+                        {genreTranslationMap[getCurrentLanguage()]?.[value] || value}
                     </a>
                 ))}
                 {level === 1 ? (

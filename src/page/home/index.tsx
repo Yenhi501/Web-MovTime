@@ -17,6 +17,8 @@ import { request } from '../../utils/request';
 import './index.scss';
 import SlideShow from '../../component/slideIntroduce';
 import { Genre, ListGenre } from '../../component/list-genre';
+import { getCurrentLanguage } from '../../utils/localization';
+import { genreTranslationMap } from '../../component/header/constant';
 
 export type DataMovieByGenre = {
     genreId: number;
@@ -146,24 +148,25 @@ export const HomePage = () => {
     }, []);
 
     const renderListFilmsByGenre = () => {
+        const currentLanguage = getCurrentLanguage();
         return dataMovieByGenre.map((listMovie) => (
             <ListFilm
                 key={listMovie.genreId}
-                title={listMovie.name}
+                title={genreTranslationMap[currentLanguage]?.[listMovie.name] || listMovie.name}
                 listFilm={listMovie.movies}
                 genreId={listMovie.genreId}
             />
         ));
     };
+    
 
-    // Chuyển đổi từ DataMovieByGenre[] sang Genre[]
     const convertToGenres = (data: DataMovieByGenre[]): Genre[] => {
+        const currentLanguage = getCurrentLanguage();
         return data.map(item => ({
-            genreId: item.genreId.toString(), // Chuyển đổi genreId từ number sang string
-            name: item.name,
+            genreId: item.genreId.toString(),
+            name: genreTranslationMap[currentLanguage]?.[item.name] || item.name,
         }));
     };
-
 
     return (
         <div>

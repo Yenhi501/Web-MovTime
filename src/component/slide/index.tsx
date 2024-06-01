@@ -21,6 +21,8 @@ import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
 import './index.scss';
 import { Movie } from './type';
+import { genreTranslationMap } from '../header/constant';
+import { getCurrentLanguage } from '../../utils/localization';
 
 const Slide: React.FC = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -324,21 +326,16 @@ const Slide: React.FC = () => {
                                         <p>{t('FullSet')} {movie.episodeNum} {t('Episode')}</p>
                                     </span>
                                 </h2>
-                                <div
-                                    className={`poster__image-runtime ${
-                                        isTitleVisible ? 'visible' : ''
-                                    }`}
-                                >
+                                <div className={`poster__image-runtime ${isTitleVisible ? 'visible' : ''}`}>
                                     {movie.genres.map((genre) => (
-                                        <span
-                                            key={genre.genre_id}
-                                            className="px-3 py-1 poster__image-padding"
-                                        >
-                                            {genre.name}
-                                        </span>
-                                    ))}
-                                </div>
-
+                                            <span
+                                                key={genre.genre_id}
+                                                className="px-3 py-1 poster__image-padding"
+                                            >
+                                                {genreTranslationMap[getCurrentLanguage()]?.[genre.name] || genre.name}
+                                            </span>
+                                        ))}
+                                    </div>
                                 <div
                                     className={`poster__image-description ${
                                         isTitleVisible ? 'visible' : ''
