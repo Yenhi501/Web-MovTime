@@ -59,7 +59,7 @@ export const CastFamousHome = ({ DAlist, title, size }: ActorFamousProps) => {
                                             className="flex flex-col flex-wrap content-start gap-2 "
                                         >
                                             <Avatar
-                                                className="hover:border-[6px] hover:border-red-800 object-cover"
+                                                className="hover:border-[6px] hover:border-red-800 object-cover avatar-cast"
                                                 src={actor.avatar}
                                                 size={size}
                                             />

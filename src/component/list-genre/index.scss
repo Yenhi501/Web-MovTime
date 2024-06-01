@@ -1,12 +1,18 @@
 .list-genre-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
 
     .list-genre-content {
         display: flex;
         overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 80px); 
+        margin-left: 20px;
     }
-    
+
     .list-title {
         flex: 0 0 auto; 
         margin-right: 18px; 
@@ -21,29 +27,29 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 12px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
-    
-    .arrow-button {
-        background: none;
-        border: none;
-        font-size: 2rem;
+
+    .arrow-button, .arrow-placeholder {
+        flex: 0 0 40px;
+        font-size: var(--font-s-lg-2);
         cursor: pointer;
         padding: 0 10px;
+        text-align: center;
     }
-    
-    .arrow-button.left {
-        margin-right: 2px;
-        font-size: 2.5rem;
+
+    .arrow-button.left, .arrow-placeholder.left {
+        font-size: var(--font-s-lg-2);
         color: #b4b4b4;
+    
     }
     
-    .arrow-button.right {
-        margin-left: 2px;
-        font-size: 2.5rem;
+    .arrow-button.right, .arrow-placeholder.right {
         color: #b4b4b4;
+        margin-right: 12px;
+        font-size: var(--font-s-lg-2);
     }
-    
+
     .genre-0 { background: linear-gradient(45deg, #c54a2c, #bd6009); } /* Đỏ cam trầm */
     .genre-1 { background: linear-gradient(45deg, #22a538, #7ed31d); } /* Xanh lá cây trầm */
     .genre-2 { background: linear-gradient(45deg, #2846b4, #287ce4); } /* Xanh dương trầm */
@@ -52,5 +58,4 @@
     .genre-5 { background: linear-gradient(45deg, #732DCC, #a32cda); } /* Tím trầm */
     .genre-6 { background: linear-gradient(45deg, #27b9b2, #22d49f); } /* Xanh ngọc trầm */
     .genre-7 { background: linear-gradient(45deg, #CCAC2D, #CCB517); } /* Vàng trầm */
-    
 }
