@@ -1,8 +1,17 @@
-import { DingtalkOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { BulbOutlined, CustomerServiceOutlined, DingtalkOutlined, DropboxOutlined, LeftOutlined, OpenAIOutlined, RightOutlined, RubyOutlined } from '@ant-design/icons';
 import { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { t } from '../../utils/i18n';
 import './index.scss';
+
+const genreIcons = [
+    <DingtalkOutlined />,
+    <CustomerServiceOutlined />,
+    <BulbOutlined />,
+    <DropboxOutlined />,
+    <OpenAIOutlined />,
+    <RubyOutlined />,
+];
 
 export type Genre = {
     genreId: string;
@@ -53,7 +62,7 @@ export const ListGenre = ({ genres }: ListFilmProps) => {
                             className={`flex flex-col gap-2 list-title genre-${index % 6}`}
                             style={{ cursor: 'pointer', textDecoration: 'none' }}
                         >
-                            <DingtalkOutlined className='text-[22px]' />
+                            <p className='text-[18px]'>{genreIcons[index % genreIcons.length]}</p>
                             <h2 className='!text-[15px] font-medium'>{genre.name}</h2>
                         </Link>
                     ))}
