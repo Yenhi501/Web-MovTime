@@ -16,7 +16,7 @@ import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import './index.scss';
 import SlideShow from '../../component/slideIntroduce';
-import { Genre, ListGenre } from '../../list-genre';
+import { Genre, ListGenre } from '../../component/list-genre';
 
 export type DataMovieByGenre = {
     genreId: number;

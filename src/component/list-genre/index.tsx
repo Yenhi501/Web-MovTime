@@ -31,7 +31,7 @@ export const ListGenre = ({ genres }: ListFilmProps) => {
 
     return (
         <>
-        <p className='font-bold text-[20px] ml-20 mb-5'>Danh mục</p>
+        <p className='font-bold text-[22px] ml-20 mb-5'>Danh mục</p>
         <div className="list-genre-container ml-20 mb-16 mt-4">
             {startIndex > 0 && (
                 <button className="arrow-button left" onClick={handlePrev}>
