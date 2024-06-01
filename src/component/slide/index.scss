@@ -40,6 +40,9 @@
 
     &__image {
         height: 90%;
+        img {
+            transition: opacity 0.8s ease-in-out;
+        }
     }
 
     &__image > img {
@@ -59,10 +62,12 @@
         align-items: flex-start;
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 1));
         opacity: 1;
+        transition: opacity 0.8s ease-in-out;
     }
     &__image-overlay:hover {
         opacity: 1;
     }
+    
 
     &__image-title {
         color: var(--contrast-color);
@@ -156,7 +161,7 @@
     font-weight: 600;
     transition: box-shadow 0.3s ease-out;
     margin-right: 20px;
-    margin-bottom: 21rem;
+    margin-bottom: 18rem;
 
     &-icon {
         font-size: 20px;

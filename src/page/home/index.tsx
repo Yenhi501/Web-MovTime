@@ -1,4 +1,4 @@
-import { BackTop, Spin, Tooltip } from 'antd';
+import { BackTop, Col, Row, Spin, Tooltip } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ import { t } from '../../utils/i18n';
 import { request } from '../../utils/request';
 import './index.scss';
 import SlideShow from '../../component/slideIntroduce';
+import { Genre, ListGenre } from '../../list-genre';
 
 export type DataMovieByGenre = {
     genreId: number;
@@ -155,6 +156,15 @@ export const HomePage = () => {
         ));
     };
 
+    // Chuyển đổi từ DataMovieByGenre[] sang Genre[]
+    const convertToGenres = (data: DataMovieByGenre[]): Genre[] => {
+        return data.map(item => ({
+            genreId: item.genreId.toString(), // Chuyển đổi genreId từ number sang string
+            name: item.name,
+        }));
+    };
+
+
     return (
         <div>
             <Tooltip title="Quay về đầu trang" placement="left">
@@ -183,6 +193,7 @@ export const HomePage = () => {
                     />
                 </Link>
                 <ListReserveMovies listFilm={dataReserve} />
+                <ListGenre genres={convertToGenres(dataMovieByGenre)} />
                 {dataActorFamous.length > 0 && (
                     <CastFamousHome
                         title={t('PopularCelebrities')}
@@ -191,7 +202,7 @@ export const HomePage = () => {
                         
                     />
                 )}
-                {renderListFilmsByGenre()}
+               {renderListFilmsByGenre()}
             </Spin>
         </div>
     );
