@@ -14,7 +14,7 @@ const images = [
 
 const SlideShow = () => {
   return (
-    <Carousel autoplay arrows className='mb-10'>
+    <Carousel autoplay arrows className='mb-14 mt-4'>
     {images.map((url, index) => (
       <div  className='px-20'key={index}>
         <img src={url} alt={`slide-${index}`} className="slide-image" />
