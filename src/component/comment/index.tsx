@@ -9,6 +9,7 @@ import { useToken } from '../../hooks/useToken';
 import { CurrentUser, UserProps, defaultCurrentUser } from '../../model/user';
 
 import { useAppSelector } from '../../redux/hook';
+import { t } from '../../utils/i18n';
 
 export interface listCommentsProps {
     id: number;
@@ -117,7 +118,7 @@ export const Comment: React.FC<CommentProps> = ({ title, placeholder }) => {
             ) : (
                 <div className="login-btn">
                     <Link to="/login">
-                        <Button size="large">Đăng nhập để có thể bình luận.</Button>
+                        <Button size="large">{t("SignInToComment")}</Button>
                     </Link>
                 </div>
             )}
