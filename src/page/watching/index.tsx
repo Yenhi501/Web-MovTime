@@ -165,7 +165,7 @@ export const WatchingPage = () => {
             </Modal>
 
             <div className="watching ">
-                <div className="watching-player-container flex-1 bg-zinc-800 relative h-fit">
+                <div className="watching-player-container flex-1 bg-zinc-800 relative ">
                     <VideoPlayerCustom
                         sourceUrl={srcVideo}
                         episodeId={dataEpisode.episodeId}

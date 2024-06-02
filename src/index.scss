@@ -279,3 +279,6 @@ ul {
 :where(.css-dev-only-do-not-override-1qfezbu).ant-pagination .ant-pagination-item a {
     color : white;
 }
+:where(.css-dev-only-do-not-override-1qfezbu) a:hover {
+    color : var(--light-primary-color) !important;
+}
