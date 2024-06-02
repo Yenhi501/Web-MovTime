@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DAFilm } from '../../model/film';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 const { Text } = Typography;
 interface ActorFamousProps {
@@ -67,7 +68,7 @@ export const CastFamousHome = ({ DAlist, title, size }: ActorFamousProps) => {
                                                 {actor.name}
                                             </Text>
                                             <Text className="!text-gray-500 opacity-100 text-[12px] text-center">
-                                                Diễn viên
+                                              {t('Actor')}
                                             </Text>
                                         </Link>
                                     );

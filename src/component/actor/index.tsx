@@ -9,6 +9,7 @@ import { TabContent } from './actor-tag-content';
 import { TabItem } from './actor-tag-item';
 import './index.scss';
 import { ActorInfo, TabsProps } from './type';
+import { t } from '../../utils/i18n';
 
 const Actor: React.FC<TabsProps> = ({ color }) => {
     const [openTab, setOpenTab] = useState(1);
@@ -156,7 +157,7 @@ const Actor: React.FC<TabsProps> = ({ color }) => {
                                     {'|'}
                                 </div>
                                 <div className="mx-4">
-                                    <span className="text-[#989898] mr-4">Diễn viên</span>
+                                    <span className="text-[#989898] mr-4">{t('Actor')}</span>
                                     {'|'}
                                 </div>
                                 <div>

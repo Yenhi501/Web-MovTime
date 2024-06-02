@@ -9,6 +9,7 @@ import { useParams } from 'react-router';
 import { endpoint } from '../../utils/baseUrl';
 import { TabsProps } from '../actor/type';
 import { DirectorInfo } from './type';
+import { t } from '../../utils/i18n';
 
 export const Director: React.FC<TabsProps> = ({ color }) => {
     const [openTab, setOpenTab] = useState(1);
@@ -125,7 +126,7 @@ export const Director: React.FC<TabsProps> = ({ color }) => {
                                     {'|'}
                                 </div>
                                 <div className="mx-4">
-                                    <span className="text-[#989898] mr-4">Đạo diễn</span>
+                                    <span className="text-[#989898] mr-4">{t('Director')}</span>
                                     {'|'}
                                 </div>
                                 <div>

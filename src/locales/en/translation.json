@@ -48,5 +48,7 @@
     "Sex":"Sex",
     "ChangePassword":"Change password",
     "Edit":"Edit",
-    "DeleteAvatar" :"Delete avatar"
+    "DeleteAvatar" :"Delete avatar",
+    "RateNow": "Rate Now",
+    "Views": "Views"
 }

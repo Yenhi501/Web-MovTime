@@ -48,5 +48,7 @@
     "Sex":"섹스",
     "ChangePassword":"비밀번호 변경",
     "Edit":"편집하다",
-    "DeleteAvatar" :"아바타 삭제"
+    "DeleteAvatar" :"아바타 삭제",
+    "RateNow": "지금 평가",
+    "Views": "조회수"
 }

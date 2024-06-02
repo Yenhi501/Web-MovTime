@@ -48,5 +48,7 @@
     "Sex":"性别",
     "ChangePassword":"更改密码",
     "Edit":"编辑",
-    "DeleteAvatar" :"删除头像"
+    "DeleteAvatar" :"删除头像",
+    "RateNow": "立即评价",
+    "Views": "观看次数"
 }
