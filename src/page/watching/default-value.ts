@@ -1,4 +1,5 @@
 import { NotifyModalContent } from '../../model/notify-modal';
+import { t } from '../../utils/i18n';
 
 export const defaultEpisode = {
     description: '',
@@ -42,13 +43,13 @@ export const defaultFilm = {
 
 export const modalContentMap: Record<string, NotifyModalContent> = {
     login: {
-        content: 'Vui lòng đăng nhập để xem phim',
-        btn: 'Đăng nhập',
+        content: `${t("loginToWatchMovie")}`,
+        btn: `${t("Login")}`,
         linkDirect: '/login',
     },
     upgradePackage: {
-        content: 'Vui lòng nâng cấp gói thành viên để xem phim',
-        btn: 'Nâng cấp gói',
+        content: `${t("PleaseUpgrade")}`,
+        btn: `${t("Upgrade")}`,
         linkDirect: '/VIPpackage',
     },
 };

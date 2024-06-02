@@ -129,7 +129,7 @@ export const ItemReserveMovie = ({ title, posterURL, level, releaseDate, movieId
                         content:
                             'Đặt lịch thành công! Chúc bạn có những trải nghiệm tuyệt vời tại MovTime ❤',
                         onOk: () => {
-                            setInitialButtonText('Hủy');
+                            setInitialButtonText(`${t("Cancel")}`);
                             setIsReserved(true);
                         },
                     });

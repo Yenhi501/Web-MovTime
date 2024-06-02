@@ -1,3 +1,5 @@
+import { t } from "./i18n";
+
 export const getTimeDifference = (commentDateTime: string) => {
     const commentDate = new Date(commentDateTime);
     const currentDate = new Date();
@@ -12,16 +14,16 @@ export const getTimeDifference = (commentDateTime: string) => {
     const years = Math.floor(days / 365);
 
     if (years > 0) {
-        return `${years} năm trước`;
+        return `${years} ${t("YearAgo")}`;
     } else if (months > 0) {
-        return `${months} tháng trước`;
+        return `${months} ${t("MonthAgo")}`;
     } else if (days > 0) {
-        return `${days} ngày trước`;
+        return `${days} ${t("DayAgo")}`;
     } else if (hours > 0) {
-        return `${hours} giờ trước`;
+        return `${hours} ${t("HourAgo")}`;
     } else if (minutes > 0) {
-        return `${minutes} phút trước`;
+        return `${minutes} ${t("MinuteAgo")}`;
     } else {
-        return `${seconds} giây trước`;
+        return `${seconds} ${t("MiliAgo")}`;
     }
 };

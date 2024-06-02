@@ -20,6 +20,7 @@ import { request } from '../../utils/request';
 import { defaultEpisode, defaultFilm, modalContentMap } from './default-value';
 import './index.scss';
 import { selectionItems } from './items-selection';
+import { t } from '../../utils/i18n';
 
 const moment = require('moment');
 
@@ -119,13 +120,13 @@ export const WatchingPage = () => {
 
             setSubInfo([
                 {
-                    title: 'Diễn viên',
+                    title: `${t('Actor')}`,
                     content: watchingData?.actors
                         .map((actor) => actor.name.concat(', '))
                         .concat('...') || [''],
                 },
                 {
-                    title: 'Thể loại',
+                    title: `${t('Category')}`,
                     content: watchingData?.genres.map((actor) => actor.name.concat(', ')) || [''],
                 },
             ]);
@@ -147,7 +148,7 @@ export const WatchingPage = () => {
     return (
         <div className="watching-container">
             <Modal
-                title={'Không có quyền truy cập'}
+                title={`${t('Nothaveaccess')}`}
                 open={openModalNotify}
                 onCancel={() => {
                     navigator({ pathname: '/' });
@@ -159,7 +160,7 @@ export const WatchingPage = () => {
                     });
                 }}
                 okText={contentModal.btn}
-                cancelText="Về trang chủ"
+                cancelText= {t('Onthehomepage')}
             >
                 {contentModal.content}
             </Modal>
@@ -175,10 +176,10 @@ export const WatchingPage = () => {
                 </div>
                 <div className="watching-list-film-container">
                     <ListEpisodes
-                        title="Danh sách tập"
+                        title={t('Listofepisodes')}
                         subInfo={[
                             `16/${watchingData?.episodeNum}`,
-                            'Phát sóng lúc 20h thứ 7 hàng tuần',
+                            `${t('Broadcastat8pmeverySaturday')}`,
                         ]}
                         sessions={selectionItems}
                         multiSessions={false}
@@ -206,7 +207,7 @@ export const WatchingPage = () => {
                     <div className="watching-feature">
                         <IconWithText
                             icon={<CommentOutlined className="watching-feature-icon" />}
-                            text="Bình luận"
+                            text={t('Comment')}
                             scrollToSectionId="comment"
                         />
 
@@ -215,7 +216,7 @@ export const WatchingPage = () => {
                         >
                             <IconWithText
                                 icon={<ShareAltOutlined className="watching-feature-icon" />}
-                                text="Chia sẻ"
+                                text={t('Share')}
                             />
                         </FacebookShareButton>
                     </div>
@@ -232,9 +233,9 @@ export const WatchingPage = () => {
             </div>
 
             <ActorFamous DAlist={combinedActorsAndDirectors} size={130} isShow={true} />
-            <ListFilm title="Có thể bạn sẽ thích" listFilm={dataRecommend} isShow={false} />
+            <ListFilm title={t('YouLike')} listFilm={dataRecommend} isShow={false} />
             <div className="comment-container" id="comment">
-                <Comment title="Bình luận phim" placeholder="Bình luận về phim ở đây" />
+                <Comment title={t('Comment')} placeholder={t('CommentHere')}/>
             </div>
         </div>
     );

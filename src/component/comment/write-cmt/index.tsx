@@ -5,6 +5,7 @@ import { CurrentUser } from '../type';
 import { request } from '../../../utils/request';
 import { defaultCurrentUser } from '../../../model/user';
 import { useToken } from '../../../hooks/useToken';
+import { t } from '../../../utils/i18n';
 
 interface WriteCommentProps {
     placeholder: string;
@@ -83,10 +84,10 @@ export const WriteComment: React.FC<WriteCommentProps> = ({
                 <div className="btn-action">
                     <Button className="btn-cancel" onClick={handleCancel}>
 
-                        Hủy
+                    {t('Cancel')} 
                     </Button>
                     <Button className="btn-sub" onClick={handleSub}>
-                        Bình luận
+                    {t('Comment')} 
 
                     </Button>
                 </div>
