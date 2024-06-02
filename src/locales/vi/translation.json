@@ -48,5 +48,7 @@
     "Sex":"Giới tính",
     "ChangePassword":"Đổi mật khẩu",
     "Edit":"Chỉnh sửa",
-    "DeleteAvatar" :"Xóa avatar"
+    "DeleteAvatar" :"Xóa avatar",
+    "RateNow": "Đánh giá ngay",
+    "Views": "lượt xem"
 }

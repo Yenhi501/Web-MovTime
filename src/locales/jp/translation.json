@@ -47,5 +47,7 @@
     "Sex":"セックス",
     "ChangePassword":"パスワードを変更する",
     "Edit":"編集",
-    "DeleteAvatar" :"アバターの削除"
+    "DeleteAvatar" :"アバターの削除",
+    "RateNow": "今すぐ評価",
+    "Views": "ビュー"
 }

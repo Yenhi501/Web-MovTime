@@ -48,6 +48,8 @@
     "Sex":"Sexo",
     "ChangePassword":"Cambiar la contraseña",
     "Edit":"Editar",
-    "DeleteAvatar" :"Eliminar avatar"
+    "DeleteAvatar" :"Eliminar avatar",
+    "RateNow": "Califica Ahora",
+    "Views": "Vistas"
 
 }

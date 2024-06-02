@@ -44,8 +44,8 @@ export const ListGenre = ({ genres }: ListFilmProps) => {
     const visibleGenres = allGenres.slice(startIndex, startIndex + maxVisibleGenres);
 
     return (
-        <div className='my-2'>
-            <p className='font-bold text-[22px] ml-[70px]'>{t('Category')}</p>
+        <div className='my-16'>
+            <p className='font-bold text-[22px] ml-[67px]'>{t('Category')}</p>
             <div className="list-genre-container mb-16 mt-5">
                 {startIndex > 0 ? (
                     <button className="arrow-button left" onClick={handlePrev}>

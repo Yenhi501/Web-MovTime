@@ -5,6 +5,7 @@ import { ModalRating } from '../../page/watching/modalRating';
 import './index.scss';
 import { genreTranslationMap } from '../header/constant';
 import { getCurrentLanguage } from '../../utils/localization';
+import { t } from '../../utils/i18n';
 
 export type MainInfoFilm = {
     name: string;
@@ -41,7 +42,7 @@ export const MainInfoFilm = ({
                 <div className="rating">
                     <StarFilled style={{ color: '#fadb14', fontSize: 16 }} />
                     <p className="text-[14px] ml-1 ">
-                        {rate} ({view} lượt xem)
+                        {rate} ({view} {t('Views')})
                     </p>
                 </div>
                 <Popover
@@ -49,7 +50,7 @@ export const MainInfoFilm = ({
                     content={<ModalRating movieId={movieId} rating={rating} />}
                 >
                     <div className="text-[14px] text-[#cf1a1a]" style={{ cursor: 'pointer' }}>
-                        Đánh giá ngay
+                        {t('RateNow')}
                     </div>
                 </Popover>
             </div>
