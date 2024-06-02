@@ -178,6 +178,7 @@ export const HomePage = () => {
             <div className="container-home"></div>
             <Spin spinning={loading} size="large" className="mt-96">
                 <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
+                <ListGenre genres={convertToGenres(dataMovieByGenre)} />
                 <SlideShow/>
                 <PopularMovie isShow={false} title={t('PopularMovies')} listFilm={top10TrendingFilms} />
                 <HistoryMoviesHome dataHistorymovies={dataHistorymovies} />
@@ -196,7 +197,6 @@ export const HomePage = () => {
                     />
                 </Link>
                 <ListReserveMovies listFilm={dataReserve} />
-                <ListGenre genres={convertToGenres(dataMovieByGenre)} />
                 {dataActorFamous.length > 0 && (
                     <CastFamousHome
                         title={t('PopularCelebrities')}
