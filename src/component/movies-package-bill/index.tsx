@@ -14,6 +14,7 @@ import { useToken } from '../../hooks/useToken';
 import { PaypalReturn, defaultPaypalReturn } from '../../model/paypal';
 import { request } from '../../utils/request';
 import { CurrentUser } from '../comment/type';
+import { t } from '../../utils/i18n';
 
 const currentDate = new Date();
 
@@ -119,7 +120,7 @@ export const MoviesPackageBill = () => {
 
         const handledData = [
             {
-                title: 'Tên gói',
+                title: t('PackageName'),
                 content:
                     location.search.includes('vnp_Amount') === true
                         ? arrCutInfo[arrCutInfo.length - 4] +

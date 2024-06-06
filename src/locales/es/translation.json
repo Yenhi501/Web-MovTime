@@ -51,6 +51,12 @@
     "DeleteAvatar" :"Eliminar avatar",
     "RateNow": "Califica Ahora",
     "Views": "Vistas",
+    "Status":"Estado",
+    "PackageName":"Nombre del paquete",
+    "StartDay":"Día de inicio",
+    "EndDay":"Fecha final",
+    "MovieListIsEmpty" :"La lista de películas está vacía.",
+    "SeeMore":"Continuar"
     "Listofepisodes":"Lista de episodios",
     "Broadcastat8pmeverySaturday":"Transmitido a las 8pm todos los sábados.",
     "YouLike":"Quizás te guste?",
@@ -73,5 +79,4 @@
     "HourAgo":"hours ago",
     "MinuteAgo":"minutes ago",
     "SecondAgo":"seconds ago"
-
 }

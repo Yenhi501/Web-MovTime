@@ -51,6 +51,12 @@
     "DeleteAvatar" :"Xóa avatar",
     "RateNow": "Đánh giá ngay",
     "Views": "lượt xem",
+    "Status":"Trạng thái",
+    "PackageName":"Tên gói",
+    "StartDay":"Ngày bắt đầu",
+    "EndDay":"Ngày kết thúc",
+    "MovieListIsEmpty" :"Danh sách phim trống",
+    "SeeMore":"Xem tiếp"
     "Listofepisodes":"Danh sách tập",
     "Broadcastat8pmeverySaturday":"Phát sóng lúc 20h thứ 7 hàng tuần",
     "YouLike":"Có thể bạn sẽ thích?",

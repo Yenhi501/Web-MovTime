@@ -24,7 +24,7 @@ export const WatchLater = ({ dataCollect }: WatchLaterProps) => {
                 <Empty
                     className="mt-40"
                     image={Empty.PRESENTED_IMAGE_DEFAULT}
-                    description={<p className="text-gray-100">Danh sách phim trống</p>}
+                    description={<p className="text-gray-100">{t('MovieListIsEmpty')}</p>}
                 />
             )}
         </div>

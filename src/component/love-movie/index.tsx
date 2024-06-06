@@ -2,6 +2,7 @@ import { Empty } from 'antd';
 import { FilmItem } from '../film-item';
 import { PaginationFilm } from '../pagination-film';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 interface LoveMoviesProps {
     dataLovemovies: FilmItem[];
@@ -22,7 +23,7 @@ export const LoveMovies = ({ dataLovemovies }: LoveMoviesProps) => {
                 <Empty
                     className="mt-40"
                     image={Empty.PRESENTED_IMAGE_DEFAULT}
-                    description={<p className="text-gray-100">Danh sách phim trống</p>}
+                    description={<p className="text-gray-100">{t('MovieListIsEmpty')}</p>}
                 />
             )}
         </div>

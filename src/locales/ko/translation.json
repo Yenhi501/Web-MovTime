@@ -51,6 +51,12 @@
     "DeleteAvatar" :"아바타 삭제",
     "RateNow": "지금 평가",
     "Views": "조회수",
+    "Status":"상태",
+    "PackageName":"패키지 이름",
+    "StartDay":"시작일",
+    "EndDay":"종료일",
+    "MovieListIsEmpty" :"영화 목록이 비어 있습니다.",
+    "SeeMore":"계속하다"
     "Listofepisodes":"에피소드 목록",
     "Broadcastat8pmeverySaturday":"매주 토요일 오후 8시 방송",
     "YouLike":"아마도 당신은 좋아할 것입니까?",

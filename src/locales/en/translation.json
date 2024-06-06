@@ -51,6 +51,12 @@
     "DeleteAvatar" :"Delete avatar",
     "RateNow": "Rate Now",
     "Views": "Views",
+    "Status":"Status",
+    "PackageName":"Package name",
+    "StartDay":"Start day",
+    "EndDay":"End day",
+    "MovieListIsEmpty" :"Movie list is empty",
+    "SeeMore":"Continue"
     "Listofepisodes":"List of episodes",
     "Broadcastat8pmeverySaturday":"Broadcast at 8pm every Saturday",
     "YouLike":"You might like?",
