@@ -159,6 +159,5 @@
     "ForgotPassword":"パスワードを忘れました",
     "YouNoHave":"まだアカウントをお持ちでないですか？",
     "InputEmailAcc":"確認する",
-    "InputEmailConfirm":"確認用のメールアドレスを入力してください",
-    "Confirm":"アカウントを回復するにはメールアドレスを入力してください。"
+    "InputEmailConfirm":"確認用のメールアドレスを入力してください"
 }

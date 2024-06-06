@@ -160,6 +160,5 @@
     "ForgotPassword":" 忘记密码",
     "YouNoHave":"还没有账号吗？",
     "InputEmailAcc":"输入电子邮件以找回您的账号。",
-    "InputEmailConfirm":"输入确认电子邮件 ",
-    "Confirm":" 确认"
+    "InputEmailConfirm":"输入确认电子邮件 "
 }
