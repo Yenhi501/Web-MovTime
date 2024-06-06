@@ -30,7 +30,7 @@ const methods: PaymentMethod[] = [
 ];
 
 export const MethodPayment: React.FC<MethodPaymentProps> = ({ setSelectedMethod }) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
 
     const dispatch = useAppDispatch();
 
@@ -44,8 +44,7 @@ export const MethodPayment: React.FC<MethodPaymentProps> = ({ setSelectedMethod 
     useEffect(() => {
         dispatch(setMethodPayment(1));
         setSelectedMethod(1);
-        setValue(1);
-    }, []);
+    }, [dispatch, setSelectedMethod]);
 
     return (
         <div className="wrapper-method">

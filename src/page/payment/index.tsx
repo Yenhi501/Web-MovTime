@@ -15,7 +15,7 @@ export const Payment = () => {
         value: 0,
         price: 0,
     });
-    const [selectedMethod, setSelectedMethod] = useState(1);
+    const [selectedMethod, setSelectedMethod] = useState(1); 
     const [dataSubscriptionInfo, setDataSubscriptionInfo] = useState<SubscriptionInfo[]>([]);
     const { idPackage } = useParams();
 
@@ -47,7 +47,7 @@ export const Payment = () => {
                 }
             });
         }
-    }, [selectedTerm, idPackage]);
+    }, [selectedTerm, idPackage, dataSubscriptionInfo]);
 
     return (
         <>

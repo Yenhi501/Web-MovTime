@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'antd';
-import './index.scss';
-import { TermPackage } from '../term-package';
 import axios from 'axios';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { useToken } from '../../hooks/useToken';
 import { useAppSelector } from '../../redux/hook';
+import { endpoint } from '../../utils/baseUrl';
 import { getCurrentDateString } from '../../utils/getCurrentDate';
 import { getNextDateByMonth } from '../../utils/getNextDateByMonth';
-import { endpoint } from '../../utils/baseUrl';
-import { useToken } from '../../hooks/useToken';
-import moment from 'moment';
 import { t } from '../../utils/i18n';
+import { TermPackage } from '../term-package';
+import './index.scss';
+
 interface SummaryProps {
     selectedTerm: TermPackage | null;
     selectedMethod: number;
@@ -66,6 +67,7 @@ export const Summary: React.FC<SummaryProps> = ({
             )
             .then((res) => {
                 setLinkRedirect(res.data.data);
+                window.location.href = res.data.data; 
             })
             .catch((error) => console.log(error));
     };
@@ -87,11 +89,12 @@ export const Summary: React.FC<SummaryProps> = ({
             )
             .then((response) => {
                 setLinkRedirect(response.data.data.url);
+                window.location.href = response.data.data.url; 
             })
             .catch((err) => console.log(err));
     };
 
-    useEffect(() => {
+    const handleConfirmPayment = () => {
         if (!accessToken) {
             setIsLoginModalVisible(true);
         } else if (subscriptionInfoId !== 0) {
@@ -101,7 +104,7 @@ export const Summary: React.FC<SummaryProps> = ({
                 postOrder();
             }
         }
-    }, [selectedMethod, subscriptionInfoId, accessToken]);
+    };
 
     return (
         <div className="wrapper-summary">
@@ -128,7 +131,7 @@ export const Summary: React.FC<SummaryProps> = ({
                     <Button key="back" onClick={() => setIsOpenModal(false)}>
                         Hủy bỏ
                     </Button>,
-                    <Button key="link" href={linkRedirect} type="primary">
+                    <Button key="link" onClick={handleConfirmPayment} type="primary">
                         Tiếp tục
                     </Button>,
                 ]}
@@ -214,7 +217,7 @@ export const Summary: React.FC<SummaryProps> = ({
                 </div>
             </div>
             {subscriptionTypeId === 1 ? (
-                <Button className={`btn-confirm flex`} type="primary" href={linkRedirect}>
+                <Button className={`btn-confirm flex`} type="primary" onClick={handleConfirmPayment}>
                     Xác nhận
                 </Button>
             ) : (
