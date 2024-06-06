@@ -2,6 +2,7 @@ import { Steps } from 'antd';
 import { Link } from 'react-router-dom';
 import { LogoDark } from '../../asset/icon/logoDark';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 export type HeaderPay = { currentStep?: number };
 
@@ -26,13 +27,13 @@ export const HeaderPay = ({ currentStep = 0 }: HeaderPay) => {
                     current={currentStep}
                     items={[
                         {
-                            title: 'Chọn gói',
+                            title: t('SelectPackage'),
                         },
                         {
-                            title: 'Chọn thời hạn và phương thức thanh toán',
+                            title: t('ChooseTermAndPaymentMethod'),
                         },
                         {
-                            title: 'Kết quả',
+                            title: t('Result'),
                         },
                     ]}
                 />
