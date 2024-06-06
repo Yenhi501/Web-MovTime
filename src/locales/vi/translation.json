@@ -160,6 +160,5 @@
     "ForgotPassword":"Quên mật khẩu",
     "YouNoHave":"Bạn chưa có tài khoản ?",
     "InputEmailAcc":"nhập email để lấy lại tài khoản.",
-    "InputEmailConfirm":"Nhập email xác nhận",
-    "Confirm":"Xác nhận"
+    "InputEmailConfirm":"Nhập email xác nhận"
 }

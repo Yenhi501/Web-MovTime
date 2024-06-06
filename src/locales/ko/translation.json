@@ -159,6 +159,5 @@
     "ForgotPassword":"비밀번호를 잊어버렸습니다",
     "YouNoHave":"아직 계정이 없으세요?",
     "InputEmailAcc":"계정을 복구하려면 이메일을 입력하세요.",
-    "InputEmailConfirm":" 확인 이메일을 입력하세요",
-    "Confirm":"확인"
+    "InputEmailConfirm":" 확인 이메일을 입력하세요"
 }

@@ -160,6 +160,5 @@
     "ForgotPassword":"Forgot password",
     "YouNoHave":"Don't have an account yet?",
     "InputEmailAcc":"Enter your email to recover your account.",
-    "InputEmailConfirm":"Enter confirmation email",
-    "Confirm":"Confirm"
+    "InputEmailConfirm":"Enter confirmation email"
 }

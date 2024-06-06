@@ -160,6 +160,5 @@
     "ForgotPassword":"Olvidé la contraseña",
     "YouNoHave":"Todavía no tienes una cuenta?",
     "InputEmailAcc":"Ingresa tu correo electrónico para recuperar tu cuenta.",
-    "InputEmailConfirm":" Introduce el correo de confirmación",
-    "Confirm":"Confirmar"
+    "InputEmailConfirm":" Introduce el correo de confirmación"
 }
