@@ -50,6 +50,12 @@
     "Edit":"Editar",
     "DeleteAvatar" :"Eliminar avatar",
     "RateNow": "Califica Ahora",
-    "Views": "Vistas"
+    "Views": "Vistas",
+    "Status":"Estado",
+    "PackageName":"Nombre del paquete",
+    "StartDay":"Día de inicio",
+    "EndDay":"Fecha final",
+    "MovieListIsEmpty" :"La lista de películas está vacía.",
+    "SeeMore":"Continuar"
 
 }

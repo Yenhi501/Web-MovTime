@@ -50,5 +50,11 @@
     "Edit":"编辑",
     "DeleteAvatar" :"删除头像",
     "RateNow": "立即评价",
-    "Views": "观看次数"
+    "Views": "观看次数",
+    "Status":"地位",
+    "PackageName":"包裹名字",
+    "StartDay":"开始日期",
+    "EndDay":"结束日期",
+    "MovieListIsEmpty" :"电影列表为空",
+    "SeeMore":"查看更多"
 }

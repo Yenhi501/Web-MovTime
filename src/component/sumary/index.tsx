@@ -9,6 +9,7 @@ import { getNextDateByMonth } from '../../utils/getNextDateByMonth';
 import { endpoint } from '../../utils/baseUrl';
 import { useToken } from '../../hooks/useToken';
 import moment from 'moment';
+import { t } from '../../utils/i18n';
 interface SummaryProps {
     selectedTerm: TermPackage | null;
     selectedMethod: number;
@@ -140,7 +141,7 @@ export const Summary: React.FC<SummaryProps> = ({
             <div className="information">
                 <div className="term-package">
                     <div className="name-package">
-                        <div className="">Tên gói</div>
+                        <div className="">{t('PackageName')}</div>
                         <div className="value">{namePackage}</div>
                     </div>
                     <div className="term">

@@ -49,5 +49,11 @@
     "Edit":"編集",
     "DeleteAvatar" :"アバターの削除",
     "RateNow": "今すぐ評価",
-    "Views": "ビュー"
+    "Views": "ビュー",
+    "Status":"状態",
+    "PackageName":"パッケージ名",
+    "StartDay":"開始日",
+    "EndDay":"終了日",
+    "MovieListIsEmpty" :"映画リストが空です",
+    "SeeMore":"続く"
 }

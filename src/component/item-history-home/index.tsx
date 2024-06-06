@@ -3,6 +3,7 @@ import { Button, Skeleton } from 'antd';
 import { useState } from 'react';
 import { FilmItem } from '../film-item';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 export const ItemHistoryHome = ({ title, backgroundMovieURL, movieTitle }: FilmItem) => {
     const [isLoadingImg, setIsLoadingImg] = useState(true);
@@ -32,7 +33,7 @@ export const ItemHistoryHome = ({ title, backgroundMovieURL, movieTitle }: FilmI
                 </p>
             </div>
             <Button className="film-button-proccess text-center mt-5" icon={<CaretRightOutlined />}>
-                Xem tiếp !
+                {t('SeeMore')} !
             </Button>
         </div>
     );

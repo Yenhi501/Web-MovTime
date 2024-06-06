@@ -50,5 +50,11 @@
     "Edit":"Edit",
     "DeleteAvatar" :"Delete avatar",
     "RateNow": "Rate Now",
-    "Views": "Views"
+    "Views": "Views",
+    "Status":"Status",
+    "PackageName":"Package name",
+    "StartDay":"Start day",
+    "EndDay":"End day",
+    "MovieListIsEmpty" :"Movie list is empty",
+    "SeeMore":"Continue"
 }

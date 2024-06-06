@@ -50,5 +50,11 @@
     "Edit":"Chỉnh sửa",
     "DeleteAvatar" :"Xóa avatar",
     "RateNow": "Đánh giá ngay",
-    "Views": "lượt xem"
+    "Views": "lượt xem",
+    "Status":"Trạng thái",
+    "PackageName":"Tên gói",
+    "StartDay":"Ngày bắt đầu",
+    "EndDay":"Ngày kết thúc",
+    "MovieListIsEmpty" :"Danh sách phim trống",
+    "SeeMore":"Xem tiếp"
 }

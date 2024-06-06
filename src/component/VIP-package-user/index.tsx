@@ -2,6 +2,7 @@ import { Empty, Table, Tag } from 'antd';
 import moment from 'moment';
 import { CurrentUser } from '../../model/user';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 interface VIPPackageUser {
     data: CurrentUser;
@@ -15,12 +16,12 @@ const columns = [
         // render: (text, id) => <Link to={`/billpayment-${id.key}`}>{text}</Link>,
     },
     {
-        title: 'Tên gói',
+        title: t('PackageName'),
         dataIndex: 'namePackage',
         key: 'namePackage',
     },
     {
-        title: 'Trạng thái',
+        title: t('Status'),
         key: 'status',
         dataIndex: 'status',
         render: (_: any, { status }: any) => {
@@ -38,12 +39,12 @@ const columns = [
         },
     },
     {
-        title: 'Ngày bắt đầu',
+        title: t('StartDay'),
         dataIndex: 'startDay',
         key: 'startDay',
     },
     {
-        title: 'Ngày kết thúc',
+        title: t('EndDay'),
         dataIndex: 'endDay',
         key: 'endDay',
     },
