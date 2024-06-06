@@ -5,6 +5,7 @@ import { Paypal } from '../../asset/icon/paypal';
 import { setMethodPayment } from '../../redux/VIPPaymentSlice';
 import { useAppDispatch } from '../../redux/hook';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 interface PaymentMethod {
     icon: React.ReactNode;
@@ -48,7 +49,7 @@ export const MethodPayment: React.FC<MethodPaymentProps> = ({ setSelectedMethod 
 
     return (
         <div className="wrapper-method">
-            <div className="title-method">Chọn phương thức thanh toán</div>
+            <div className="title-method">{t('SelectPaymentMethod')}</div>
             <div className="container-method">
                 <Radio.Group onChange={onChange} value={value}>
                     <Space direction="vertical">

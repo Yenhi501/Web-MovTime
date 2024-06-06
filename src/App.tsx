@@ -27,6 +27,7 @@ import { useAppDispatch } from './redux/hook';
 import { setIsLogin } from './redux/isLoginSlice';
 import { refreshToken } from './utils/refreshToken';
 import { request } from './utils/request';
+import { t } from './utils/i18n';
 
 const locationMap: Record<string, string> = {
     '/VIPpackage': 'hidden',
@@ -90,7 +91,7 @@ export const App = () => {
                 <Header className={`${locationMap[location.pathname]}`} />
 
                 <div className="botchat relative bottom-3 !right-4">
-                    <Tooltip title="Xin chào, MovTime có thể giúp gì cho bạn?" placement="left">
+                    <Tooltip title={t('HelloHowCanMovTimeAssistYou?')} placement="left">
                         <Avatar
                             size={54}
                             src="https://www.shutterstock.com/image-vector/artificial-ai-chat-bot-icon-600nw-2281213775.jpg"

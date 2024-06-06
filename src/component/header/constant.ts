@@ -168,3 +168,31 @@ export const nationTranslationMap: Record<string, Record<string, string>> = {
         'Hàn Quốc': '韓国'
     }
 };
+
+
+export const packageTranslationMap: Record<string, Record<string, string>> = {
+    'en': {
+        'Tiêu chuẩn': 'Standard',
+        'Cao cấp': 'Premium'
+    },
+    'es': {
+        'Tiêu chuẩn': 'Estándar',
+        'Cao cấp': 'Premium'
+    },
+    'vi': {
+        'Tiêu chuẩn': 'Tiêu chuẩn',
+        'Cao cấp': 'Cao cấp'
+    },
+    'zh': {
+        'Tiêu chuẩn': '标准',
+        'Cao cấp': '高级'
+    },
+    'ko': {
+        'Tiêu chuẩn': '표준',
+        'Cao cấp': '고급'
+    },
+    'jp': {
+        'Tiêu chuẩn': '標準',
+        'Cao cấp': 'プレミアム'
+    }
+}

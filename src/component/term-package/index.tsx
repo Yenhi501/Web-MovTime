@@ -11,6 +11,7 @@ import {
 import { useAppDispatch } from '../../redux/hook';
 import { endpoint } from '../../utils/baseUrl';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 export interface TermPackage {
     id: number;
@@ -77,7 +78,7 @@ export const TermPackage: React.FC<TermPackageProps> = ({ setSelectedTerm }) => 
 
     return (
         <div className="wrapper-term">
-            <div className="title-term">Chọn thời hạn gói</div>
+            <div className="title-term">{t('SelectPackageDuration')}</div>
             <div className="container-term">
                 <Radio.Group onChange={onChange} value={value}>
                     <Space direction="vertical">
@@ -101,7 +102,7 @@ export const TermPackage: React.FC<TermPackageProps> = ({ setSelectedTerm }) => 
                                         <div className="items">
                                             <div className="value-term">
                                                 {term.time >= 10 ? '' : 0}
-                                                {term.time}&nbsp;tháng
+                                                {term.time}&nbsp;{t('Month')}
                                             </div>
                                             <div className="price-term">
                                                 {term.price.toLocaleString('it-IT')}&nbsp;₫

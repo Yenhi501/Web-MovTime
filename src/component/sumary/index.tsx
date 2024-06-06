@@ -10,6 +10,8 @@ import { getNextDateByMonth } from '../../utils/getNextDateByMonth';
 import { t } from '../../utils/i18n';
 import { TermPackage } from '../term-package';
 import './index.scss';
+import { packageTranslationMap } from '../header/constant';
+import { getCurrentLanguage } from '../../utils/localization';
 
 interface SummaryProps {
     selectedTerm: TermPackage | null;
@@ -109,49 +111,48 @@ export const Summary: React.FC<SummaryProps> = ({
     return (
         <div className="wrapper-summary">
             <Modal
-                title="Thông báo đăng ký"
+                title={t('RegistrationNotification')}
                 visible={isLoginModalVisible}
                 onCancel={() => setIsLoginModalVisible(false)}
                 footer={[
                     <Button key="link" href="/">
-                        Hủy bỏ
+                        {t('Cancel')}
                     </Button>,
                     <Button key="link" href="/login" type="primary">
-                        Đăng nhập
+                       {t('Login')}
                     </Button>,
                 ]}
             >
-                Vui lòng đăng nhập để tiếp tục thanh toán.
+               {t('PleaseLogin')}
             </Modal>
             <Modal
-                title="Thông báo đăng ký"
+                title={t('RegistrationNotification')}
                 open={isOpenModal}
                 onCancel={() => setIsOpenModal(false)}
                 footer={[
                     <Button key="back" onClick={() => setIsOpenModal(false)}>
-                        Hủy bỏ
+                        {t('Cancel')}
                     </Button>,
                     <Button key="link" onClick={handleConfirmPayment} type="primary">
-                        Tiếp tục
+                        {t('Continue')}
                     </Button>,
                 ]}
             >
-                Hiện tại bạn đang ở gói {subscriptionTypeId === 2 ? 'Tiêu chuẩn' : 'Cao cấp'}.{' '}
-                <span className="text-red-600">Nếu bạn tiếp tục hoàn thành đăng ký</span>, gói hiện
-                tại của bạn sẽ bị xóa và thời gian hiệu lực của gói mới nhất sẽ được áp dụng!
+                {t('CurrentlyYouAreInPackage')} {subscriptionTypeId === 2 ? packageTranslationMap[getCurrentLanguage()]['Tiêu chuẩn'] : packageTranslationMap[getCurrentLanguage()]['Cao cấp'] }.{' '}
+                <span className="text-red-600">{t('IfYouContinue')}</span>, {t('YourCurrent')}
             </Modal>
-            <div className="title-summary">Chi tiết thanh toán</div>
+            <div className="title-summary">{t('PaymentDetails')}</div>
             <div className="information">
                 <div className="term-package">
                     <div className="name-package">
                         <div className="">{t('PackageName')}</div>
-                        <div className="value">{namePackage}</div>
+                        <div className="value">{packageTranslationMap[getCurrentLanguage()][namePackage]}</div>
                     </div>
                     <div className="term">
-                        <div className="">Thời hạn gói</div>
+                        <div className="">{t('PackageDuration')}</div>
                         <div className="value">
                             {durationValue >= 10 ? '' : 0}
-                            {durationValue || 1} tháng
+                            {durationValue || 1} {t('Month')}
                         </div>
                     </div>
                 </div>
@@ -159,15 +160,15 @@ export const Summary: React.FC<SummaryProps> = ({
                 <hr className="my-2 border-neutral-300" />
                 <div className="time">
                     <div className="time-start">
-                        <div className="">Ngày hiệu lực</div>
+                        <div className="">{t('EffectiveDate')}</div>
                         <div className="value">{startDate}</div>
                     </div>
                     <div className="time-start">
-                        <div className="">Sử dụng đến</div>
+                        <div className="">{t('ValidUntil')}</div>
                         <div className="value">{moment(endDate).format('DD/MM/YYYY')}</div>
                     </div>
                     <div className="time-end">
-                        <div className="">Kỳ thanh toán tiếp theo</div>
+                        <div className="">{t('NextPaymentPeriod')}</div>
                         <div className="value">{handleRecoverDate()}</div>
                     </div>
                 </div>
@@ -175,13 +176,13 @@ export const Summary: React.FC<SummaryProps> = ({
                 <hr className="my-2 border-neutral-300" />
                 <div className="price-package">
                     <div className="price">
-                        <div className="">Trị giá</div>
+                        <div className="">{t('Value')}</div>
                         <div className="value">
                             {selectedTerm?.price.toLocaleString('it-IT') || '---'}&nbsp;₫
                         </div>
                     </div>
                     <div className="price">
-                        <div className="">Giảm giá</div>
+                        <div className="">{t('Discount')}</div>
                         <div className="value">
                             {discount !== 0 ? discount * 100 : '---'}&nbsp;%
                         </div>
@@ -190,20 +191,20 @@ export const Summary: React.FC<SummaryProps> = ({
                 <hr className="my-2 border-neutral-300" />
                 <div className="method">
                     <div className="method-payment">
-                        <div className="">Phương thức thanh toán</div>
+                        <div className="">{t('PaymentMethod')}</div>
                         <div className="value">{methodShowMap[selectedMethod]}</div>
                     </div>
                 </div>
                 <hr className="my-2 border-neutral-300" />
                 <div className="total-price">
-                    <div className="">Thành tiền</div>
+                    <div className="">{t('TotalAmount')}</div>
                     <div className="value-1">
                         {totalPrice.toLocaleString('it-IT') || '---'}
                         &nbsp;₫
                     </div>
                 </div>
                 <div className="note">
-                    Bằng việc xác nhận, bạn xác định đã đọc và đồng ý với{' '}
+                    {t('ByConfirming')}{' '}
                     <a
                         href="#"
                         style={{
@@ -211,22 +212,22 @@ export const Summary: React.FC<SummaryProps> = ({
                             fontWeight: '500',
                         }}
                     >
-                        Hợp đồng và Chính sách{' '}
+                        {t('ContractAndPolicy')}{' '}
                     </a>
-                    của MOVTIME.
+                    {t('Of')} MOVTIME.
                 </div>
             </div>
             {subscriptionTypeId === 1 ? (
-                <Button className={`btn-confirm flex`} type="primary" onClick={handleConfirmPayment}>
-                    Xác nhận
+                <Button className={`btn-confirm flex ont-medium`} type="primary" onClick={handleConfirmPayment}>
+                    {t('Confirm')}
                 </Button>
             ) : (
                 <Button
-                    className={`btn-confirm flex`}
+                    className={`btn-confirm flex font-medium`}
                     type="primary"
                     onClick={() => setIsOpenModal(true)}
                 >
-                    Xác nhận
+                    {t('Confirm')}
                 </Button>
             )}
         </div>

@@ -8,6 +8,7 @@ import { RootState } from '../../redux/store';
 import { request } from '../../utils/request';
 import { CurrentUser } from '../comment/type';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 interface botchatProp {
     onClose: () => void;
@@ -19,7 +20,7 @@ export const Botchat = ({ onClose }: botchatProp) => {
     const ref = useRef<any>(null);
     const [question, setQuestion] = useState<string>('');
     const [messages, setMessages] = useState<{ question?: string; answer?: string | any }[]>(() => [
-        { answer: 'Tôi có thể giúp gì cho bạn ?' },
+        { answer: t('HowCanIHelpYou') },
     ]);
     const [currentUser, setCurrentUser] = useState<CurrentUser>({
         username: '',
@@ -116,8 +117,8 @@ export const Botchat = ({ onClose }: botchatProp) => {
                         style={{ backgroundColor: 'white' }}
                     />
                     <h1 className="admin-box">MovTime</h1>
-                    <p>Hãy cho chúng tôi biết bạn cần gì nhé.</p>
-                    <p>Chúng tôi rất vui khi được hỗ trợ cho bạn.</p>
+                    <p>{t('PleaseLetUs')}</p>
+                    <p>{t('WeAreDelightedTo')}</p>
                 </div>
                 <p className="flex justify-center"> {timeStart}</p>
                 {messages.map((mess, index) => (

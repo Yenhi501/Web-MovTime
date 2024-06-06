@@ -11,17 +11,18 @@ import { VIPPackageRaw } from '../../model/VIP-package';
 import { DurationVIP } from '../../model/duration-VIP';
 import { useAppSelector } from '../../redux/hook';
 import { endpoint } from '../../utils/baseUrl';
+import { t } from '../../utils/i18n';
 import './index.scss';
 
 const data = [
     {
-        title: 'Xem mọi nội dung bạn muốn. Không có quảng cáo.',
+        title: t('NoAds'),
     },
     {
-        title: 'Đề xuất dành riêng cho bạn.',
+        title: t('SpeciallyForYou'),
     },
     {
-        title: 'Thay đổi hoặc hủy gói dịch vụ của bạn bất cứ khi nào.',
+        title: t('ChangeAnytime'),
     },
 ];
 
@@ -70,7 +71,7 @@ export const VIPPackage = () => {
             <HeaderPay />
             <div className="vip-package-body">
                 <Title level={2} className="vip-package-title">
-                    Chọn gói dịch vụ phù hợp với bạn
+                    {t('ChooseTheServicePackageThatSuitsYou')}
                 </Title>
                 <List
                     itemLayout="horizontal"
@@ -87,17 +88,15 @@ export const VIPPackage = () => {
                 />
                 <ListVipPackage className="list-vip-package" dataVIPPackage={dataVIPPackage} />
                 <Paragraph className="list-vip-package-policy">
-                    Việc bạn có thể xem ở chế độ HD (720p), Full HD (1080p), Ultra HD (4K) và HDR
-                    hay không phụ thuộc vào dịch vụ internet và khả năng của thiết bị. Không phải
-                    tất cả nội dung đều có sẵn ở mọi độ phân giải. Xem{' '}
-                    <a href="#">Điều khoản sử dụng</a> của chúng tôi để biết thêm chi tiết.
+                    {t('TheAbility')}{' '}
+                    <a href="#">{t('TermsOfUse')}</a> {t('ForMoreDetails')}.
                 </Paragraph>
                 <Link
                     to={`/payment/${idPackage}`}
                     state={{ idPackage: idPackage }}
                     className="list-vip-package-btn"
                 >
-                    Tiếp theo
+                    {t('Continue')}
                 </Link>
             </div>
         </div>
