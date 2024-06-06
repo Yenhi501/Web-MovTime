@@ -78,8 +78,8 @@ export const Register: React.FC = () => {
 
             if (response.data.status === 'Ok!') {
                 notification.info({
-                    message: 'Đăng kí thành công',
-                    description: 'Hãy kiểm tra mail để xác nhận.',
+                    message: `${t('SigninSuccess')}`,
+                    description: `${t('CheckMail')}`,
                 });
             }
         } catch (error) {
@@ -107,8 +107,8 @@ export const Register: React.FC = () => {
         } catch (error: any) {
             if (error.response.status === 409) {
                 notification.warning({
-                    message: 'Đăng kí không thành công',
-                    description: 'Email hoặc username đã tồn tại.',
+                    message: `${t('LoginNoSuccess')}`,
+                    description:`${t('EmailValid')}`,
                 });
             }
         }
@@ -131,7 +131,7 @@ export const Register: React.FC = () => {
             return Promise.resolve();
         }
         return Promise.reject(
-            'Mật khẩu phải chứa chữ viết thường, chữ viết hoa, số và ký tự đặc biệt!',
+            `${t('ConditionPassword')}`,
         );
     };
     return (
@@ -161,9 +161,9 @@ export const Register: React.FC = () => {
                         </div>
                         <div className="register-form">
                             <div className="register-form__header">
-                                <h1 className="form-header__large">Chào mừng bạn,</h1>
+                                <h1 className="form-header__large">{t('Welcome')}</h1>
                                 <p className="form-header__small">
-                                    đăng kí tài khoản để sử dụng MovTime.
+                                {t('SingupMovTime')}
                                 </p>
                             </div>
 
@@ -185,11 +185,11 @@ export const Register: React.FC = () => {
                                     rules={[
                                         {
                                             type: 'email',
-                                            message: 'Vui lòng nhập đúng định dạng E-mail!',
+                                            message: `${t('FormatEmail')}`,
                                         },
                                         {
                                             required: true,
-                                            message: 'Vui lòng nhập E-mail!',
+                                            message: `${t('InputEmail')}`,
                                         },
                                         {},
                                     ]}
@@ -200,11 +200,11 @@ export const Register: React.FC = () => {
                                 <Form.Item
                                     className="register-form__item"
                                     name="username"
-                                    label={<span style={{ color: 'white' }}>Tên đăng nhập</span>}
+                                    label={<span style={{ color: 'white' }}>{t('Username')}</span>}
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Vui lòng nhập tên đăng nhập!',
+                                            message:`${t('InputUsername')}`,
                                         },
                                     ]}
                                 >
@@ -214,11 +214,11 @@ export const Register: React.FC = () => {
                                 <Form.Item
                                     className="register-form__item"
                                     name="password"
-                                    label={<span style={{ color: 'white' }}>Mật khẩu</span>}
+                                    label={<span style={{ color: 'white' }}>{t('Password')}</span>}
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Vui lòng nhập mật khẩu!',
+                                            message: `${t('InputPassword')}`,
                                         },
                                         {
                                             validator: passwordValidator,
@@ -237,7 +237,7 @@ export const Register: React.FC = () => {
                                     name="confirm"
                                     label={
                                         <span style={{ color: 'white' }}>
-                                            Xác nhận lại mật khẩu{' '}
+                                            {t('PasswordAG')}
                                         </span>
                                     }
                                     dependencies={['password']}
@@ -245,7 +245,7 @@ export const Register: React.FC = () => {
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Vui lòng nhập mật khẩu!',
+                                            message: `${t('InputPasswordAgain')}`,
                                         },
                                         ({ getFieldValue }) => ({
                                             validator(_, value) {
@@ -253,7 +253,7 @@ export const Register: React.FC = () => {
                                                     return Promise.resolve();
                                                 }
                                                 return Promise.reject(
-                                                    new Error('Mật khẩu không trùng khớp!'),
+                                                    new Error(`${t('ErrPassword')}`),
                                                 );
                                             },
                                         }),
@@ -279,12 +279,12 @@ export const Register: React.FC = () => {
                                         rules={[
                                             {
                                                 required: true,
-                                                message: 'Vui lòng chọn giới tính!',
+                                                message: `${t('Genre')}`,
                                             },
                                         ]}
                                     >
                                         <Select
-                                            placeholder="Chọn giới tính"
+                                            placeholder= {t('GenreChoose')}
                                             style={{
                                                 width: '180px',
                                                 borderRadius: '7px',
@@ -292,8 +292,8 @@ export const Register: React.FC = () => {
                                             }}
                                             className="register-form__item-input"
                                         >
-                                            <Option value="Male">Nam</Option>
-                                            <Option value="Female">Nữ</Option>
+                                            <Option value="Male">{t('Male')}</Option>
+                                            <Option value="Female">{t('Female')}</Option>
                                             <Option value="Other">{t('Other')}</Option>
                                         </Select>
                                     </Form.Item>
@@ -315,7 +315,7 @@ export const Register: React.FC = () => {
                                     {...tailFormItemLayout}
                                 >
                                     <Checkbox name="check" className="register-form__item-checkbox">
-                                        Tôi đã đọc <a href="/">thỏa thuận</a>
+                                    {t('IRead')} <a href="/">{t('Agree')}</a>
                                     </Checkbox>
                                 </Form.Item>
                                 <Form.Item
@@ -331,19 +331,19 @@ export const Register: React.FC = () => {
                                         }}
                                         onClick={handleRegularPackageRegister}
                                     >
-                                        Đăng ký
+                                        {t('Register')}
                                     </Button>
                                     <div className="text-center mt-4">
-                                        Bạn đã có tài khoản ? {}{' '}
+                                    {t('YouHave')} {}{' '}
                                         <Link className="form-signup" to="/login">
-                                            Đăng nhập
+                                        {t('Login')}
                                         </Link>
                                     </div>
                                 </Form.Item>
 
                                 <Modal
                                     style={{ top: '12%' }}
-                                    title="Trải nghiệm Tuyệt vời với Gói VIP!"
+                                    title={t('title')}
                                     visible={showModal}
                                     onOk={handleModalClose}
                                     onCancel={handleModalClose}
@@ -371,7 +371,7 @@ export const Register: React.FC = () => {
                                             }}
                                             key="cancel"
                                         >
-                                            Đăng ký với gói thường
+                                            {t('LoginNormal')}
                                         </Button>,
                                         <Link to="/VIPpackage" key="ok">
                                             <Button
@@ -380,18 +380,13 @@ export const Register: React.FC = () => {
                                                 }}
                                                 type="primary"
                                             >
-                                                Đăng ký với gói VIP
+                                                {t('LoginVIP')}
                                             </Button>
                                         </Link>,
                                     ]}
                                 >
                                     <p className="mt-4" style={{ color: 'var(--sub-color)' }}>
-                                        "Yêu điện ảnh và muốn thưởng thức nhiều bộ phim hơn mỗi
-                                        ngày? Gói VIP mang đến trải nghiệm tuyệt vời với hàng ngàn
-                                        bộ phim đa dạng. Bạn sẽ được truy cập sớm vào bộ phim mới
-                                        nhất và không bị gián đoạn bởi quảng cáo. Hãy trải nghiệm
-                                        niềm đam mê điện ảnh một cách trọn vẹn với Gói VIP. Mua ngay
-                                        và trải nghiệm sự khác biệt!"
+                                    {t('Desc1')}
                                     </p>
                                     <img
                                         alt=""
@@ -399,11 +394,7 @@ export const Register: React.FC = () => {
                                         src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/387518330_1316649055890049_4969429051850658745_n.png?_nc_cat=110&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=3AaFCmb-HL0AX9SS7yH&_nc_ht=scontent.fdad3-1.fna&_nc_e2o=s&oh=03_AdTWCInJzTt8Lux8h3GOBsS8dic_h4u43l1LyWz66jh6NQ&oe=6552132E"
                                     />
                                     <p style={{ color: 'var(--sub-color)' }}>
-                                        Việc bạn có thể xem ở chế độ HD (720p), Full HD (1080p),
-                                        Ultra HD (4K) và HDR hay không phụ thuộc vào dịch vụ
-                                        internet và khả năng của thiết bị. Không phải tất cả nội
-                                        dung đều có sẵn ở mọi độ phân giải. Xem Điều khoản sử dụng
-                                        của chúng tôi để biết thêm chi tiết.
+                                    {t('Desc2')}
                                     </p>
                                 </Modal>
                             </Form>
