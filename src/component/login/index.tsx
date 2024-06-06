@@ -35,8 +35,8 @@ export const Login: React.FC = () => {
                 setLoading(false);
                 if (response.status === 200) {
                     notification.success({
-                        message: 'Đăng nhập thành công',
-                        description: 'Chúc bạn có một trải nghiệm tuyệt vời với MovTime.',
+                        message: `${t('LoginSuccess')}`,
+                        description:`${t('titleLogin')}`,
                         placement: 'bottomRight',
                     });
 
@@ -57,8 +57,8 @@ export const Login: React.FC = () => {
                 } else {
                     if (response.data.error) {
                         notification.error({
-                            message: 'Đăng nhập không thành công',
-                            description: 'Sai mật khẩu hoặc tài khoản. Vui lòng thử lại.',
+                            message: `${t('LoginFail')}`,
+                            description: `${t('EmailErr')}`,
                         });
                     }
                 }
@@ -71,8 +71,8 @@ export const Login: React.FC = () => {
                 //     window.location.href = 'https://mail.google.com/';
                 // }
                 notification.error({
-                    message: 'Đăng nhập không thành công',
-                    description: 'Sai mật khẩu hoặc tài khoản. Vui lòng thử lại.',
+                    message:  `${t('LoginFail')}`,
+                    description:  `${t('EmailErr')}`,
                 });
             });
     };
@@ -111,9 +111,9 @@ export const Login: React.FC = () => {
                 </div>
                 <div className="form-info">
                     <div className="form-header !ml-3">
-                        <h1 className="form-header__large"> Chào mừng bạn, </h1>
+                        <h1 className="form-header__large"> {t('Welcome')} </h1>
                         <p className="form-header__small">
-                            đăng nhập tài khoản để sử dụng MovTime.
+                        {t('LoginMovTime')}
                         </p>
                     </div>
                     <Form
@@ -129,12 +129,12 @@ export const Login: React.FC = () => {
                     >
                         <div className="form-item">
                             <Form.Item<FieldType>
-                                label={<span style={{ color: 'white' }}>Tên đăng nhập/email</span>}
+                                label={<span style={{ color: 'white' }}>{t('User/Email')}</span>}
                                 name="username"
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Vui lòng nhập tên đăng nhập/email!',
+                                        message: `${t('InputUser/Email')}`,
                                     },
                                 ]}
                             >
@@ -148,12 +148,12 @@ export const Login: React.FC = () => {
                             </Form.Item>
                         </div>
                         <Form.Item<FieldType>
-                            label={<span style={{ color: 'white' }}>Mật khẩu</span>}
+                            label={<span style={{ color: 'white' }}>{t('Password')}</span>}
                             name="password"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Vui lòng nhập mật khẩu!',
+                                    message: `${t('InputPassword')}`,
                                 },
                             ]}
                         >
@@ -173,7 +173,7 @@ export const Login: React.FC = () => {
                                 wrapperCol={{ span: 32 }}
                                 className="flex justify-between"
                             >
-                                <Checkbox style={{ color: 'white' }}>Lưu mật khẩu</Checkbox>
+                                <Checkbox style={{ color: 'white' }}>{t('SavePassword')}</Checkbox>
                             </Form.Item>
                             <Form.Item wrapperCol={{ span: 32 }}>
                                 <a
@@ -181,7 +181,7 @@ export const Login: React.FC = () => {
                                     style={{ color: 'var(--primary-color)' }}
                                     href="forget"
                                 >
-                                    Quên mật khẩu
+                                    {t('ForgotPassword')}
                                 </a>
                             </Form.Item>
                         </div>
@@ -236,9 +236,9 @@ export const Login: React.FC = () => {
                                 </Button>
                             </div>
                             <div className="text-center mt-4 text-white !ml-[-18px]">
-                                Bạn chưa có tài khoản ? {}{' '}
+                            {t('YouNoHave')}{}{' '}
                                 <Link className="form-signup" to="/register">
-                                    Đăng ký ngay
+                                {t('Register')}
                                 </Link>
                             </div>
                         </div>

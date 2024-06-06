@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Logo } from '../../asset/icon/logo';
 import { endpoint } from '../../utils/baseUrl';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 type FieldType = {
     email?: string;
@@ -48,8 +49,8 @@ export const LoginForget: React.FC = () => {
                 </div>
                 <div className="form-info-forgot">
                     <div className="form-header !ml-2">
-                        <h1 className="form-header__large "> Chào mừng bạn, </h1>
-                        <p className="form-header__small">nhập email để lấy lại tài khoản.</p>
+                        <h1 className="form-header__large ">  {t('Welcome')}  </h1>
+                        <p className="form-header__small">{t('InputEmailAcc')}nhập email để lấy lại tài khoản.</p>
                     </div>
                     <Form
                         form={form}
@@ -70,7 +71,7 @@ export const LoginForget: React.FC = () => {
                                 rules={[
                                     {
                                         type: 'email',
-                                        message: 'Nhập đúng định dạng email!',
+                                        message:`${t('FormatEmail')}`,
                                     },
                                     {
                                         required: true,
@@ -100,9 +101,9 @@ export const LoginForget: React.FC = () => {
                             </Button>
                         </Form.Item>
                         <div className="form-change !mt-2">
-                            Bạn mới sử dụng MovTime ? {}{' '}
+                        {t('YouNoHave')}{}{' '}
                             <Link className="form-signup" to="/register">
-                                Đăng ký ngay
+                            {t('Register')}
                             </Link>
                         </div>
                     </Form>
