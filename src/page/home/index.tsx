@@ -1,24 +1,24 @@
-import { BackTop, Col, Row, Spin, Tooltip } from 'antd';
+import { BackTop, Spin, Tooltip } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FilmItem } from '../../component/film-item';
+import { genreTranslationMap } from '../../component/header/constant';
 import { HistoryMoviesHome } from '../../component/history-home';
 import { CastFamousHome } from '../../component/home-cast-famous';
 import { ListFilm } from '../../component/list-film';
+import { Genre, ListGenre } from '../../component/list-genre';
 import { ListReserveMovies } from '../../component/list-reserve-movie';
 import { PopularMovie } from '../../component/popular-moive';
 import Slide from '../../component/slide';
+import SlideShow from '../../component/slideIntroduce';
 import { DAFilm, Film } from '../../model/film';
 import { RootState } from '../../redux/store';
 import { t } from '../../utils/i18n';
+import { getCurrentLanguage } from '../../utils/localization';
 import { request } from '../../utils/request';
 import './index.scss';
-import SlideShow from '../../component/slideIntroduce';
-import { Genre, ListGenre } from '../../component/list-genre';
-import { getCurrentLanguage } from '../../utils/localization';
-import { genreTranslationMap } from '../../component/header/constant';
 
 export type DataMovieByGenre = {
     genreId: number;
@@ -167,6 +167,7 @@ export const HomePage = () => {
             name: genreTranslationMap[currentLanguage]?.[item.name] || item.name,
         }));
     };
+    
 
     return (
         <div>
