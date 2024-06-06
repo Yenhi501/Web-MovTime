@@ -1,6 +1,7 @@
-import { BulbOutlined, CustomerServiceOutlined, DingtalkOutlined, DropboxOutlined, LeftOutlined, OpenAIOutlined, RightOutlined, RubyOutlined } from '@ant-design/icons';
+import { BulbOutlined, CustomerServiceOutlined, DingtalkOutlined, DropboxOutlined, LeftOutlined, RightOutlined, RubyOutlined } from '@ant-design/icons';
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Skeleton } from 'antd';
 import { t } from '../../utils/i18n';
 import './index.scss';
 
@@ -9,7 +10,6 @@ const genreIcons = [
     <CustomerServiceOutlined />,
     <BulbOutlined />,
     <DropboxOutlined />,
-    <OpenAIOutlined />,
     <RubyOutlined />,
 ];
 
@@ -43,6 +43,15 @@ export const ListGenre = ({ genres }: ListFilmProps) => {
 
     const visibleGenres = allGenres.slice(startIndex, startIndex + maxVisibleGenres);
 
+    const renderSkeletons = () => {
+        return Array.from({ length: maxVisibleGenres }).map((_, index) => (
+            <div key={index} className="flex flex-col gap-2 list-title genre-skeleton">
+                <Skeleton.Avatar size={50} active={true} shape="square" />
+                <Skeleton.Input style={{ width: '80%', height: '10px' }} active={true} />
+            </div>
+        ));
+    };
+
     return (
         <div className='my-16'>
             <p className='font-bold text-[22px] ml-[67px]'>{t('Category')}</p>
@@ -55,17 +64,21 @@ export const ListGenre = ({ genres }: ListFilmProps) => {
                     <div className="arrow-placeholder left" />
                 )}
                 <div className="list-genre-content">
-                    {visibleGenres.map((genre, index) => (
-                        <Link
-                            to={genre.genreId === 'all' ? `/search` : `/search?genre=${genre.genreId}`}
-                            key={genre.genreId}
-                            className={`flex flex-col gap-2 list-title genre-${index % 6}`}
-                            style={{ cursor: 'pointer', textDecoration: 'none' }}
-                        >
-                            <p className='text-[18px]'>{genreIcons[index % genreIcons.length]}</p>
-                            <h2 className='!text-[15px] font-medium'>{genre.name}</h2>
-                        </Link>
-                    ))}
+                    {genres.length > 0 ? (
+                        visibleGenres.map((genre, index) => (
+                            <Link
+                                to={genre.genreId === 'all' ? `/search` : `/search?genre=${genre.genreId}`}
+                                key={genre.genreId}
+                                className={`flex flex-col gap-2 list-title genre-${index % 6}`}
+                                style={{ cursor: 'pointer', textDecoration: 'none' }}
+                            >
+                                <p className='text-[18px]'>{genreIcons[index % genreIcons.length]}</p>
+                                <h2 className='!text-[15px] font-medium'>{genre.name}</h2>
+                            </Link>
+                        ))
+                    ) : (
+                        renderSkeletons()
+                    )}
                 </div>
                 {startIndex + maxVisibleGenres < allGenres.length ? (
                     <button className="arrow-button right" onClick={handleNext}>
