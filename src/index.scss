@@ -282,3 +282,6 @@ ul {
 :where(.css-dev-only-do-not-override-1qfezbu) a:hover {
     color : var(--light-primary-color) !important;
 }
+.slick-arrow.slick-next{
+    display:none !important;
+}

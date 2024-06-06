@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import { getTimeDifference } from '../../../utils/get-time-difference';
 import { listComment } from '../type';
 import './index.scss';
+import { t } from '../../../utils/i18n';
 
 interface CmtProps {
     comment: listComment;
@@ -92,7 +93,7 @@ export const Cmt: React.FC<CmtProps> = ({
                         <div className="love-icon-like" onClick={handleUndoLike}>
                             {comment.numLike == 0 ? (
                                 <>
-                                    <LoveIcon /> <p className="ml-1">Like</p>
+                                    <LoveIcon /> <p className="ml-1">{t('Like')}</p>
                                 </>
                             ) : (
                                 <>
@@ -105,7 +106,7 @@ export const Cmt: React.FC<CmtProps> = ({
                         <div className="love-icon" onClick={handleLike}>
                             {comment.numLike == 0 ? (
                                 <>
-                                    <LoveIcon /> <p className="ml-1">Thích</p>
+                                    <LoveIcon /> <p className="ml-1">{t('Like')}</p>
                                 </>
                             ) : (
                                 <>
@@ -121,7 +122,7 @@ export const Cmt: React.FC<CmtProps> = ({
                             <div className="icon">
                                 <ReplyIcon />
 
-                                <p className="ml-1">Trả lời</p>
+                                <p className="ml-1">{t('Reply')}</p>
 
                             </div>
                         </div>
@@ -129,7 +130,7 @@ export const Cmt: React.FC<CmtProps> = ({
                     {isCurrentUserComment && (
                         <div className="delete-icon" onClick={showModal}>
                             <DeleteIcon />
-                            <p className="ml-1"> Xóa</p>
+                            <p className="ml-1"> {t('Delete')}</p>
                         </div>
                     )}
                 </div>
@@ -142,14 +143,14 @@ export const Cmt: React.FC<CmtProps> = ({
                             }
                         }}
 
-                        placeholder={`Trả lời ${comment.user?.email}`}
+                        placeholder={`${t('Reply')} ${comment.user?.email}`}
 
                         onCancel={handleCancelReply}
                     />
                 )}
             </div>
             <Modal
-                title="Bạn chắc chắn muốn xóa bình luận?"
+                title={t('DeleteComment')}
                 open={isModalOpen}
                 onOk={() => {
                     setIsModalOpen(false);
