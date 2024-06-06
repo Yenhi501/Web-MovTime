@@ -95,6 +95,7 @@ export const VIPPackage = () => {
                     to={`/payment/${idPackage}`}
                     state={{ idPackage: idPackage }}
                     className="list-vip-package-btn"
+                    onClick={()=> {window.scrollTo({ top: 0, behavior: 'smooth' })}}
                 >
                     {t('Continue')}
                 </Link>
