@@ -40,6 +40,7 @@ export const Summary: React.FC<SummaryProps> = ({
     const [endDate, setEndDate] = useState(getNextDateByMonth(duration));
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); 
 
     useEffect(() => {
         const newDate = getNextDateByMonth(duration);
@@ -54,8 +55,9 @@ export const Summary: React.FC<SummaryProps> = ({
     };
 
     const postOrder = async () => {
-        return await axios
-            .post(
+        try {
+            setIsLoading(true); 
+            const res = await axios.post(
                 `${endpoint}/api/payments/paypal`,
                 {
                     subscriptionInfoId: subscriptionInfoId,
@@ -66,17 +68,20 @@ export const Summary: React.FC<SummaryProps> = ({
                         Authorization: `Bearer ${accessToken}`,
                     },
                 },
-            )
-            .then((res) => {
-                setLinkRedirect(res.data.data);
-                window.location.href = res.data.data; 
-            })
-            .catch((error) => console.log(error));
+            );
+            setLinkRedirect(res.data.data);
+            window.location.href = res.data.data; 
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false); 
+        }
     };
 
     const paymentVNPay = async () => {
-        await axios
-            .post(
+        try {
+            setIsLoading(true); 
+            const response = await axios.post(
                 `${endpoint}/api/payments/vn-pay`,
                 {
                     ipAddress: '127.0.0.1',
@@ -88,12 +93,14 @@ export const Summary: React.FC<SummaryProps> = ({
                         Authorization: `Bearer ${accessToken}`,
                     },
                 },
-            )
-            .then((response) => {
-                setLinkRedirect(response.data.data.url);
-                window.location.href = response.data.data.url; 
-            })
-            .catch((err) => console.log(err));
+            );
+            setLinkRedirect(response.data.data.url);
+            window.location.href = response.data.data.url; 
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setIsLoading(false); 
+        }
     };
 
     const handleConfirmPayment = () => {
@@ -110,6 +117,11 @@ export const Summary: React.FC<SummaryProps> = ({
 
     return (
         <div className="wrapper-summary">
+            {isLoading && ( // Hiển thị loading khi isLoading = true
+                <div className="loading-overlay">
+                    <div className="loading-spinner"></div>
+                </div>
+            )}
             <Modal
                 title={t('RegistrationNotification')}
                 visible={isLoginModalVisible}
@@ -233,3 +245,5 @@ export const Summary: React.FC<SummaryProps> = ({
         </div>
     );
 };
+
+export default Summary;
