@@ -28,6 +28,7 @@ import { setIsLogin } from './redux/isLoginSlice';
 import { refreshToken } from './utils/refreshToken';
 import { request } from './utils/request';
 import { t } from './utils/i18n';
+import SplashScreen from './component/splash';
 
 const locationMap: Record<string, string> = {
     '/VIPpackage': 'hidden',
@@ -42,7 +43,8 @@ export const App = () => {
     const timeRefreshToken = 1000 * 29 * 60; /*29m*/
     const { accessToken } = useToken();
     const dispatch = useAppDispatch();
-
+    const [showSplash, setShowSplash] = useState(true);
+    
     //botchat
     const [open, setOpen] = useState(false);
 
@@ -83,7 +85,18 @@ export const App = () => {
         }
     }, [pathname]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowSplash(false);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
+
     const helmetContext = {};
+
+    if (showSplash) {
+        return <SplashScreen />;
+    }
 
     return (
         <HelmetProvider context={helmetContext}>

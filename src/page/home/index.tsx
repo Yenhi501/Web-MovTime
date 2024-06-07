@@ -1,4 +1,4 @@
-import { BackTop, Spin, Tooltip } from 'antd';
+import { BackTop, Tooltip } from 'antd';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -28,6 +28,7 @@ export type DataMovieByGenre = {
 
 export const HomePage = () => {
     const [loading, setLoading] = useState(true);
+    const [showSpinner, setShowSpinner] = useState(true); 
     const [trendingData, setTrendingData] = useState<Film[]>([]);
     const [dataFilmVip, setDataFimlVip] = useState<Film[]>([]);
     const [dataMovieByGenre, setDataMovieByGenre] = useState<DataMovieByGenre[]>([]);
@@ -37,14 +38,13 @@ export const HomePage = () => {
     const [dataRecommend, setRecommened] = useState<Film[]>([]);
     const accessToken = Cookies.get('accessToken')?.replace(/^"(.*)"$/, '$1') || '';
     const isUserLoggedIn = useSelector((state: RootState) => state.user.isLogin);
+
     const fetchTrending = async () => {
         try {
             const response = await request.get('movies/home/trending');
             setTrendingData(response.data);
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -58,8 +58,6 @@ export const HomePage = () => {
             setDataMovieByGenre(response.data);
         } catch (error) {
             console.log(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -69,8 +67,6 @@ export const HomePage = () => {
             setDataActorFamous(response.data.data.actors);
         } catch (error) {
             console.log(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -80,8 +76,6 @@ export const HomePage = () => {
             setDataFimlVip(response.data);
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -91,8 +85,6 @@ export const HomePage = () => {
             setDataReserve(response.data);
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -105,8 +97,6 @@ export const HomePage = () => {
             setRecommened(response.data);
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -127,6 +117,7 @@ export const HomePage = () => {
         const fetchData = async () => {
             try {
                 setLoading(true);
+                setShowSpinner(true); 
                 await Promise.all([
                     fetchTrending(),
                     getMovieByGenre(),
@@ -140,6 +131,9 @@ export const HomePage = () => {
                 console.error(error);
             } finally {
                 setLoading(false);
+                setTimeout(() => {
+                    setShowSpinner(false); 
+                }, );
                 window.scrollTo(0, 0);
             }
         };
@@ -158,7 +152,6 @@ export const HomePage = () => {
             />
         ));
     };
-    
 
     const convertToGenres = (data: DataMovieByGenre[]): Genre[] => {
         const currentLanguage = getCurrentLanguage();
@@ -167,7 +160,6 @@ export const HomePage = () => {
             name: genreTranslationMap[currentLanguage]?.[item.name] || item.name,
         }));
     };
-    
 
     return (
         <div>
@@ -177,37 +169,39 @@ export const HomePage = () => {
 
             <Slide />
             <div className="container-home"></div>
-            <Spin spinning={loading} size="large" className="mt-96">
-                <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
-                <ListGenre genres={convertToGenres(dataMovieByGenre)} />
-                <SlideShow/>
-                <PopularMovie isShow={false} title={t('PopularMovies')} listFilm={top10TrendingFilms} />
-                <HistoryMoviesHome dataHistorymovies={dataHistorymovies} />
-                <div className="!mt-10"></div>
-                <ListFilm isShow={false} title={t('WhatToWatchToday')} listFilm={dataRecommend} />
-                <Link
-                    to={'/VIPpackage'}
-                    onClick={() => {
-                        window.scrollTo(0, 0);
-                    }}
-                >
-                    <img
-                        className="ml-20 w-[91%] rounded-md h-[88px]"
-                        src="http://u2.iqiyipic.com/intl_lang/20230222/48/21/intl_lang_65c467fd4f698e25c02870407453_default.jpg"
-                        alt=""
-                    />
-                </Link>
-                <ListReserveMovies listFilm={dataReserve} />
-                {dataActorFamous.length > 0 && (
-                    <CastFamousHome
-                        title={t('PopularCelebrities')}
-                        DAlist={dataActorFamous}
-                        size={146}
-                        
-                    />
-                )}
-               {renderListFilmsByGenre()}
-            </Spin>
+            {loading && showSpinner && (
+                <div className="loading-overlay">
+                    <div className="loading-spinner"></div>
+                </div>
+            )}
+            <ListFilm isShow={false} title={t('ForVip')} listFilm={dataFilmVip} />
+            <ListGenre genres={convertToGenres(dataMovieByGenre)} />
+            <SlideShow />
+            <PopularMovie isShow={false} title={t('PopularMovies')} listFilm={top10TrendingFilms} />
+            <HistoryMoviesHome dataHistorymovies={dataHistorymovies} />
+            <div className="!mt-10"></div>
+            <ListFilm isShow={false} title={t('WhatToWatchToday')} listFilm={dataRecommend} />
+            <Link
+                to={'/VIPpackage'}
+                onClick={() => {
+                    window.scrollTo(0, 0);
+                }}
+            >
+                <img
+                    className="ml-20 w-[91%] rounded-md h-[88px]"
+                    src="http://u2.iqiyipic.com/intl_lang/20230222/48/21/intl_lang_65c467fd4f698e25c02870407453_default.jpg"
+                    alt=""
+                />
+            </Link>
+            <ListReserveMovies listFilm={dataReserve} />
+            {dataActorFamous.length > 0 && (
+                <CastFamousHome
+                    title={t('PopularCelebrities')}
+                    DAlist={dataActorFamous}
+                    size={146}
+                />
+            )}
+            {renderListFilmsByGenre()}
         </div>
     );
 };

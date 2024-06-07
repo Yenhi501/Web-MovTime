@@ -117,7 +117,7 @@ export const Summary: React.FC<SummaryProps> = ({
 
     return (
         <div className="wrapper-summary">
-            {isLoading && ( // Hiển thị loading khi isLoading = true
+            {isLoading && (
                 <div className="loading-overlay">
                     <div className="loading-spinner"></div>
                 </div>
