@@ -73,6 +73,8 @@ export const HomePage = () => {
     const fetchVip = async () => {
         try {
             const response = await request.get('movies/home/vip');
+            console.log(response);
+            
             setDataFimlVip(response.data);
         } catch (error) {
             console.error(error);
