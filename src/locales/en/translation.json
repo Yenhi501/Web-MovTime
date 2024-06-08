@@ -125,7 +125,7 @@
     "LoginNoSuccess":"Registration failed",
     "EmailValid":"Email or username already exists.",
     "ConditionPassword":"Password must contain lowercase letters, uppercase letters, numbers, and special characters!",
-    "Welcome":"Welcome!",
+    "Welcome":"Welcome !",
     "SingupMovTime":"register an account to use MovTime.",
     "FormatEmail":"Please enter a valid email format!",
     "InputEmail":"Please enter your email!",
@@ -160,5 +160,7 @@
     "ForgotPassword":"Forgot password",
     "YouNoHave":"Don't have an account yet?",
     "InputEmailAcc":"Enter your email to recover your account.",
-    "InputEmailConfirm":"Enter confirmation email"
+    "InputEmailConfirm":"Enter confirmation email",
+    "LogoutSuccessfully":"Logout successfully",
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Congratulations, you have successfully logged out"
 }

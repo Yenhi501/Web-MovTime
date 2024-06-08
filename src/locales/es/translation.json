@@ -125,7 +125,7 @@
     "LoginNoSuccess":"Registro no exitoso.",
     "EmailValid":"El correo electrónico o el nombre de usuario ya existe.",
     "ConditionPassword":"La contraseña debe contener letras minúsculas, letras mayúsculas, números y caracteres especiales!",
-    "Welcome":"Bienvenido/a!",
+    "Welcome":"Bienvenido/a !",
     "SingupMovTime":"registra una cuenta para usar MovTime.",
     "FormatEmail":"Por favor, ingresa un formato de correo electrónico válido!",
     "InputEmail":"Por favor, ingresa tu correo electrónico!",
@@ -160,5 +160,8 @@
     "ForgotPassword":"Olvidé la contraseña",
     "YouNoHave":"Todavía no tienes una cuenta?",
     "InputEmailAcc":"Ingresa tu correo electrónico para recuperar tu cuenta.",
-    "InputEmailConfirm":" Introduce el correo de confirmación"
+    "InputEmailConfirm":" Introduce el correo de confirmación",
+    "LogoutSuccessfully":"Cerrar sesión exitosamente",
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Felicitaciones, has cerrado sesión exitosamente."
+    
 }

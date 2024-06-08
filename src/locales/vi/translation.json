@@ -160,5 +160,7 @@
     "ForgotPassword":"Quên mật khẩu",
     "YouNoHave":"Bạn chưa có tài khoản ?",
     "InputEmailAcc":"nhập email để lấy lại tài khoản.",
-    "InputEmailConfirm":"Nhập email xác nhận"
+    "InputEmailConfirm":"Nhập email xác nhận",
+    "LogoutSuccessfully":"Đăng xuất thành công",
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Chúc mừng, bạn đã đăng xuất thành công"
 }

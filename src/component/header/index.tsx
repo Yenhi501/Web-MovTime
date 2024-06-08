@@ -79,8 +79,8 @@ export const Header = ({ className }: Header) => {
 
         dispatch(setIsLogin(false));
         notification.success({
-            message: 'Đăng xuất thành công',
-            description: 'Chúc mừng, bạn đã đăng xuất thành công',
+            message: t('LogoutSuccessfully'),
+            description: t('CongratulationsYouHaveSuccessfullyLoggedOut'),
             placement: 'bottomRight',
         });
     };
