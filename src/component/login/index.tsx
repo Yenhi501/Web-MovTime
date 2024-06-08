@@ -77,7 +77,7 @@ export const Login: React.FC = () => {
             });
     };
     const onSuccessGG = () => {
-        window.location.href = 'http://localhost:8000/api/auth/google';
+        window.location.href = 'http://movtime-movies.eastasia.cloudapp.azure.com:8000/api/auth/google';
         // notification.success({
         //     message: 'Đăng nhập thành công',
         //     description: 'Chúc mừng, bạn đã đăng nhập thành công',
