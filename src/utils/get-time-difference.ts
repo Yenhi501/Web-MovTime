@@ -24,6 +24,6 @@ export const getTimeDifference = (commentDateTime: string) => {
     } else if (minutes > 0) {
         return `${minutes} ${t("MinuteAgo")}`;
     } else {
-        return `${seconds} ${t("MiliAgo")}`;
+        return `${seconds} ${t("SecondAgo")}`;
     }
 };
