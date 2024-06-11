@@ -33,6 +33,7 @@ export const WatchingPage = () => {
     const [subInfo, setSubInfo] = useState<Array<SubInfo>>([]);
     const [listHashtag, setListHashtag] = useState<string[]>([]);
     const [openModalNotify, setOpenModalNotify] = useState(false);
+    const [openModalVIP, setOpenModalVIP] = useState(false);
     const [contentModal, setContentModal] = useState<NotifyModalContent>(defaultNotifyModalContent);
     const navigator = useNavigate();
     const [dataRecommend, setRecommened] = useState<Film[]>([]);
@@ -92,6 +93,10 @@ export const WatchingPage = () => {
                     const dataNotifyModal = modalContentMap[handleNotify()];
                     setContentModal(dataNotifyModal);
                     console.log(err.response);
+                }
+                if (err.response?.status === 403) {
+                    setOpenModalVIP(true);
+                    
                 }
             });
     };
@@ -163,6 +168,22 @@ export const WatchingPage = () => {
                 cancelText= {t('Onthehomepage')}
             >
                 {contentModal.content}
+            </Modal>
+            <Modal
+                title={'Không có quyền truy cập'}
+                open={openModalVIP}
+                onCancel={() => {
+                    navigator({ pathname: '/' });
+                }}
+                onOk={() => {
+                    navigator({
+                        pathname: '/VIPPackage',
+                    });
+                }}
+                okText={'Đăng ký gói'}
+                cancelText= {t('Onthehomepage')}
+            >
+                Mua gói VIP  để có thể xem được nhiều phim hơn
             </Modal>
 
             <div className="watching ">
