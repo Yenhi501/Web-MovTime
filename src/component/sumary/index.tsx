@@ -99,9 +99,12 @@ export const Summary: React.FC<SummaryProps> = ({
         } catch (err) {
             console.log(err);
         } finally {
-            setIsLoading(false); 
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 3000); 
         }
     };
+    
 
     const handleConfirmPayment = () => {
         if (!accessToken) {
@@ -114,6 +117,7 @@ export const Summary: React.FC<SummaryProps> = ({
             }
         }
     };
+    
 
     return (
         <div className="wrapper-summary">
