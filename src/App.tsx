@@ -44,6 +44,7 @@ export const App = () => {
     const { accessToken } = useToken();
     const dispatch = useAppDispatch();
     const [showSplash, setShowSplash] = useState(true);
+    const [splashShown, setSplashShown] = useState(false);
     
     //botchat
     const [open, setOpen] = useState(false);
@@ -86,11 +87,16 @@ export const App = () => {
     }, [pathname]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        if (pathname === '/' && !splashShown) {
+            const timer = setTimeout(() => {
+                setShowSplash(false);
+                setSplashShown(true);
+            }, 3000);
+            return () => clearTimeout(timer);
+        } else {
             setShowSplash(false);
-        }, 5000);
-        return () => clearTimeout(timer);
-    }, []);
+        }
+    }, [pathname, splashShown]);
 
     const helmetContext = {};
 
