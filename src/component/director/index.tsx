@@ -142,12 +142,12 @@ export const Director: React.FC<TabsProps> = ({ color }) => {
 
                             <button className="btn-share" onClick={showModal}>
                                 <ShareAltOutlined />
-                                <p>Chia sẻ</p>
+                                <p>{t('Share')}</p>
                             </button>
                             <Modal
                                 title={
                                     <div className="flex items-center justify-center !text-[20px]">
-                                        Chia sẻ
+                                        {t('Share')}
                                     </div>
                                 }
                                 visible={isModalVisible}
@@ -179,12 +179,12 @@ export const Director: React.FC<TabsProps> = ({ color }) => {
                                             src="https://www.iqiyipic.com/common/fix/global/copylink.png"
                                             alt="addresss"
                                         />
-                                        Liên kết
+                                         {t('Link')}
                                     </a>
                                 </div>
                                 <Divider className="!bg-gray-600" />
                                 <div className="flex flex-col justify-center items-center mt-4">
-                                    <p>Quét để chia sẻ trên thiết bị di động</p>
+                                    <p>{t('ScanToShareOnMobileDevice')}</p>
 
                                     {qrCode ? (
                                         <div className="flex items-center justify-center mt-4">

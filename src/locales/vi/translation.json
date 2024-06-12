@@ -118,7 +118,7 @@
     "YourCurrent":"Gói hiện tại của bạn sẽ bị xóa và thời gian hiệu lực của gói mới nhất sẽ được áp dụng!",
     "HelloHowCanMovTimeAssistYou?":"Xin chào, MovTime có thể giúp gì cho bạn?",
     "PleaseLetUs":"Hãy cho chúng tôi biết bạn cần gì nhé.",
-    "WeAreDelightedTo":"We are delighted to assist you.",
+    "WeAreDelightedTo":"Chúng tôi rất vui được hỗ trợ bạn.",
     "HowCanIHelpYou":"How can I help you?",
     "SigninSuccess":"Đăng kí thành công",
     "CheckMail":"Hãy kiểm tra mail để xác nhận.",
@@ -162,5 +162,18 @@
     "InputEmailAcc":"nhập email để lấy lại tài khoản.",
     "InputEmailConfirm":"Nhập email xác nhận",
     "LogoutSuccessfully":"Đăng xuất thành công",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"Chúc mừng, bạn đã đăng xuất thành công"
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Chúc mừng, bạn đã đăng xuất thành công",
+    "Notification":"Thông báo",
+    "YouHaveRatedThisMovieBefore":"Bạn đã đánh giá bộ phim này trước đó.",
+    "PleaseLogInToPerformThisAction.":"Vui lòng đăng nhập để thực hiện hành động này.",
+    "CopySuccessful":"Sao chép thành công",
+    "PleaseLogInToBookTheMovie":"Vui lòng đăng nhập để đặt phim",
+    "TodayThereIsAMoviePremiere!":"Hôm nay có phim ra mắt!",
+    "YouHaveCanceledTheReservation":"Bạn đã hủy đặt lịch!",
+    "ReservationSuccessful":"Đặt lịch thành công! Chúc bạn có những trải nghiệm tuyệt vời tại MovTime ❤",
+    "Please":"Vui lòng",
+    "ToContinue":"để tiếp tục sử dụng dịch vụ.",
+    "CopyLink":"Sao chép link",
+    "ScanToShareOnMobileDevice":"Quét để chia sẻ trên thiết bị di động",
+    "Link":"Liên kết"
 }

@@ -162,6 +162,18 @@
     "InputEmailAcc":"Ingresa tu correo electrónico para recuperar tu cuenta.",
     "InputEmailConfirm":" Introduce el correo de confirmación",
     "LogoutSuccessfully":"Cerrar sesión exitosamente",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"Felicitaciones, has cerrado sesión exitosamente."
-    
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Felicitaciones, has cerrado sesión exitosamente.",
+    "Notification":"Notificación",
+    "YouHaveRatedThisMovieBefore":"Ya has evaluado esta película anteriormente.",
+    "PleaseLogInToPerformThisAction.":"Por favor, inicia sesión para realizar esta acción.",
+    "CopySuccessful":"Copiado exitosamente",
+    "PleaseLogInToBookTheMovie":"Por favor, inicia sesión para reservar la película.",
+    "TodayThereIsAMoviePremiere!":"Hoy se estrena una película!",
+    "YouHaveCanceledTheReservation":"¡Has cancelado la reserva!",
+    "ReservationSuccessful":"¡Reserva exitosa! ¡Que tengas una experiencia maravillosa en MovTime ❤!",
+    "Please":"Por favor",
+    "ToContinue":"para continuar utilizando el servicio.",
+    "CopyLink":"Copiar enlace",
+    "ScanToShareOnMobileDevice":"Escanear para compartir en dispositivo móvil",
+    "Link":"Enlace"
 }

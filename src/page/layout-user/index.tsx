@@ -223,7 +223,7 @@ export const LayoutUser = () => {
                                                             }}
                                                         >
                                                             <div className="poster__image-notifi">
-                                                                Thông báo
+                                                                {t('Notification')}
                                                             </div>
                                                             <p className="poster__image-notifititle">
                                                                 Hãy trở thành{' '}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Divider, Spin } from 'antd';
 import { FacebookShareButton } from 'react-share';
+import { t } from '../../../utils/i18n';
 
 interface ShareModalProps {
     movieId?: string | undefined;
@@ -24,7 +25,7 @@ const ShareModal: React.FC<ShareModalProps> = ({
 }) => {
     return (
         <Modal
-            title={<p className="flex items-center justify-center mb-2">Chia sẻ</p>}
+            title={<p className="flex items-center justify-center mb-2">{t('Share')}</p>}
             visible={visible}
             footer={null}
             onCancel={closeModal}
@@ -48,12 +49,12 @@ const ShareModal: React.FC<ShareModalProps> = ({
                         src="https://www.iqiyipic.com/lequ/20220216/copylink@2x.png"
                         alt="addresss"
                     />
-                    <p className="text-sm mt-2">Sao chép link</p>
+                    <p className="text-sm mt-2">{t('CopyLink')}</p>
                 </a>
             </div>
             <Divider className="!bg-gray-600" />
             <div className="flex flex-col justify-center items-center mt-4">
-                <p>Quét để chia sẻ trên thiết bị di động</p>
+                <p>{t('ScanToShareOnMobileDevice')}</p>
                 {qrCode ? (
                     <img
                         src={qrCode}

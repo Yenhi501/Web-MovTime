@@ -161,5 +161,18 @@
     "InputEmailAcc":"確認する",
     "InputEmailConfirm":"確認用のメールアドレスを入力してください",
     "LogoutSuccessfully":"ログアウトに成功しました",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"おめでとうございます、正常にログアウトしました"
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"おめでとうございます、正常にログアウトしました",
+    "Notification":"通知",
+    "YouHaveRatedThisMovieBefore":"あなたは以前にこの映画を評価しました.",
+    "PleaseLogInToPerformThisAction.":"このアクションを実行するにはログインしてください.",
+    "CopySuccessful":"コピーが成功しました",
+    "PleaseLogInToBookTheMovie":"映画を予約するにはログインしてください.",
+    "TodayThereIsAMoviePremiere!":"今日は映画の公開日です！",
+    "YouHaveCanceledTheReservation":"予約がキャンセルされました！",
+    "ReservationSuccessful":"予約が成功しました！MovTimeで素晴らしい体験をお楽しみください ❤!" ,
+    "Please":"お願いします",
+    "ToContinue":"サービスの利用を続けるために.",
+    "CopyLink":"リンクをコピーする",
+    "ScanToShareOnMobileDevice":"モバイルデバイスで共有するにはスキャンしてください",
+    "Link":"リンク"
 }

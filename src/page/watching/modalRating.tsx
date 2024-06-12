@@ -2,6 +2,7 @@ import { Rate, Space, notification } from 'antd';
 import Cookies from 'js-cookie';
 import { request } from '../../utils/request';
 import './index.scss';
+import { t } from '../../utils/i18n';
 interface ratingProp {
     movieId: number;
     rating: number;
@@ -32,8 +33,8 @@ export const ModalRating = ({ movieId, rating }: ratingProp) => {
             console.log(error);
             if (error.response?.status === 403) {
                 notification.warning({
-                    message: 'Thông báo!',
-                    description: 'Bạn đã đánh giá bộ phim này trước đó.',
+                    message: t('Notification'),
+                    description: t('YouHaveRatedThisMovieBefore'),
                 });
             }
         }

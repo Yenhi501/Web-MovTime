@@ -44,7 +44,7 @@
     "FavoriteMovie":"Favorite Movie",
     "VIPPackage":"VIP package",
     "MovieCollection":"Movie collection",
-    "DateOfBirth":"Date of birth",
+    "DateOfBirth":"Birthday",
     "Sex":"Sex",
     "ChangePassword":"Change password",
     "Edit":"Edit",
@@ -162,5 +162,18 @@
     "InputEmailAcc":"Enter your email to recover your account.",
     "InputEmailConfirm":"Enter confirmation email",
     "LogoutSuccessfully":"Logout successfully",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"Congratulations, you have successfully logged out"
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"Congratulations, you have successfully logged out",
+    "Notification":"Notification",
+    "YouHaveRatedThisMovieBefore":"You have rated this movie before.",
+    "PleaseLogInToPerformThisAction.":"Please log in to perform this action.",
+    "CopySuccessful":"Copy successful",
+    "PleaseLogInToBookTheMovie":"Please log in to book the movie.",
+    "TodayThereIsAMoviePremiere!":"Today there is a movie premiere!",
+    "YouHaveCanceledTheReservation":"You have canceled the reservation!",
+    "ReservationSuccessful":"Reservation successful! Wishing you a wonderful experience at MovTime ❤!",
+    "Please":"Please",
+    "ToContinue":"to continue using the service.",
+    "CopyLink":"Copy link",
+    "ScanToShareOnMobileDevice":"Scan to share on mobile device",
+    "Link":"Link"
 }

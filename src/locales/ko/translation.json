@@ -161,5 +161,18 @@
     "InputEmailAcc":"계정을 복구하려면 이메일을 입력하세요.",
     "InputEmailConfirm":" 확인 이메일을 입력하세요",
     "LogoutSuccessfully":"로그아웃 성공",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"축하합니다. 성공적으로 로그아웃되었습니다."
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"축하합니다. 성공적으로 로그아웃되었습니다.",
+    "Notification":"통지",
+    "YouHaveRatedThisMovieBefore":"이 영화를 이전에 평가했습니다.",
+    "PleaseLogInToPerformThisAction.":"이 작업을 수행하려면 로그인하세요.",
+    "CopySuccessful":"복사 성공",
+    "PleaseLogInToBookTheMovie":"영화를 예약하려면 로그인하세요.",
+    "TodayThereIsAMoviePremiere!":"오늘은 영화가 개봉되는 날이에요!",
+    "YouHaveCanceledTheReservation":"예약을 취소했습니다!",
+    "ReservationSuccessful":"예약이 성공적으로 완료되었습니다! MovTime에서 멋진 경험을 즐겨보세요 ❤!",
+    "Please":"부탁드립니다",
+    "ToContinue":"서비스를 계속 이용하려면.",
+    "CopyLink":"링크 복사",
+    "ScanToShareOnMobileDevice":"모바일 장치에서 공유하려면 스캔하세요",
+    "Link":"リンク"
 }

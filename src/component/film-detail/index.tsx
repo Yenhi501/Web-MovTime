@@ -71,8 +71,8 @@ export const FilmDetail = () => {
     const [dataCollect, setDataCollect] = useState<FilmItem[]>([]);
     const handleUnauthorizedAction = () => {
         notification.warning({
-            message: 'Thông báo',
-            description: 'Vui lòng đăng nhập để thực hiện hành động này.',
+            message: t('Notification'),
+            description: t('PleaseLogInToPerformThisAction'),
         });
     };
 
@@ -114,7 +114,7 @@ export const FilmDetail = () => {
     const handleCopyLink = () => {
         if (copiedLink) {
             navigator.clipboard.writeText(copiedLink);
-            message.success('Sao chép thành công');
+            message.success(t('CopySuccessful'));
         }
     };
 

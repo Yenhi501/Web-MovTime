@@ -162,5 +162,18 @@
     "InputEmailAcc":"输入电子邮件以找回您的账号。",
     "InputEmailConfirm":"输入确认电子邮件",
     "LogoutSuccessfully":"登出成功",
-    "CongratulationsYouHaveSuccessfullyLoggedOut":"恭喜您，您已成功退出"
+    "CongratulationsYouHaveSuccessfullyLoggedOut":"恭喜您，您已成功退出",
+    "Notification":"通知",
+    "YouHaveRatedThisMovieBefore":"您已经评价过这部电影了.",
+    "PleaseLogInToPerformThisAction.":"请登录以执行此操作.",
+    "CopySuccessful":"复制成功",
+    "PleaseLogInToBookTheMovie":"请登录以预订电影.",
+    "TodayThereIsAMoviePremiere!":"今天有电影首映！",
+    "YouHaveCanceledTheReservation":"您已取消预订！",
+    "ReservationSuccessful":"预订成功！祝您在MovTime度过美好时光 ❤！",
+    "Please":"请",
+    "ToContinue":"继续使用该服务.",
+    "CopyLink":"复制链接",
+    "ScanToShareOnMobileDevice":"扫描以在移动设备上分享",
+    "Link":"链接"
 }

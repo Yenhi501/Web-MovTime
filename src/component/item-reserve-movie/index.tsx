@@ -64,8 +64,8 @@ export const ItemReserveMovie = ({ title, posterURL, level, releaseDate, movieId
             const accessToken = Cookies.get('accessToken')?.replace(/^"(.*)"$/, '$1') || '';
             if (!accessToken) {
                 await Modal.info({
-                    title: 'Thông báo',
-                    content: 'Vui lòng đăng nhập để đặt phim.',
+                    title: t('Notification'),
+                    content: t('PleaseLogInToBookTheMovie'),
                 });
                 return;
             }
@@ -80,8 +80,8 @@ export const ItemReserveMovie = ({ title, posterURL, level, releaseDate, movieId
 
             if (isReleaseDateToday) {
                 await Modal.success({
-                    title: 'Thông báo',
-                    content: 'Hôm nay có phim ra mắt!',
+                    title: t('Notification'),
+                    content: t('TodayThereIsAMoviePremiere'),
                 });
                 return;
             }
@@ -97,8 +97,8 @@ export const ItemReserveMovie = ({ title, posterURL, level, releaseDate, movieId
 
                 if (response?.status === 200) {
                     Modal.success({
-                        title: 'Thông báo',
-                        content: 'Bạn đã hủy đặt lịch!',
+                        title: t('Notification'),
+                        content: t('YouHaveCanceledTheReservation'),
                         onOk: () => {
                             setInitialButtonText('Đặt lịch');
                             setIsReserved(false);
@@ -125,9 +125,9 @@ export const ItemReserveMovie = ({ title, posterURL, level, releaseDate, movieId
 
                 if (response?.status === 200) {
                     Modal.success({
-                        title: 'Thông báo',
+                        title: t('Notification'),
                         content:
-                            'Đặt lịch thành công! Chúc bạn có những trải nghiệm tuyệt vời tại MovTime ❤',
+                            t('ReservationSuccessful'),
                         onOk: () => {
                             setInitialButtonText(`${t("Cancel")}`);
                             setIsReserved(true);

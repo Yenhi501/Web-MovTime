@@ -160,8 +160,8 @@ export const FormEditUser = ({
                     }}
                     className="form-date-picker"
                 >
-                    <Option value="Male">Nam</Option>
-                    <Option value="Female">Nữ</Option>
+                    <Option value="Male">{t('Male')}</Option>
+                    <Option value="Female">{t('Female')}</Option>
                     <Option value="Other">{t('Other')}</Option>
                 </Select>
             </Form.Item>
