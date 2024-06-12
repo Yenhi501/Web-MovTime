@@ -72,7 +72,7 @@ export const FilmDetail = () => {
     const handleUnauthorizedAction = () => {
         notification.warning({
             message: t('Notification'),
-            description: t('PleaseLogInToPerformThisAction'),
+            description: t('PleaseLogInToPerformThisAction.'),
         });
     };
 
