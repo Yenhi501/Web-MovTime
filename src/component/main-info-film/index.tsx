@@ -9,7 +9,7 @@ import { t } from '../../utils/i18n';
 
 export type MainInfoFilm = {
     name: string;
-    view: string;
+    view?: string;
     rate: string;
     hashtag?: Array<string>;
     episode?: string;

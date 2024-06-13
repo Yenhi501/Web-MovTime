@@ -370,7 +370,7 @@ export const FilmDetail = () => {
 
                                 <div className="film-detail__listbutton">
                                     <Link
-                                        to={`/movie/${filmDetail.movieId}/${firstEpisodeId}/`}
+                                        to={`/movie/trailer/${filmDetail.movieId}`}
                                         className="film-detail__watch flex items-center pl-3 pr-4 py-[6px] rounded-[6px] text-whitetransition duration-300 mt-[-10px] mr-3"
                                     >
                                         <CaretRightOutlined />

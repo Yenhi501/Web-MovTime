@@ -29,6 +29,7 @@ import { refreshToken } from './utils/refreshToken';
 import { request } from './utils/request';
 import { t } from './utils/i18n';
 import SplashScreen from './component/splash';
+import { TrailerPage } from './page/trailer';
 
 const locationMap: Record<string, string> = {
     '/VIPpackage': 'hidden',
@@ -138,6 +139,7 @@ export const App = () => {
                         <Route path="/forget" element={<LoginForget />} />
                         <Route path="/google" element={<LoginGG />} />
                         <Route path="/active-user" element={<ActiveUser />} />
+                        <Route path="/movie/trailer/:movieId" element={<TrailerPage />} />
                     </Routes>
                 </div>
 
