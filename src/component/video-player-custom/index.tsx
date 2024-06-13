@@ -1,5 +1,5 @@
 import { CaretRightOutlined, LoadingOutlined } from '@ant-design/icons';
-import { Modal } from 'antd';
+import { Modal, Spin } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../redux/hook';
 import { VideoWatching, setDataVideoWatching, setEpisodeId } from '../../redux/videoSlice';
 import { ControlPlayer } from '../control-player';
 import './index.scss';
+import { t } from '../../utils/i18n';
 
 export interface VideoState {
     playing: boolean;
@@ -27,6 +28,7 @@ export type VideoPlayerCustom = {
     setSrcVideo?: (props?: any) => void;
     watchingVideoId?: number;
 };
+
 export const VideoPlayerCustom = ({
     sourceUrl,
     posterUrl,
@@ -42,9 +44,9 @@ export const VideoPlayerCustom = ({
     const [isMouseStill, setIsMouseStill] = useState(false);
     const [isLoadingHidden, setIsLoadingHidden] = useState(true);
     const [speedVid, setSpeedVid] = useState(1);
-
+    const [isLoading, setIsLoading] = useState(true); 
     const [videoState, setVideoState] = useState<VideoState>({
-        playing: false,
+        playing: false,  
         muted: false,
         volume: 0.5,
         played: 0,
@@ -79,8 +81,18 @@ export const VideoPlayerCustom = ({
 
         return () => {
             // Clean up event listeners when the component unmounts
-            window.addEventListener('beforeunload', handleBeforeUnload);
+            window.removeEventListener('beforeunload', handleBeforeUnload);
         };
+    }, []);
+
+    useEffect(() => {
+    
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+            setVideoState((prevState) => ({ ...prevState, playing: true }));
+        }, 1000);
+
+        return () => clearTimeout(timer);
     }, []);
 
     const playPauseHandler = () => {
@@ -109,17 +121,6 @@ export const VideoPlayerCustom = ({
     const handleVolumeChange = (value: number) => {
         setVideoState({ ...videoState, volume: value });
     };
-
-    // const handleMouseOverPlayer = () => {
-    //     setIsShowControl(true);
-    // };
-
-    // const handleMouseOutPlayer = () => {
-    //     const timer = setTimeout(() => {
-    //         setIsShowControl(false);
-    //     }, 3000);
-    //     return () => clearTimeout(timer);
-    // };
 
     const handleMouseEnter = () => {
         setIsShowControl(true);
@@ -152,12 +153,6 @@ export const VideoPlayerCustom = ({
         };
     }, []);
 
-    // const handleMouseMove = (event: any) => {
-    //     setIsShowControl(true);
-    //     clearTimeout(timer);
-    //     timer = setTimeout(timeout, 1000);
-    // };
-
     const dispatch = useAppDispatch();
     const [isOpenModal, setIsOpenModal] = useState(false);
     const navigator = useNavigate();
@@ -167,7 +162,7 @@ export const VideoPlayerCustom = ({
             ref={containerRef}
             onMouseOver={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="flex "
+            className="flex container-play-custom "
         >
             <Modal
                 title={'Không có quyền truy cập'}
@@ -184,47 +179,52 @@ export const VideoPlayerCustom = ({
                 okText={'Đăng ký gói'}
                 cancelText="Tiếp tục xem"
             >
-                Gói hiện tại của bạn không hỗ trợ xem phim ở chất lượng này, vui lòng nâng cấp gói
-                để trải nghiệm chất lượng phim tốt nhất
+                {t('YourCurrentPlan')}
             </Modal>
-            <div className="player flex self-center" onClick={() => playPauseHandler()}>
-                <ReactPlayer
-                    ref={playerRef}
-                    url={sourceUrl}
-                    poster={posterUrl}
-                    playing={playing}
-                    onProgress={(props) => {
-                        const data: VideoWatching = {
-                            episodeId: episodeId,
-                            loadedSeconds: props.loadedSeconds,
-                            played: props.played * 100,
-                            playedSeconds: props.playedSeconds,
-                        };
-                        setVideoState({
-                            ...videoState,
-                            playedSeconds: props.playedSeconds,
-                            played: props.played,
-                        });
-                        dispatch(setEpisodeId(episodeId));
-                        dispatch(setDataVideoWatching(data));
-                    }}
-                    className="watching-player"
-                    width="100%"
-                    height="100%"
-                    onEnded={playPauseHandler}
-                    volume={volume}
-                    playbackRate={speedVid}
-                />
-                <CaretRightOutlined
-                    className="text-5xl absolute cursor-pointer bg-black/[.5] rounded-full p-3 top-[40%] left-[48%] z-10"
-                    hidden={playing || !isLoadingHidden}
-                />
-                <LoadingOutlined
-                    className="text-5xl absolute top-[40%] left-[48%] z-10 bg-black/[.5] rounded-full p-3"
-                    hidden={isLoadingHidden}
-                />
-                <div className="absolute bottom-0 h-3 w-full bottom-box-shadow"></div>
-            </div>
+            {/* {isLoading ? (
+                <div className="loading-overlay">
+                    <div className="loading-spinner"></div>
+                </div>
+            ) : ( */}
+                <div className="player flex self-center" onClick={() => playPauseHandler()}>
+                    <ReactPlayer
+                        ref={playerRef}
+                        url={sourceUrl}
+                        poster={posterUrl}
+                        playing={playing}
+                        onProgress={(props) => {
+                            const data: VideoWatching = {
+                                episodeId: episodeId,
+                                loadedSeconds: props.loadedSeconds,
+                                played: props.played * 100,
+                                playedSeconds: props.playedSeconds,
+                            };
+                            setVideoState({
+                                ...videoState,
+                                playedSeconds: props.playedSeconds,
+                                played: props.played,
+                            });
+                            dispatch(setEpisodeId(episodeId));
+                            dispatch(setDataVideoWatching(data));
+                        }}
+                        className="watching-player"
+                        width="100%"
+                        height="100%"
+                        onEnded={playPauseHandler}
+                        volume={volume}
+                        playbackRate={speedVid}
+                    />
+                    <CaretRightOutlined
+                        className="text-5xl absolute cursor-pointer bg-black/[.5] rounded-full p-3 top-[40%] left-[48%] z-10"
+                        hidden={playing || !isLoadingHidden}
+                    />
+                    <LoadingOutlined
+                        className="text-5xl absolute top-[40%] left-[48%] z-10 bg-black/[.5] rounded-full p-3"
+                        hidden={isLoadingHidden}
+                    />
+                    <div className="absolute bottom-0 h-3 w-full bottom-box-shadow"></div>
+                </div>
+            {/* // )} */}
 
             <ControlPlayer
                 onPlayPause={playPauseHandler}

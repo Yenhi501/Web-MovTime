@@ -32,7 +32,7 @@ const FilmDetailEpisodes: React.FC<FilmDetailEpisodesProps> = ({ filmDetail }) =
                 {t('TotalNumberOfEpisodes')} : {episodes.length}
             </p>
 
-            <div className="grid grid-cols-5 gap-x-20 gap-y-[5.1rem] mt-8 episode-item">
+            <div className="grid grid-cols-5 gap-x-9 gap-y-[5.1rem] mt-8 episode-item">
                 {visibleEpisodes.map((episode) => (
                     <Badge.Ribbon text={episode.title} color="red" key={episode.episode_id}>
                         <Link

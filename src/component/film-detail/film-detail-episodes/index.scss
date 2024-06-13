@@ -20,7 +20,7 @@
     overflow: hidden;
 }
 
-.episode-link {
+.episode-image {
     position: relative;
     transition: filter 0.3s;
 }
@@ -42,8 +42,8 @@
 .episode-link:hover .episodes-btnplay {
     display: block;
     position: absolute;
+    left: 44%;
     top: 40%;
-    left: 45%;
     border-radius: 100px;
     background-color: var(--primary-color);
     padding: 4px 8px;
