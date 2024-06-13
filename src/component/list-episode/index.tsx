@@ -14,6 +14,7 @@ export type ListEpisodesType = {
     sessions?: MenuProps['items'];
     multiSessions?: boolean;
     listEpisodes: Array<EpisodeFilm>;
+    watchingData?: any
 };
 export const ListEpisodes = ({
     title,
@@ -22,6 +23,7 @@ export const ListEpisodes = ({
     sessions = [],
     listEpisodes,
     multiSessions,
+    watchingData
 }: ListEpisodesType) => {
     const [isListVisible, setIsListVisible] = useState(true);
 
@@ -65,7 +67,7 @@ export const ListEpisodes = ({
                     </div>
                     <div className="segment-content">
                         {isListVisible ? (
-                            <EspList listEpisodes={listEpisodes} />
+                            <EspList listEpisodes={listEpisodes} watchingData={watchingData}/>
                         ) : (
                             <EspKanban listEpisodes={listEpisodes} />
                         )}
