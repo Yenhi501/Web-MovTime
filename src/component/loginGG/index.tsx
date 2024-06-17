@@ -33,7 +33,7 @@ const LoginGG = () => {
 
         try {
             const response: AxiosResponse<{ token: string }> = await axios.get(
-                `http://movtime-movies.eastasia.cloudapp.azure.com:8000/api/auth/google/callback?${encodedParams.toString()}`,
+                `http://movies-time.eastasia.cloudapp.azure.com:8000/api/auth/google/callback?${encodedParams.toString()}`,
             );
 
             let refreshToken = response.data.token;
