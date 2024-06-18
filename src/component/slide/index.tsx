@@ -17,12 +17,12 @@ import { Start } from '../../asset/icon/start';
 import { RootState } from '../../redux/store';
 import { endpoint } from '../../utils/baseUrl';
 import { t } from '../../utils/i18n';
+import { getCurrentLanguage } from '../../utils/localization';
 import { request } from '../../utils/request';
 import { FilmItem } from '../film-item';
+import { genreTranslationMap } from '../header/constant';
 import './index.scss';
 import { Movie } from './type';
-import { genreTranslationMap } from '../header/constant';
-import { getCurrentLanguage } from '../../utils/localization';
 
 const Slide: React.FC = () => {
     const [popularMovies, setPopularMovies] = useState<Movie[]>([]);

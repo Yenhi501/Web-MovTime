@@ -8,10 +8,10 @@ import { endpoint } from '../../utils/baseUrl';
 import { getCurrentDateString } from '../../utils/getCurrentDate';
 import { getNextDateByMonth } from '../../utils/getNextDateByMonth';
 import { t } from '../../utils/i18n';
+import { getCurrentLanguage } from '../../utils/localization';
+import { packageTranslationMap } from '../header/constant';
 import { TermPackage } from '../term-package';
 import './index.scss';
-import { packageTranslationMap } from '../header/constant';
-import { getCurrentLanguage } from '../../utils/localization';
 
 interface SummaryProps {
     selectedTerm: TermPackage | null;
