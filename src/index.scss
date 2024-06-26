@@ -222,19 +222,19 @@ ul {
 :where(.css-dev-only-do-not-override-i46qwz).ant-progress
     .ant-progress-inner:not(.ant-progress-circle-gradient)
     .ant-progress-circle-path {
-    stroke: var(--primary-color);
+    stroke: var(--primary-color) !important;
 }
 
 :where(.css-dev-only-do-not-override-i46qwz).ant-pagination .ant-pagination-item-active {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 :where(.css-dev-only-do-not-override-i46qwz).ant-pagination .ant-pagination-item a {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 :where(.css-dev-only-do-not-override-i46qwz).ant-pagination .ant-pagination-item-active {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color) !important;
 }
 
 :where(.css-dev-only-do-not-override-i46qwz).ant-list .ant-list-item .ant-list-item-action > li {
@@ -248,7 +248,7 @@ ul {
 }
 
 :where(.css-dev-only-do-not-override-1qfezbu).ant-progress .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path{
-    stroke: var(--primary-color);
+    stroke: var(--primary-color) !important;
 }
 
 :where(.css-dev-only-do-not-override-1qfezbu).ant-list-vertical .ant-list-item .ant-list-item-action > li:first-child {
@@ -288,4 +288,8 @@ ul {
 
 :where(.css-1qfezbu).ant-progress .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
     stroke : var(--primary-color) !important;
+}
+
+:where(.css-1qfezbu).ant-list .ant-list-item .ant-list-item-action > li {
+    color : white !important;
 }
