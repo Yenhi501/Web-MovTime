@@ -32,7 +32,7 @@ const ShareModal: React.FC<ShareModalProps> = ({
             width={450}
         >
             <div className="flex gap-10 items-center justify-center">
-                <FacebookShareButton url={`http://movetimes.tech/movie/${movieId}`}>
+                <FacebookShareButton url={`https://web-mov-time.vercel.app/movie/${movieId}`}>
                     <a className="modal-item flex flex-col items-center">
                         <img
                             className="modal-img ml-4"

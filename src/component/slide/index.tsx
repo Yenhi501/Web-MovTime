@@ -59,10 +59,10 @@ const Slide: React.FC = () => {
             const currentIndex = carouselRef.current?.state.selectedItem ?? 0;
             const currentMovie = popularMovies[currentIndex];
             const movieId = currentMovie?.movieId;
-            const actorLink = encodeURIComponent(`${window.location.origin}/movie/${movieId}`);
+            const movieLink = (`${window.location.href}movie/${movieId}`);
 
             try {
-                const response = await fetch(`${endpoint}/api/movies/get/qrcode?url=${actorLink}`);
+                const response = await fetch(`${endpoint}/api/movies/get/qrcode?url=${movieLink}`);
 
                 if (response.ok) {
                     const data = await response.json();
@@ -76,7 +76,7 @@ const Slide: React.FC = () => {
                             setQrCodeUrl(base64Value || '');
                         }
                     }
-                    setCopiedLink(actorLink);
+                    setCopiedLink(movieLink);
                     setShareModalVisible(true);
                 } else {
                     console.error('Failed to fetch QR code URL');
@@ -420,7 +420,7 @@ const Slide: React.FC = () => {
                     width={450}
                 >
                     <div className="flex gap-10 items-center justify-center">
-                        <FacebookShareButton url={`http://movetimes.tech/movie/${movieId}`}>
+                        <FacebookShareButton url={`https://web-mov-time.vercel.app/movie/${movieId}`}>
                             <a className="modal-item flex flex-col items-center">
                                 <img
                                     className="modal-img ml-4"

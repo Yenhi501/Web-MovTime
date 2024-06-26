@@ -235,7 +235,7 @@ export const WatchingPage = () => {
                         />
 
                         <FacebookShareButton
-                            url={`http://movetimes.tech/movie/${movieId}/${episodeId}`}
+                            url={`https://web-mov-time.vercel.app/movie/${movieId}/${episodeId}`}
                         >
                             <IconWithText
                                 icon={<ShareAltOutlined className="watching-feature-icon" />}

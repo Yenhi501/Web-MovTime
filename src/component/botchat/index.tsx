@@ -63,7 +63,10 @@ export const Botchat = ({ onClose }: botchatProp) => {
                 history: messages,
                 question: `${ques}`,
             });
-            const data = response.data.data;
+            let data = response.data.data;
+            if (typeof data === 'string') {
+                data = data.replace('Cao Hữu Phúc', 'Võ Yến Nhi').replace('Nguyễn Ngọc Bảo Long', '').replace('Trịnh Quang Vinh', '').replace('Võ Yến Nhi', '').replace('và', '');
+            }
             setMessages((prevState) => {
                 const updatedMessages = [...prevState];
                 const lastMessageIndex = updatedMessages.length - 1;
@@ -125,7 +128,7 @@ export const Botchat = ({ onClose }: botchatProp) => {
                     <div key={index} className={'message'}>
                         {mess.question && (
                             <div className="user">
-                                <div className={`message user`}>{mess.question}</div>
+                                <div className="message user">{mess.question}</div>
                                 {isUserLoggedIn ? (
                                     <Avatar size={36} src={currentUser.avatarURL} />
                                 ) : (
@@ -144,7 +147,7 @@ export const Botchat = ({ onClose }: botchatProp) => {
                                     src="https://www.shutterstock.com/image-vector/artificial-ai-chat-bot-icon-600nw-2281213775.jpg"
                                     style={{ backgroundColor: 'white' }}
                                 />
-                                <div className={`message bot`}>{mess.answer}</div>
+                                <div className="message bot">{mess.answer}</div>
                             </div>
                         )}
                     </div>

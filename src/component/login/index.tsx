@@ -7,8 +7,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from '../../asset/icon/logo';
 import { setIsLogin, setUsername } from '../../redux/isLoginSlice';
 import { endpoint } from '../../utils/baseUrl';
-import './index.scss';
 import { t } from '../../utils/i18n';
+import './index.scss';
 
 type FieldType = {
     username?: string;
@@ -211,8 +211,9 @@ export const Login: React.FC = () => {
                                             }}
                                         />
                                     }
-                                    className="login-facebook flex sm:basis-[43%] basis-[46%]"
+                                    className="login-facebook flex sm:basis-[43%] basis-[46%] !bg-white"
                                     onClick={onSuccessGG}
+                                    disabled
                                 >
                                     Google
                                 </Button>
@@ -230,7 +231,8 @@ export const Login: React.FC = () => {
                                             }}
                                         />
                                     }
-                                    className="login-facebook flex sm:basis-[43%] basis-[46%] "
+                                    className="!bg-white login-facebook flex sm:basis-[43%] basis-[46%] "
+                                    disabled
                                 >
                                     Facebook
                                 </Button>

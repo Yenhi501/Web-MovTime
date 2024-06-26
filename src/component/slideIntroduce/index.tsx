@@ -1,6 +1,5 @@
-import React from 'react';
 import { Carousel } from 'antd';
-import './index.scss'
+import './index.scss';
 
 const images = [
   'https://static2.vieon.vn/vieplay-image/promotion_banner/2024/05/22/au1qvk6a_homebanner_khanhdunienweb_2388x3712_2388_458.jpg',

@@ -92,7 +92,7 @@ export const App = () => {
             const timer = setTimeout(() => {
                 setShowSplash(false);
                 setSplashShown(true);
-            }, 3000);
+            }, 2500);
             return () => clearTimeout(timer);
         } else {
             setShowSplash(false);
